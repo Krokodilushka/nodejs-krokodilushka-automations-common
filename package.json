@@ -3,6 +3,7 @@
   "version": "1.0.0",
   "description": "",
   "private": true,
+  "types": "dist/ServerApi.d.ts",
   "scripts": {
     "build": "tsc"
   },

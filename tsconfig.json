@@ -1,13 +1,10 @@
 {
   "extends": "@tsconfig/node20/tsconfig.json",
   "compilerOptions": {
+    "target": "ESNext",
+    "module": "Node16",
+    "declaration": true,
     "outDir": "./dist",
-    "sourceMap": false,
-    "strict": true,
-    "resolveJsonModule": false
-  },
-  //  "include": ["/**/*.ts", "*.ts"],
-  "exclude": [
-    "node_modules",
-  ]
+    "strict": true
+  }
 }
