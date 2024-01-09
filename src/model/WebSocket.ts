@@ -7,7 +7,7 @@ export namespace WebSocket {
     }
 
     export interface ClientToServerEvents {
-        task_response: () => void;
+        task_response: (result: QueueTask.QueueTaskResult<any>) => void;
     }
 
     export interface ClientInfo {
