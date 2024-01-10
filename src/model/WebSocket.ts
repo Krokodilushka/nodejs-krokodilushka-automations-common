@@ -2,15 +2,22 @@ import {QueueTask} from "./tasks/QueueTask";
 
 export namespace WebSocket {
     export interface ServerToClientEvents {
-        task: (a: QueueTask.QueueTask<any>) => void;
+        task: (
+            task: QueueTask.QueueTask<any>,
+            callback: ((activeTasks: string[]) => void)
+        ) => void;
         info: (callback: (name: ClientInfo) => void) => void;
     }
 
     export interface ClientToServerEvents {
-        task_response: (result: QueueTask.QueueTaskResult<any>) => void;
+        task_response: (
+            result: QueueTask.QueueTaskResult<any>,
+            activeTasks: string[]
+        ) => void;
     }
 
     export interface ClientInfo {
-        name: string
+        name: string,
+        tasks: string[]
     }
 }
