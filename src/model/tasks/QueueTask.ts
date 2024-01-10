@@ -1,4 +1,3 @@
-
 export namespace QueueTask {
     export interface QueueTask<T extends TaskParams> {
         taskID: string
@@ -12,7 +11,7 @@ export namespace QueueTask {
 
     export interface QueueTaskResult<T extends TaskResult> {
         taskID: string
-        cookies: Cookie[]
+        cookies: Cookie[] | null
         result: TTaskResult<T>
     }
 
@@ -116,15 +115,15 @@ export namespace QueueTask {
             }
         }
     }
-}
 
-export type Cookie = {
-    name: string;
-    value: string;
-    domain: string;
-    path: string;
-    expires: number;
-    httpOnly: boolean;
-    secure: boolean;
-    sameSite: "Strict" | "Lax" | "None";
+    export type Cookie = {
+        name: string;
+        value: string;
+        domain: string;
+        path: string;
+        expires: number;
+        httpOnly: boolean;
+        secure: boolean;
+        sameSite: "Strict" | "Lax" | "None";
+    }
 }
