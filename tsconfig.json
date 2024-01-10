@@ -1,8 +1,8 @@
 {
-  "extends": "@tsconfig/node20/tsconfig.json",
+//  "extends": "@tsconfig/node20/tsconfig.json",
   "compilerOptions": {
-    "target": "ESNext",
-    "module": "Node16",
+    "module": "CommonJS",
+    "target": "ES2022",
     "declaration": true,
     "outDir": "./dist",
     "strict": true
