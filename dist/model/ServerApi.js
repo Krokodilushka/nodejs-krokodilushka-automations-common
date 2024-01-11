@@ -28,24 +28,23 @@ var ServerApi;
                 fingerprints: z.array(z.object({ valid: z.string().startsWith('valid').length(5) }))
             });
         })(Profiles = PfCheater.Profiles || (PfCheater.Profiles = {}));
-        let Keywords;
-        (function (Keywords) {
-            Keywords.ProjectKeyword = z.object({
-                _id: z.string().min(1),
-                keyword: z.string().min(1),
-                lastProcessedAt: z.date(),
-                nextProcessAt: z.date(),
-            });
-            Keywords.KeywordCreate = Keywords.ProjectKeyword.pick({
-                keyword: true,
-                nextProcessAt: true
-            });
-            Keywords.KeywordsCreate = z.object({
-                keywords: z.array(Keywords.KeywordCreate)
-            });
-        })(Keywords = PfCheater.Keywords || (PfCheater.Keywords = {}));
         let Project;
         (function (Project_1) {
+            let Keywords;
+            (function (Keywords) {
+                Keywords.ProjectKeyword = z.object({
+                    _id: z.string().min(1),
+                    keyword: z.string().min(1),
+                    lastProcessedAt: z.date(),
+                    nextProcessAt: z.date(),
+                });
+                Keywords.KeywordsCreate = z.object({
+                    keywords: z.array(Keywords.ProjectKeyword.pick({
+                        keyword: true,
+                        nextProcessAt: true
+                    }))
+                });
+            })(Keywords = Project_1.Keywords || (Project_1.Keywords = {}));
             Project_1.Project = z.object({
                 _id: z.string().min(1),
                 name: z.string().min(1),

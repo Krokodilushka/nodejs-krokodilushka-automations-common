@@ -104,61 +104,49 @@ export declare namespace ServerApi {
                 }[];
             }>;
         }
-        namespace Keywords {
-            const ProjectKeyword: z.ZodObject<{
-                _id: z.ZodString;
-                keyword: z.ZodString;
-                lastProcessedAt: z.ZodDate;
-                nextProcessAt: z.ZodDate;
-            }, "strip", z.ZodTypeAny, {
-                _id: string;
-                keyword: string;
-                lastProcessedAt: Date;
-                nextProcessAt: Date;
-            }, {
-                _id: string;
-                keyword: string;
-                lastProcessedAt: Date;
-                nextProcessAt: Date;
-            }>;
-            const KeywordCreate: z.ZodObject<Pick<{
-                _id: z.ZodString;
-                keyword: z.ZodString;
-                lastProcessedAt: z.ZodDate;
-                nextProcessAt: z.ZodDate;
-            }, "keyword" | "nextProcessAt">, "strip", z.ZodTypeAny, {
-                keyword: string;
-                nextProcessAt: Date;
-            }, {
-                keyword: string;
-                nextProcessAt: Date;
-            }>;
-            const KeywordsCreate: z.ZodObject<{
-                keywords: z.ZodArray<z.ZodObject<Pick<{
+        namespace Project {
+            namespace Keywords {
+                const ProjectKeyword: z.ZodObject<{
                     _id: z.ZodString;
                     keyword: z.ZodString;
                     lastProcessedAt: z.ZodDate;
                     nextProcessAt: z.ZodDate;
-                }, "keyword" | "nextProcessAt">, "strip", z.ZodTypeAny, {
+                }, "strip", z.ZodTypeAny, {
+                    _id: string;
                     keyword: string;
+                    lastProcessedAt: Date;
                     nextProcessAt: Date;
                 }, {
+                    _id: string;
                     keyword: string;
+                    lastProcessedAt: Date;
                     nextProcessAt: Date;
-                }>, "many">;
-            }, "strip", z.ZodTypeAny, {
-                keywords: {
-                    keyword: string;
-                    nextProcessAt: Date;
-                }[];
-            }, {
-                keywords: {
-                    keyword: string;
-                    nextProcessAt: Date;
-                }[];
-            }>;
-        }
-        namespace Project {
+                }>;
+                const KeywordsCreate: z.ZodObject<{
+                    keywords: z.ZodArray<z.ZodObject<Pick<{
+                        _id: z.ZodString;
+                        keyword: z.ZodString;
+                        lastProcessedAt: z.ZodDate;
+                        nextProcessAt: z.ZodDate;
+                    }, "keyword" | "nextProcessAt">, "strip", z.ZodTypeAny, {
+                        keyword: string;
+                        nextProcessAt: Date;
+                    }, {
+                        keyword: string;
+                        nextProcessAt: Date;
+                    }>, "many">;
+                }, "strip", z.ZodTypeAny, {
+                    keywords: {
+                        keyword: string;
+                        nextProcessAt: Date;
+                    }[];
+                }, {
+                    keywords: {
+                        keyword: string;
+                        nextProcessAt: Date;
+                    }[];
+                }>;
+            }
             const Project: z.ZodObject<{
                 _id: z.ZodString;
                 name: z.ZodString;
