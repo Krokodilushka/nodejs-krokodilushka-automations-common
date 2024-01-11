@@ -22,6 +22,23 @@ export namespace ServerApi {
                 fingerprints: z.array(z.object({valid: z.string().startsWith('valid').length(5)}))
             })
         }
+        export namespace Keywords {
+            export const ProjectKeyword = z.object({
+                _id: z.string().min(1),
+                keyword: z.string().min(1),
+                lastProcessedAt: z.date(),
+                nextProcessAt: z.date(),
+            })
+
+            export const KeywordCreate = ProjectKeyword.pick({
+                keyword: true,
+                nextProcessAt: true
+            })
+
+            export const KeywordsCreate = z.object({
+                keywords: z.array(KeywordCreate)
+            })
+        }
         export namespace Project {
             export const Project = z.object({
                 _id: z.string().min(1),
@@ -49,24 +66,6 @@ export namespace ServerApi {
                 processIntervalMs: true,
                 proxy: true,
             })
-
-            export namespace Keywords {
-                export const ProjectKeyword = z.object({
-                    _id: z.string().min(1),
-                    keyword: z.string().min(1),
-                    lastProcessedAt: z.date(),
-                    nextProcessAt: z.date(),
-                })
-
-                export const KeywordCreate = ProjectKeyword.pick({
-                    keyword: true,
-                    nextProcessAt: true
-                })
-
-                export const KeywordsCreate = z.object({
-                    keywords: z.array(KeywordCreate)
-                })
-            }
         }
     }
 }
