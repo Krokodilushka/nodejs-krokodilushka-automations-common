@@ -1,8 +1,7 @@
-
 export namespace ServerApi {
     export namespace PfCheater {
         namespace ProfileGroups {
-            interface ProfileGroup {
+            export interface ProfileGroup {
                 description: string
                 enabled: boolean
                 intervalMs: { min: number, max: number }
@@ -26,7 +25,7 @@ export namespace ServerApi {
                 sleepMsOnTarget: number,
                 clickOnIntermediateBeforeTarget: number,
                 targetUrl: string,
-                processIntervalMs: {min: number, max: number},
+                processIntervalMs: { min: number, max: number },
                 keywords: Keywords.ProjectKeyword[],
                 proxy?: string,
             }
@@ -40,7 +39,7 @@ export namespace ServerApi {
                 sleepMsOnTarget: number,
                 clickOnIntermediateBeforeTarget: number,
                 targetUrl: string,
-                processIntervalMs: {min: number, max: number},
+                processIntervalMs: { min: number, max: number },
                 proxy?: string,
             }
 
