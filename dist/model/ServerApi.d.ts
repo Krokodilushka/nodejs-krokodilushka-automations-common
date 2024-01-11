@@ -23,6 +23,12 @@ export declare namespace ServerApi {
                 walkImagesEnabled: boolean | null;
             }
         }
+        namespace Profiles {
+            interface Create {
+                profileGroup: string;
+                fingerprints: any[];
+            }
+        }
         namespace Project {
             interface Project {
                 _id: string;
