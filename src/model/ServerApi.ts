@@ -1,6 +1,6 @@
 export namespace ServerApi {
     export namespace PfCheater {
-        namespace ProfileGroups {
+        export namespace ProfileGroups {
             export interface ProfileGroup {
                 description: string
                 enabled: boolean

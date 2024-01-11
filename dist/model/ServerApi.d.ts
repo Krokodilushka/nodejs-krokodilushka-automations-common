@@ -1,5 +1,28 @@
 export declare namespace ServerApi {
     namespace PfCheater {
+        namespace ProfileGroups {
+            interface ProfileGroup {
+                description: string;
+                enabled: boolean;
+                intervalMs: {
+                    min: number;
+                    max: number;
+                };
+                proxy: string | null;
+                moveMouse: boolean;
+                timeMsOnSite: {
+                    min: number;
+                    max: number;
+                };
+                visitSitesOnSession: {
+                    min: number;
+                    max: number;
+                };
+                priority: number | null;
+                walkGroup: number | null;
+                walkImagesEnabled: boolean | null;
+            }
+        }
         namespace Project {
             interface Project {
                 _id: string;
