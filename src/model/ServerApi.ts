@@ -1,70 +1,71 @@
+import * as z from "zod"
+
 export namespace ServerApi {
     export namespace PfCheater {
         export namespace ProfileGroups {
-            export interface ProfileGroup {
-                description: string
-                enabled: boolean
-                intervalMs: { min: number, max: number }
-                proxy: string | null
-                moveMouse: boolean
-                timeMsOnSite: { min: number, max: number }
-                visitSitesOnSession: { min: number, max: number }
-                priority: number | null,
-                walkGroup: number | null,
-                walkImagesEnabled: boolean | null
-            }
+            export const ProfileGroup = z.object({
+                description: z.string().min(1),
+                enabled: z.boolean(),
+                proxy: z.string().optional(),
+                moveMouse: z.boolean(),
+                priority: z.number(),
+                walkGroup: z.number().optional(),
+                walkImagesEnabled: z.boolean(),
+                intervalMs: z.object({min: z.number(), max: z.number()}),
+                timeMsOnSite: z.object({min: z.number(), max: z.number()}),
+                visitSitesOnSession: z.object({min: z.number(), max: z.number()}),
+            })
         }
         export namespace Profiles {
-            export interface Create {
-                profileGroup: string
-                fingerprints: any[]
-            }
+            export const Create = z.object({
+                profileGroup: z.string().min(1),
+                fingerprints: z.array(z.object({valid: z.string().startsWith('valid').length(5)}))
+            })
         }
         export namespace Project {
-            export interface Project {
-                _id: string,
-                name: string,
-                lr: number,
-                maxPages: number,
-                sleepMsOnSerp: number,
-                sleepMsOnIntermediate: number,
-                sleepMsOnTarget: number,
-                clickOnIntermediateBeforeTarget: number,
-                targetUrl: string,
-                processIntervalMs: { min: number, max: number },
-                keywords: Keywords.ProjectKeyword[],
-                proxy?: string,
-            }
+            export const Project = z.object({
+                _id: z.string().min(1),
+                name: z.string().min(1),
+                lr: z.number().min(1),
+                maxPages: z.number().min(1).max(50),
+                sleepMsOnSerp: z.number().min(1),
+                sleepMsOnIntermediate: z.number().min(1),
+                sleepMsOnTarget: z.number().min(1),
+                clickOnIntermediateBeforeTarget: z.number().min(0),
+                targetUrl: z.string().url(),
+                processIntervalMs: z.object({min: z.number().min(1), max: z.number().min(1)}),
+                proxy: z.string().optional(),
+                keywords: z.array(Keywords.ProjectKeyword)
+            })
 
-            export interface ProjectCreate {
-                name: string,
-                lr: number,
-                maxPages: number,
-                sleepMsOnSerp: number,
-                sleepMsOnIntermediate: number,
-                sleepMsOnTarget: number,
-                clickOnIntermediateBeforeTarget: number,
-                targetUrl: string,
-                processIntervalMs: { min: number, max: number },
-                proxy?: string,
-            }
+            export const ProjectCreate = Project.pick({
+                name: true,
+                lr: true,
+                sleepMsOnSerp: true,
+                sleepMsOnIntermediate: true,
+                sleepMsOnTarget: true,
+                clickOnIntermediateBeforeTarget: true,
+                targetUrl: true,
+                processIntervalMs: true,
+                proxy: true,
+            })
 
             export namespace Keywords {
-                export interface ProjectKeyword {
-                    _id: string,
-                    keyword: string,
-                    lastProcessedAt?: Date,
-                    nextProcessAt?: Date,
-                }
+                export const ProjectKeyword = z.object({
+                    _id: z.string().min(1),
+                    keyword: z.string().min(1),
+                    lastProcessedAt: z.date(),
+                    nextProcessAt: z.date(),
+                })
 
-                export type KeywordsCreate = {
-                    keywords: KeywordCreate[]
-                }
+                export const KeywordCreate = ProjectKeyword.pick({
+                    keyword: true,
+                    nextProcessAt: true
+                })
 
-                export type KeywordCreate = {
-                    keyword: string,
-                    nextProcessAt: number,
-                }
+                export const KeywordsCreate = z.object({
+                    keywords: z.array(KeywordCreate)
+                })
             }
         }
     }
