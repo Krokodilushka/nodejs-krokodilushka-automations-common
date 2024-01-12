@@ -5,6 +5,7 @@ export declare namespace ServerApi {
             namespace GET {
                 const Response: z.ZodObject<{
                     items: z.ZodArray<z.ZodObject<{
+                        id: z.ZodString;
                         description: z.ZodString;
                         walk: z.ZodObject<{
                             enabled: z.ZodBoolean;
@@ -83,6 +84,7 @@ export declare namespace ServerApi {
                             walkGroup?: number | undefined;
                         }>;
                     }, "strip", z.ZodTypeAny, {
+                        id: string;
                         description: string;
                         walk: {
                             priority: number;
@@ -105,6 +107,7 @@ export declare namespace ServerApi {
                             walkGroup?: number | undefined;
                         };
                     }, {
+                        id: string;
                         description: string;
                         walk: {
                             priority: number;
@@ -129,6 +132,7 @@ export declare namespace ServerApi {
                     }>, "many">;
                 }, "strip", z.ZodTypeAny, {
                     items: {
+                        id: string;
                         description: string;
                         walk: {
                             priority: number;
@@ -153,6 +157,7 @@ export declare namespace ServerApi {
                     }[];
                 }, {
                     items: {
+                        id: string;
                         description: string;
                         walk: {
                             priority: number;

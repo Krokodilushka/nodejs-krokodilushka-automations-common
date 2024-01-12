@@ -6,6 +6,7 @@ export namespace ServerApi {
             export namespace GET {
                 export const Response = z.object({
                     items: z.array(z.object({
+                        id: z.string(),
                         description: z.string().min(1),
                         walk: z.object({
                             enabled: z.boolean(),
