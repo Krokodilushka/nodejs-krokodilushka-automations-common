@@ -11,7 +11,7 @@ export namespace ServerApi {
                             enabled: z.boolean(),
                             proxy: z.string().optional(),
                             moveMousemoveMouse: z.boolean(),
-                            priority: z.number(),
+                            priority: z.number().optional(),
                             walkGroup: z.number().optional(),
                             walkImagesEnabled: z.boolean(),
                             intervalMs: z.object({min: z.number(), max: z.number()}),

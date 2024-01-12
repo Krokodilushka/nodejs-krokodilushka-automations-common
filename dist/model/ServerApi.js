@@ -16,8 +16,8 @@ var ServerApi;
                         walk: z.object({
                             enabled: z.boolean(),
                             proxy: z.string().optional(),
-                            moveMouse: z.boolean(),
-                            priority: z.number(),
+                            moveMousemoveMouse: z.boolean(),
+                            priority: z.number().optional(),
                             walkGroup: z.number().optional(),
                             walkImagesEnabled: z.boolean(),
                             intervalMs: z.object({ min: z.number(), max: z.number() }),
