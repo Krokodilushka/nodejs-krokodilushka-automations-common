@@ -11,16 +11,18 @@ var ServerApi;
             let GET;
             (function (GET) {
                 GET.Response = z.object({
-                    description: z.string().min(1),
-                    enabled: z.boolean(),
-                    proxy: z.string().optional(),
-                    moveMouse: z.boolean(),
-                    priority: z.number(),
-                    walkGroup: z.number().optional(),
-                    walkImagesEnabled: z.boolean(),
-                    intervalMs: z.object({ min: z.number(), max: z.number() }),
-                    timeMsOnSite: z.object({ min: z.number(), max: z.number() }),
-                    visitSitesOnSession: z.object({ min: z.number(), max: z.number() }),
+                    items: z.array(z.object({
+                        description: z.string().min(1),
+                        enabled: z.boolean(),
+                        proxy: z.string().optional(),
+                        moveMouse: z.boolean(),
+                        priority: z.number(),
+                        walkGroup: z.number().optional(),
+                        walkImagesEnabled: z.boolean(),
+                        intervalMs: z.object({ min: z.number(), max: z.number() }),
+                        timeMsOnSite: z.object({ min: z.number(), max: z.number() }),
+                        visitSitesOnSession: z.object({ min: z.number(), max: z.number() }),
+                    }))
                 });
             })(GET = ProfileGroups.GET || (ProfileGroups.GET = {}));
         })(ProfileGroups = PfCheater.ProfileGroups || (PfCheater.ProfileGroups = {}));

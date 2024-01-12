@@ -4,83 +4,129 @@ export declare namespace ServerApi {
         namespace ProfileGroups {
             namespace GET {
                 const Response: z.ZodObject<{
-                    description: z.ZodString;
-                    enabled: z.ZodBoolean;
-                    proxy: z.ZodOptional<z.ZodString>;
-                    moveMouse: z.ZodBoolean;
-                    priority: z.ZodNumber;
-                    walkGroup: z.ZodOptional<z.ZodNumber>;
-                    walkImagesEnabled: z.ZodBoolean;
-                    intervalMs: z.ZodObject<{
-                        min: z.ZodNumber;
-                        max: z.ZodNumber;
+                    items: z.ZodArray<z.ZodObject<{
+                        description: z.ZodString;
+                        enabled: z.ZodBoolean;
+                        proxy: z.ZodOptional<z.ZodString>;
+                        moveMouse: z.ZodBoolean;
+                        priority: z.ZodNumber;
+                        walkGroup: z.ZodOptional<z.ZodNumber>;
+                        walkImagesEnabled: z.ZodBoolean;
+                        intervalMs: z.ZodObject<{
+                            min: z.ZodNumber;
+                            max: z.ZodNumber;
+                        }, "strip", z.ZodTypeAny, {
+                            max: number;
+                            min: number;
+                        }, {
+                            max: number;
+                            min: number;
+                        }>;
+                        timeMsOnSite: z.ZodObject<{
+                            min: z.ZodNumber;
+                            max: z.ZodNumber;
+                        }, "strip", z.ZodTypeAny, {
+                            max: number;
+                            min: number;
+                        }, {
+                            max: number;
+                            min: number;
+                        }>;
+                        visitSitesOnSession: z.ZodObject<{
+                            min: z.ZodNumber;
+                            max: z.ZodNumber;
+                        }, "strip", z.ZodTypeAny, {
+                            max: number;
+                            min: number;
+                        }, {
+                            max: number;
+                            min: number;
+                        }>;
                     }, "strip", z.ZodTypeAny, {
-                        max: number;
-                        min: number;
+                        priority: number;
+                        description: string;
+                        enabled: boolean;
+                        moveMouse: boolean;
+                        walkImagesEnabled: boolean;
+                        intervalMs: {
+                            max: number;
+                            min: number;
+                        };
+                        timeMsOnSite: {
+                            max: number;
+                            min: number;
+                        };
+                        visitSitesOnSession: {
+                            max: number;
+                            min: number;
+                        };
+                        proxy?: string | undefined;
+                        walkGroup?: number | undefined;
                     }, {
-                        max: number;
-                        min: number;
-                    }>;
-                    timeMsOnSite: z.ZodObject<{
-                        min: z.ZodNumber;
-                        max: z.ZodNumber;
-                    }, "strip", z.ZodTypeAny, {
-                        max: number;
-                        min: number;
-                    }, {
-                        max: number;
-                        min: number;
-                    }>;
-                    visitSitesOnSession: z.ZodObject<{
-                        min: z.ZodNumber;
-                        max: z.ZodNumber;
-                    }, "strip", z.ZodTypeAny, {
-                        max: number;
-                        min: number;
-                    }, {
-                        max: number;
-                        min: number;
-                    }>;
+                        priority: number;
+                        description: string;
+                        enabled: boolean;
+                        moveMouse: boolean;
+                        walkImagesEnabled: boolean;
+                        intervalMs: {
+                            max: number;
+                            min: number;
+                        };
+                        timeMsOnSite: {
+                            max: number;
+                            min: number;
+                        };
+                        visitSitesOnSession: {
+                            max: number;
+                            min: number;
+                        };
+                        proxy?: string | undefined;
+                        walkGroup?: number | undefined;
+                    }>, "many">;
                 }, "strip", z.ZodTypeAny, {
-                    priority: number;
-                    description: string;
-                    enabled: boolean;
-                    moveMouse: boolean;
-                    walkImagesEnabled: boolean;
-                    intervalMs: {
-                        max: number;
-                        min: number;
-                    };
-                    timeMsOnSite: {
-                        max: number;
-                        min: number;
-                    };
-                    visitSitesOnSession: {
-                        max: number;
-                        min: number;
-                    };
-                    proxy?: string | undefined;
-                    walkGroup?: number | undefined;
+                    items: {
+                        priority: number;
+                        description: string;
+                        enabled: boolean;
+                        moveMouse: boolean;
+                        walkImagesEnabled: boolean;
+                        intervalMs: {
+                            max: number;
+                            min: number;
+                        };
+                        timeMsOnSite: {
+                            max: number;
+                            min: number;
+                        };
+                        visitSitesOnSession: {
+                            max: number;
+                            min: number;
+                        };
+                        proxy?: string | undefined;
+                        walkGroup?: number | undefined;
+                    }[];
                 }, {
-                    priority: number;
-                    description: string;
-                    enabled: boolean;
-                    moveMouse: boolean;
-                    walkImagesEnabled: boolean;
-                    intervalMs: {
-                        max: number;
-                        min: number;
-                    };
-                    timeMsOnSite: {
-                        max: number;
-                        min: number;
-                    };
-                    visitSitesOnSession: {
-                        max: number;
-                        min: number;
-                    };
-                    proxy?: string | undefined;
-                    walkGroup?: number | undefined;
+                    items: {
+                        priority: number;
+                        description: string;
+                        enabled: boolean;
+                        moveMouse: boolean;
+                        walkImagesEnabled: boolean;
+                        intervalMs: {
+                            max: number;
+                            min: number;
+                        };
+                        timeMsOnSite: {
+                            max: number;
+                            min: number;
+                        };
+                        visitSitesOnSession: {
+                            max: number;
+                            min: number;
+                        };
+                        proxy?: string | undefined;
+                        walkGroup?: number | undefined;
+                    }[];
                 }>;
             }
         }
