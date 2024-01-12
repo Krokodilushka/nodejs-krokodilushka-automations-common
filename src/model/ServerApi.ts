@@ -7,7 +7,7 @@ export namespace ServerApi {
                 export const Response = z.object({
                     items: z.array(z.object({
                         id: z.string(),
-                        description: z.string().min(1),
+                        description: z.string(),
                         createdAt: z.number(),
                         walk: z.object({
                             enabled: z.boolean(),
@@ -21,6 +21,24 @@ export namespace ServerApi {
                             visitSitesOnSession: z.object({min: z.number(), max: z.number()}),
                         })
                     }))
+                })
+            }
+        }
+        export namespace ProfileGroup {
+            export namespace POST {
+                export const Request = z.object({
+                    description: z.string().min(1),
+                    walk: z.object({
+                        enabled: z.boolean(),
+                        proxy: z.string().optional(),
+                        moveMouse: z.boolean(),
+                        priority: z.number(),
+                        walkGroup: z.number().optional(),
+                        walkImagesEnabled: z.boolean(),
+                        intervalMs: z.object({min: z.number(), max: z.number()}),
+                        timeMsOnSite: z.object({min: z.number(), max: z.number()}),
+                        visitSitesOnSession: z.object({min: z.number(), max: z.number()}),
+                    })
                 })
             }
         }
