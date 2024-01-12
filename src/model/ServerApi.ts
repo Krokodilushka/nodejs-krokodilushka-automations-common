@@ -7,15 +7,17 @@ export namespace ServerApi {
                 export const Response = z.object({
                     items: z.array(z.object({
                         description: z.string().min(1),
-                        enabled: z.boolean(),
-                        proxy: z.string().optional(),
-                        moveMouse: z.boolean(),
-                        priority: z.number(),
-                        walkGroup: z.number().optional(),
-                        walkImagesEnabled: z.boolean(),
-                        intervalMs: z.object({min: z.number(), max: z.number()}),
-                        timeMsOnSite: z.object({min: z.number(), max: z.number()}),
-                        visitSitesOnSession: z.object({min: z.number(), max: z.number()}),
+                        walk: z.object({
+                            enabled: z.boolean(),
+                            proxy: z.string().optional(),
+                            moveMouse: z.boolean(),
+                            priority: z.number(),
+                            walkGroup: z.number().optional(),
+                            walkImagesEnabled: z.boolean(),
+                            intervalMs: z.object({min: z.number(), max: z.number()}),
+                            timeMsOnSite: z.object({min: z.number(), max: z.number()}),
+                            visitSitesOnSession: z.object({min: z.number(), max: z.number()}),
+                        })
                     }))
                 })
             }
