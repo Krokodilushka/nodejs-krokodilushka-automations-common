@@ -10,7 +10,7 @@ export declare namespace ServerApi {
                             enabled: z.ZodBoolean;
                             proxy: z.ZodOptional<z.ZodString>;
                             moveMouse: z.ZodBoolean;
-                            priority: z.ZodOptional<z.ZodNumber>;
+                            priority: z.ZodNumber;
                             walkGroup: z.ZodOptional<z.ZodNumber>;
                             walkImagesEnabled: z.ZodBoolean;
                             intervalMs: z.ZodObject<{
@@ -44,6 +44,7 @@ export declare namespace ServerApi {
                                 min: number;
                             }>;
                         }, "strip", z.ZodTypeAny, {
+                            priority: number;
                             enabled: boolean;
                             moveMouse: boolean;
                             walkImagesEnabled: boolean;
@@ -60,9 +61,9 @@ export declare namespace ServerApi {
                                 min: number;
                             };
                             proxy?: string | undefined;
-                            priority?: number | undefined;
                             walkGroup?: number | undefined;
                         }, {
+                            priority: number;
                             enabled: boolean;
                             moveMouse: boolean;
                             walkImagesEnabled: boolean;
@@ -79,12 +80,12 @@ export declare namespace ServerApi {
                                 min: number;
                             };
                             proxy?: string | undefined;
-                            priority?: number | undefined;
                             walkGroup?: number | undefined;
                         }>;
                     }, "strip", z.ZodTypeAny, {
                         description: string;
                         walk: {
+                            priority: number;
                             enabled: boolean;
                             moveMouse: boolean;
                             walkImagesEnabled: boolean;
@@ -101,12 +102,12 @@ export declare namespace ServerApi {
                                 min: number;
                             };
                             proxy?: string | undefined;
-                            priority?: number | undefined;
                             walkGroup?: number | undefined;
                         };
                     }, {
                         description: string;
                         walk: {
+                            priority: number;
                             enabled: boolean;
                             moveMouse: boolean;
                             walkImagesEnabled: boolean;
@@ -123,7 +124,6 @@ export declare namespace ServerApi {
                                 min: number;
                             };
                             proxy?: string | undefined;
-                            priority?: number | undefined;
                             walkGroup?: number | undefined;
                         };
                     }>, "many">;
@@ -131,6 +131,7 @@ export declare namespace ServerApi {
                     items: {
                         description: string;
                         walk: {
+                            priority: number;
                             enabled: boolean;
                             moveMouse: boolean;
                             walkImagesEnabled: boolean;
@@ -147,7 +148,6 @@ export declare namespace ServerApi {
                                 min: number;
                             };
                             proxy?: string | undefined;
-                            priority?: number | undefined;
                             walkGroup?: number | undefined;
                         };
                     }[];
@@ -155,6 +155,7 @@ export declare namespace ServerApi {
                     items: {
                         description: string;
                         walk: {
+                            priority: number;
                             enabled: boolean;
                             moveMouse: boolean;
                             walkImagesEnabled: boolean;
@@ -171,7 +172,6 @@ export declare namespace ServerApi {
                                 min: number;
                             };
                             proxy?: string | undefined;
-                            priority?: number | undefined;
                             walkGroup?: number | undefined;
                         };
                     }[];
