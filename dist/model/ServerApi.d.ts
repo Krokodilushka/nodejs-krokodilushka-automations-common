@@ -9,7 +9,7 @@ export declare namespace ServerApi {
                         walk: z.ZodObject<{
                             enabled: z.ZodBoolean;
                             proxy: z.ZodOptional<z.ZodString>;
-                            moveMousemoveMouse: z.ZodBoolean;
+                            moveMouse: z.ZodBoolean;
                             priority: z.ZodOptional<z.ZodNumber>;
                             walkGroup: z.ZodOptional<z.ZodNumber>;
                             walkImagesEnabled: z.ZodBoolean;
@@ -45,7 +45,7 @@ export declare namespace ServerApi {
                             }>;
                         }, "strip", z.ZodTypeAny, {
                             enabled: boolean;
-                            moveMousemoveMouse: boolean;
+                            moveMouse: boolean;
                             walkImagesEnabled: boolean;
                             intervalMs: {
                                 max: number;
@@ -64,7 +64,7 @@ export declare namespace ServerApi {
                             walkGroup?: number | undefined;
                         }, {
                             enabled: boolean;
-                            moveMousemoveMouse: boolean;
+                            moveMouse: boolean;
                             walkImagesEnabled: boolean;
                             intervalMs: {
                                 max: number;
@@ -86,7 +86,7 @@ export declare namespace ServerApi {
                         description: string;
                         walk: {
                             enabled: boolean;
-                            moveMousemoveMouse: boolean;
+                            moveMouse: boolean;
                             walkImagesEnabled: boolean;
                             intervalMs: {
                                 max: number;
@@ -108,7 +108,7 @@ export declare namespace ServerApi {
                         description: string;
                         walk: {
                             enabled: boolean;
-                            moveMousemoveMouse: boolean;
+                            moveMouse: boolean;
                             walkImagesEnabled: boolean;
                             intervalMs: {
                                 max: number;
@@ -132,7 +132,7 @@ export declare namespace ServerApi {
                         description: string;
                         walk: {
                             enabled: boolean;
-                            moveMousemoveMouse: boolean;
+                            moveMouse: boolean;
                             walkImagesEnabled: boolean;
                             intervalMs: {
                                 max: number;
@@ -156,7 +156,7 @@ export declare namespace ServerApi {
                         description: string;
                         walk: {
                             enabled: boolean;
-                            moveMousemoveMouse: boolean;
+                            moveMouse: boolean;
                             walkImagesEnabled: boolean;
                             intervalMs: {
                                 max: number;

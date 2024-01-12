@@ -10,7 +10,7 @@ export namespace ServerApi {
                         walk: z.object({
                             enabled: z.boolean(),
                             proxy: z.string().optional(),
-                            moveMousemoveMouse: z.boolean(),
+                            moveMouse: z.boolean(),
                             priority: z.number().optional(),
                             walkGroup: z.number().optional(),
                             walkImagesEnabled: z.boolean(),
