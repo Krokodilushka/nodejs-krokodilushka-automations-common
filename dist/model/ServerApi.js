@@ -14,6 +14,7 @@ var ServerApi;
                     items: z.array(z.object({
                         id: z.string(),
                         description: z.string().min(1),
+                        createdAt: z.number(),
                         walk: z.object({
                             enabled: z.boolean(),
                             proxy: z.string().optional(),

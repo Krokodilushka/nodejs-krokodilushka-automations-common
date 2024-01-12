@@ -7,6 +7,7 @@ export declare namespace ServerApi {
                     items: z.ZodArray<z.ZodObject<{
                         id: z.ZodString;
                         description: z.ZodString;
+                        createdAt: z.ZodNumber;
                         walk: z.ZodObject<{
                             enabled: z.ZodBoolean;
                             proxy: z.ZodOptional<z.ZodString>;
@@ -86,6 +87,7 @@ export declare namespace ServerApi {
                     }, "strip", z.ZodTypeAny, {
                         id: string;
                         description: string;
+                        createdAt: number;
                         walk: {
                             priority: number;
                             enabled: boolean;
@@ -109,6 +111,7 @@ export declare namespace ServerApi {
                     }, {
                         id: string;
                         description: string;
+                        createdAt: number;
                         walk: {
                             priority: number;
                             enabled: boolean;
@@ -134,6 +137,7 @@ export declare namespace ServerApi {
                     items: {
                         id: string;
                         description: string;
+                        createdAt: number;
                         walk: {
                             priority: number;
                             enabled: boolean;
@@ -159,6 +163,7 @@ export declare namespace ServerApi {
                     items: {
                         id: string;
                         description: string;
+                        createdAt: number;
                         walk: {
                             priority: number;
                             enabled: boolean;
