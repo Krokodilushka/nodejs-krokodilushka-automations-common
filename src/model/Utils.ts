@@ -10,3 +10,13 @@ export const Cookie = z.object({
     secure: z.boolean(),
     sameSite: z.enum(["Strict", "Lax", "None"])
 })
+
+export const Range = (min: z.ZodNumber, max: z.ZodNumber) => z.object({
+    min: min,
+    max: max,
+}).refine(
+    ({min, max}) => min <= max,
+    ({min, max}) => ({
+        message: `min(${min}) must be <=max(${max})`
+    })
+)

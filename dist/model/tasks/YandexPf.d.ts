@@ -8,10 +8,70 @@ export declare namespace YandexPf {
             moveMouseOnSerp: z.ZodBoolean;
             lr: z.ZodNumber;
             maxPages: z.ZodNumber;
-            sleepMsOnSerp: z.ZodNumber;
-            sleepMsOnIntermediate: z.ZodNumber;
-            sleepMsOnTarget: z.ZodNumber;
-            clickOnIntermediateBeforeTarget: z.ZodNumber;
+            sleepMsOnSerp: z.ZodEffects<z.ZodObject<{
+                min: z.ZodNumber;
+                max: z.ZodNumber;
+            }, "strip", z.ZodTypeAny, {
+                max: number;
+                min: number;
+            }, {
+                max: number;
+                min: number;
+            }>, {
+                max: number;
+                min: number;
+            }, {
+                max: number;
+                min: number;
+            }>;
+            sleepMsOnIntermediate: z.ZodEffects<z.ZodObject<{
+                min: z.ZodNumber;
+                max: z.ZodNumber;
+            }, "strip", z.ZodTypeAny, {
+                max: number;
+                min: number;
+            }, {
+                max: number;
+                min: number;
+            }>, {
+                max: number;
+                min: number;
+            }, {
+                max: number;
+                min: number;
+            }>;
+            sleepMsOnTarget: z.ZodEffects<z.ZodObject<{
+                min: z.ZodNumber;
+                max: z.ZodNumber;
+            }, "strip", z.ZodTypeAny, {
+                max: number;
+                min: number;
+            }, {
+                max: number;
+                min: number;
+            }>, {
+                max: number;
+                min: number;
+            }, {
+                max: number;
+                min: number;
+            }>;
+            clickOnIntermediateBeforeTarget: z.ZodEffects<z.ZodObject<{
+                min: z.ZodNumber;
+                max: z.ZodNumber;
+            }, "strip", z.ZodTypeAny, {
+                max: number;
+                min: number;
+            }, {
+                max: number;
+                min: number;
+            }>, {
+                max: number;
+                min: number;
+            }, {
+                max: number;
+                min: number;
+            }>;
             targetUrl: z.ZodString;
             followLinks: z.ZodBoolean;
         }, "strip", z.ZodTypeAny, {
@@ -21,10 +81,22 @@ export declare namespace YandexPf {
             keyword: string;
             moveMouseOnSerp: boolean;
             maxPages: number;
-            sleepMsOnSerp: number;
-            sleepMsOnIntermediate: number;
-            sleepMsOnTarget: number;
-            clickOnIntermediateBeforeTarget: number;
+            sleepMsOnSerp: {
+                max: number;
+                min: number;
+            };
+            sleepMsOnIntermediate: {
+                max: number;
+                min: number;
+            };
+            sleepMsOnTarget: {
+                max: number;
+                min: number;
+            };
+            clickOnIntermediateBeforeTarget: {
+                max: number;
+                min: number;
+            };
             targetUrl: string;
             followLinks: boolean;
         }, {
@@ -34,10 +106,22 @@ export declare namespace YandexPf {
             keyword: string;
             moveMouseOnSerp: boolean;
             maxPages: number;
-            sleepMsOnSerp: number;
-            sleepMsOnIntermediate: number;
-            sleepMsOnTarget: number;
-            clickOnIntermediateBeforeTarget: number;
+            sleepMsOnSerp: {
+                max: number;
+                min: number;
+            };
+            sleepMsOnIntermediate: {
+                max: number;
+                min: number;
+            };
+            sleepMsOnTarget: {
+                max: number;
+                min: number;
+            };
+            clickOnIntermediateBeforeTarget: {
+                max: number;
+                min: number;
+            };
             targetUrl: string;
             followLinks: boolean;
         }>;

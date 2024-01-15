@@ -27,3 +27,19 @@ export declare const Cookie: z.ZodObject<{
     secure: boolean;
     sameSite: "Strict" | "Lax" | "None";
 }>;
+export declare const Range: (min: z.ZodNumber, max: z.ZodNumber) => z.ZodEffects<z.ZodObject<{
+    min: z.ZodNumber;
+    max: z.ZodNumber;
+}, "strip", z.ZodTypeAny, {
+    max: number;
+    min: number;
+}, {
+    max: number;
+    min: number;
+}>, {
+    max: number;
+    min: number;
+}, {
+    max: number;
+    min: number;
+}>;

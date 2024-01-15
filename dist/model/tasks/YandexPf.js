@@ -2,6 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.YandexPf = void 0;
 const z = require("zod");
+const Utils_1 = require("../Utils");
 var YandexPf;
 (function (YandexPf) {
     const taskType = 'yandex_pf';
@@ -14,10 +15,10 @@ var YandexPf;
             moveMouseOnSerp: z.boolean(),
             lr: z.number().nonnegative(),
             maxPages: z.number().nonnegative(),
-            sleepMsOnSerp: z.number().nonnegative(),
-            sleepMsOnIntermediate: z.number().nonnegative(),
-            sleepMsOnTarget: z.number().nonnegative(),
-            clickOnIntermediateBeforeTarget: z.number().nonnegative(),
+            sleepMsOnSerp: (0, Utils_1.Range)(z.number().nonnegative(), z.number().max(300 * 1000)),
+            sleepMsOnIntermediate: (0, Utils_1.Range)(z.number().nonnegative(), z.number().max(300 * 1000)),
+            sleepMsOnTarget: (0, Utils_1.Range)(z.number().nonnegative(), z.number().max(300 * 1000)),
+            clickOnIntermediateBeforeTarget: (0, Utils_1.Range)(z.number().nonnegative(), z.number().max(300 * 1000)),
             targetUrl: z.string().min(1),
             followLinks: z.boolean(),
         });

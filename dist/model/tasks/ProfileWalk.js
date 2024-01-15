@@ -9,7 +9,7 @@ var ProfileWalk;
     (function (Params_1) {
         Params_1.UrlToWalk = z.object({
             url: z.string().min(1),
-            sleepOnPageMs: z.number().nonnegative()
+            sleepOnPageMs: z.number().nonnegative().max(300 * 1000)
         });
         Params_1.Params = z.object({
             type: z.literal(taskType),

@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Cookie = void 0;
+exports.Range = exports.Cookie = void 0;
 const z = require("zod");
 exports.Cookie = z.object({
     name: z.string().min(0),
@@ -12,3 +12,10 @@ exports.Cookie = z.object({
     secure: z.boolean(),
     sameSite: z.enum(["Strict", "Lax", "None"])
 });
+const Range = (min, max) => z.object({
+    min: min,
+    max: max,
+}).refine(({ min, max }) => min <= max, ({ min, max }) => ({
+    message: `min(${min}) must be <=max(${max})`
+}));
+exports.Range = Range;

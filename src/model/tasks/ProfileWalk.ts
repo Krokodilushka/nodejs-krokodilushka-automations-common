@@ -7,7 +7,7 @@ export namespace ProfileWalk {
     export namespace Params {
         export const UrlToWalk = z.object({
             url: z.string().min(1),
-            sleepOnPageMs: z.number().nonnegative()
+            sleepOnPageMs: z.number().nonnegative().max(300 * 1000)
         })
 
         export const Params = z.object({
