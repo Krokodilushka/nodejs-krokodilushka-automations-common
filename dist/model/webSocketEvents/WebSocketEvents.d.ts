@@ -42,6 +42,9 @@ export declare namespace WebSocketEvents {
                 proxy: z.ZodOptional<z.ZodString>;
                 ensureShowImagesMode: z.ZodBoolean;
             }, "strip", z.ZodTypeAny, {
+                fingerprint: {
+                    valid: true;
+                };
                 cookies: {
                     name: string;
                     value: string;
@@ -52,12 +55,12 @@ export declare namespace WebSocketEvents {
                     secure: boolean;
                     sameSite: "Strict" | "Lax" | "None";
                 }[];
-                fingerprint: {
-                    valid: true;
-                };
                 ensureShowImagesMode: boolean;
                 proxy?: string | undefined;
             }, {
+                fingerprint: {
+                    valid: true;
+                };
                 cookies: {
                     name: string;
                     value: string;
@@ -68,9 +71,6 @@ export declare namespace WebSocketEvents {
                     secure: boolean;
                     sameSite: "Strict" | "Lax" | "None";
                 }[];
-                fingerprint: {
-                    valid: true;
-                };
                 ensureShowImagesMode: boolean;
                 proxy?: string | undefined;
             }>;
@@ -87,67 +87,6 @@ export declare namespace WebSocketEvents {
                 clickOnIntermediateBeforeTarget: z.ZodNumber;
                 targetUrl: z.ZodString;
                 followLinks: z.ZodBoolean;
-                profileInfo: z.ZodObject<{
-                    walksCount: z.ZodNumber;
-                    firstWalk: z.ZodNullable<z.ZodNumber>;
-                    lastWalk: z.ZodNullable<z.ZodNumber>;
-                    cookies: z.ZodArray<z.ZodObject<{
-                        name: z.ZodString;
-                        value: z.ZodString;
-                        domain: z.ZodString;
-                        path: z.ZodString;
-                        expires: z.ZodNumber;
-                        httpOnly: z.ZodBoolean;
-                        secure: z.ZodBoolean;
-                        sameSite: z.ZodEnum<["Strict", "Lax", "None"]>;
-                    }, "strip", z.ZodTypeAny, {
-                        name: string;
-                        value: string;
-                        path: string;
-                        domain: string;
-                        expires: number;
-                        httpOnly: boolean;
-                        secure: boolean;
-                        sameSite: "Strict" | "Lax" | "None";
-                    }, {
-                        name: string;
-                        value: string;
-                        path: string;
-                        domain: string;
-                        expires: number;
-                        httpOnly: boolean;
-                        secure: boolean;
-                        sameSite: "Strict" | "Lax" | "None";
-                    }>, "many">;
-                }, "strip", z.ZodTypeAny, {
-                    walksCount: number;
-                    firstWalk: number | null;
-                    lastWalk: number | null;
-                    cookies: {
-                        name: string;
-                        value: string;
-                        path: string;
-                        domain: string;
-                        expires: number;
-                        httpOnly: boolean;
-                        secure: boolean;
-                        sameSite: "Strict" | "Lax" | "None";
-                    }[];
-                }, {
-                    walksCount: number;
-                    firstWalk: number | null;
-                    lastWalk: number | null;
-                    cookies: {
-                        name: string;
-                        value: string;
-                        path: string;
-                        domain: string;
-                        expires: number;
-                        httpOnly: boolean;
-                        secure: boolean;
-                        sameSite: "Strict" | "Lax" | "None";
-                    }[];
-                }>;
             }, "strip", z.ZodTypeAny, {
                 type: "yandex_pf";
                 lr: number;
@@ -161,21 +100,6 @@ export declare namespace WebSocketEvents {
                 clickOnIntermediateBeforeTarget: number;
                 targetUrl: string;
                 followLinks: boolean;
-                profileInfo: {
-                    walksCount: number;
-                    firstWalk: number | null;
-                    lastWalk: number | null;
-                    cookies: {
-                        name: string;
-                        value: string;
-                        path: string;
-                        domain: string;
-                        expires: number;
-                        httpOnly: boolean;
-                        secure: boolean;
-                        sameSite: "Strict" | "Lax" | "None";
-                    }[];
-                };
             }, {
                 type: "yandex_pf";
                 lr: number;
@@ -189,21 +113,6 @@ export declare namespace WebSocketEvents {
                 clickOnIntermediateBeforeTarget: number;
                 targetUrl: string;
                 followLinks: boolean;
-                profileInfo: {
-                    walksCount: number;
-                    firstWalk: number | null;
-                    lastWalk: number | null;
-                    cookies: {
-                        name: string;
-                        value: string;
-                        path: string;
-                        domain: string;
-                        expires: number;
-                        httpOnly: boolean;
-                        secure: boolean;
-                        sameSite: "Strict" | "Lax" | "None";
-                    }[];
-                };
             }>, z.ZodObject<{
                 type: z.ZodLiteral<"profile_walk">;
                 moveMouse: z.ZodBoolean;
@@ -235,6 +144,9 @@ export declare namespace WebSocketEvents {
         }, "strip", z.ZodTypeAny, {
             taskID: string;
             browserProfile: {
+                fingerprint: {
+                    valid: true;
+                };
                 cookies: {
                     name: string;
                     value: string;
@@ -245,9 +157,6 @@ export declare namespace WebSocketEvents {
                     secure: boolean;
                     sameSite: "Strict" | "Lax" | "None";
                 }[];
-                fingerprint: {
-                    valid: true;
-                };
                 ensureShowImagesMode: boolean;
                 proxy?: string | undefined;
             };
@@ -264,21 +173,6 @@ export declare namespace WebSocketEvents {
                 clickOnIntermediateBeforeTarget: number;
                 targetUrl: string;
                 followLinks: boolean;
-                profileInfo: {
-                    walksCount: number;
-                    firstWalk: number | null;
-                    lastWalk: number | null;
-                    cookies: {
-                        name: string;
-                        value: string;
-                        path: string;
-                        domain: string;
-                        expires: number;
-                        httpOnly: boolean;
-                        secure: boolean;
-                        sameSite: "Strict" | "Lax" | "None";
-                    }[];
-                };
             } | {
                 type: "profile_walk";
                 moveMouse: boolean;
@@ -290,6 +184,9 @@ export declare namespace WebSocketEvents {
         }, {
             taskID: string;
             browserProfile: {
+                fingerprint: {
+                    valid: true;
+                };
                 cookies: {
                     name: string;
                     value: string;
@@ -300,9 +197,6 @@ export declare namespace WebSocketEvents {
                     secure: boolean;
                     sameSite: "Strict" | "Lax" | "None";
                 }[];
-                fingerprint: {
-                    valid: true;
-                };
                 ensureShowImagesMode: boolean;
                 proxy?: string | undefined;
             };
@@ -319,21 +213,6 @@ export declare namespace WebSocketEvents {
                 clickOnIntermediateBeforeTarget: number;
                 targetUrl: string;
                 followLinks: boolean;
-                profileInfo: {
-                    walksCount: number;
-                    firstWalk: number | null;
-                    lastWalk: number | null;
-                    cookies: {
-                        name: string;
-                        value: string;
-                        path: string;
-                        domain: string;
-                        expires: number;
-                        httpOnly: boolean;
-                        secure: boolean;
-                        sameSite: "Strict" | "Lax" | "None";
-                    }[];
-                };
             } | {
                 type: "profile_walk";
                 moveMouse: boolean;
@@ -369,67 +248,6 @@ export declare namespace WebSocketEvents {
                     clickOnIntermediateBeforeTarget: z.ZodNumber;
                     targetUrl: z.ZodString;
                     followLinks: z.ZodBoolean;
-                    profileInfo: z.ZodObject<{
-                        walksCount: z.ZodNumber;
-                        firstWalk: z.ZodNullable<z.ZodNumber>;
-                        lastWalk: z.ZodNullable<z.ZodNumber>;
-                        cookies: z.ZodArray<z.ZodObject<{
-                            name: z.ZodString;
-                            value: z.ZodString;
-                            domain: z.ZodString;
-                            path: z.ZodString;
-                            expires: z.ZodNumber;
-                            httpOnly: z.ZodBoolean;
-                            secure: z.ZodBoolean;
-                            sameSite: z.ZodEnum<["Strict", "Lax", "None"]>;
-                        }, "strip", z.ZodTypeAny, {
-                            name: string;
-                            value: string;
-                            path: string;
-                            domain: string;
-                            expires: number;
-                            httpOnly: boolean;
-                            secure: boolean;
-                            sameSite: "Strict" | "Lax" | "None";
-                        }, {
-                            name: string;
-                            value: string;
-                            path: string;
-                            domain: string;
-                            expires: number;
-                            httpOnly: boolean;
-                            secure: boolean;
-                            sameSite: "Strict" | "Lax" | "None";
-                        }>, "many">;
-                    }, "strip", z.ZodTypeAny, {
-                        walksCount: number;
-                        firstWalk: number | null;
-                        lastWalk: number | null;
-                        cookies: {
-                            name: string;
-                            value: string;
-                            path: string;
-                            domain: string;
-                            expires: number;
-                            httpOnly: boolean;
-                            secure: boolean;
-                            sameSite: "Strict" | "Lax" | "None";
-                        }[];
-                    }, {
-                        walksCount: number;
-                        firstWalk: number | null;
-                        lastWalk: number | null;
-                        cookies: {
-                            name: string;
-                            value: string;
-                            path: string;
-                            domain: string;
-                            expires: number;
-                            httpOnly: boolean;
-                            secure: boolean;
-                            sameSite: "Strict" | "Lax" | "None";
-                        }[];
-                    }>;
                 }, "strip", z.ZodTypeAny, {
                     type: "yandex_pf";
                     lr: number;
@@ -443,21 +261,6 @@ export declare namespace WebSocketEvents {
                     clickOnIntermediateBeforeTarget: number;
                     targetUrl: string;
                     followLinks: boolean;
-                    profileInfo: {
-                        walksCount: number;
-                        firstWalk: number | null;
-                        lastWalk: number | null;
-                        cookies: {
-                            name: string;
-                            value: string;
-                            path: string;
-                            domain: string;
-                            expires: number;
-                            httpOnly: boolean;
-                            secure: boolean;
-                            sameSite: "Strict" | "Lax" | "None";
-                        }[];
-                    };
                 }, {
                     type: "yandex_pf";
                     lr: number;
@@ -471,21 +274,6 @@ export declare namespace WebSocketEvents {
                     clickOnIntermediateBeforeTarget: number;
                     targetUrl: string;
                     followLinks: boolean;
-                    profileInfo: {
-                        walksCount: number;
-                        firstWalk: number | null;
-                        lastWalk: number | null;
-                        cookies: {
-                            name: string;
-                            value: string;
-                            path: string;
-                            domain: string;
-                            expires: number;
-                            httpOnly: boolean;
-                            secure: boolean;
-                            sameSite: "Strict" | "Lax" | "None";
-                        }[];
-                    };
                 }>, z.ZodObject<{
                     type: z.ZodLiteral<"profile_walk">;
                     moveMouse: z.ZodBoolean;
@@ -528,21 +316,6 @@ export declare namespace WebSocketEvents {
                     clickOnIntermediateBeforeTarget: number;
                     targetUrl: string;
                     followLinks: boolean;
-                    profileInfo: {
-                        walksCount: number;
-                        firstWalk: number | null;
-                        lastWalk: number | null;
-                        cookies: {
-                            name: string;
-                            value: string;
-                            path: string;
-                            domain: string;
-                            expires: number;
-                            httpOnly: boolean;
-                            secure: boolean;
-                            sameSite: "Strict" | "Lax" | "None";
-                        }[];
-                    };
                 } | {
                     type: "profile_walk";
                     moveMouse: boolean;
@@ -566,21 +339,6 @@ export declare namespace WebSocketEvents {
                     clickOnIntermediateBeforeTarget: number;
                     targetUrl: string;
                     followLinks: boolean;
-                    profileInfo: {
-                        walksCount: number;
-                        firstWalk: number | null;
-                        lastWalk: number | null;
-                        cookies: {
-                            name: string;
-                            value: string;
-                            path: string;
-                            domain: string;
-                            expires: number;
-                            httpOnly: boolean;
-                            secure: boolean;
-                            sameSite: "Strict" | "Lax" | "None";
-                        }[];
-                    };
                 } | {
                     type: "profile_walk";
                     moveMouse: boolean;
@@ -645,67 +403,6 @@ export declare namespace WebSocketEvents {
                         clickOnIntermediateBeforeTarget: z.ZodNumber;
                         targetUrl: z.ZodString;
                         followLinks: z.ZodBoolean;
-                        profileInfo: z.ZodObject<{
-                            walksCount: z.ZodNumber;
-                            firstWalk: z.ZodNullable<z.ZodNumber>;
-                            lastWalk: z.ZodNullable<z.ZodNumber>;
-                            cookies: z.ZodArray<z.ZodObject<{
-                                name: z.ZodString;
-                                value: z.ZodString;
-                                domain: z.ZodString;
-                                path: z.ZodString;
-                                expires: z.ZodNumber;
-                                httpOnly: z.ZodBoolean;
-                                secure: z.ZodBoolean;
-                                sameSite: z.ZodEnum<["Strict", "Lax", "None"]>;
-                            }, "strip", z.ZodTypeAny, {
-                                name: string;
-                                value: string;
-                                path: string;
-                                domain: string;
-                                expires: number;
-                                httpOnly: boolean;
-                                secure: boolean;
-                                sameSite: "Strict" | "Lax" | "None";
-                            }, {
-                                name: string;
-                                value: string;
-                                path: string;
-                                domain: string;
-                                expires: number;
-                                httpOnly: boolean;
-                                secure: boolean;
-                                sameSite: "Strict" | "Lax" | "None";
-                            }>, "many">;
-                        }, "strip", z.ZodTypeAny, {
-                            walksCount: number;
-                            firstWalk: number | null;
-                            lastWalk: number | null;
-                            cookies: {
-                                name: string;
-                                value: string;
-                                path: string;
-                                domain: string;
-                                expires: number;
-                                httpOnly: boolean;
-                                secure: boolean;
-                                sameSite: "Strict" | "Lax" | "None";
-                            }[];
-                        }, {
-                            walksCount: number;
-                            firstWalk: number | null;
-                            lastWalk: number | null;
-                            cookies: {
-                                name: string;
-                                value: string;
-                                path: string;
-                                domain: string;
-                                expires: number;
-                                httpOnly: boolean;
-                                secure: boolean;
-                                sameSite: "Strict" | "Lax" | "None";
-                            }[];
-                        }>;
                     }, "strip", z.ZodTypeAny, {
                         type: "yandex_pf";
                         lr: number;
@@ -719,21 +416,6 @@ export declare namespace WebSocketEvents {
                         clickOnIntermediateBeforeTarget: number;
                         targetUrl: string;
                         followLinks: boolean;
-                        profileInfo: {
-                            walksCount: number;
-                            firstWalk: number | null;
-                            lastWalk: number | null;
-                            cookies: {
-                                name: string;
-                                value: string;
-                                path: string;
-                                domain: string;
-                                expires: number;
-                                httpOnly: boolean;
-                                secure: boolean;
-                                sameSite: "Strict" | "Lax" | "None";
-                            }[];
-                        };
                     }, {
                         type: "yandex_pf";
                         lr: number;
@@ -747,21 +429,6 @@ export declare namespace WebSocketEvents {
                         clickOnIntermediateBeforeTarget: number;
                         targetUrl: string;
                         followLinks: boolean;
-                        profileInfo: {
-                            walksCount: number;
-                            firstWalk: number | null;
-                            lastWalk: number | null;
-                            cookies: {
-                                name: string;
-                                value: string;
-                                path: string;
-                                domain: string;
-                                expires: number;
-                                httpOnly: boolean;
-                                secure: boolean;
-                                sameSite: "Strict" | "Lax" | "None";
-                            }[];
-                        };
                     }>, z.ZodObject<{
                         type: z.ZodLiteral<"profile_walk">;
                         moveMouse: z.ZodBoolean;
@@ -804,21 +471,6 @@ export declare namespace WebSocketEvents {
                         clickOnIntermediateBeforeTarget: number;
                         targetUrl: string;
                         followLinks: boolean;
-                        profileInfo: {
-                            walksCount: number;
-                            firstWalk: number | null;
-                            lastWalk: number | null;
-                            cookies: {
-                                name: string;
-                                value: string;
-                                path: string;
-                                domain: string;
-                                expires: number;
-                                httpOnly: boolean;
-                                secure: boolean;
-                                sameSite: "Strict" | "Lax" | "None";
-                            }[];
-                        };
                     } | {
                         type: "profile_walk";
                         moveMouse: boolean;
@@ -842,21 +494,6 @@ export declare namespace WebSocketEvents {
                         clickOnIntermediateBeforeTarget: number;
                         targetUrl: string;
                         followLinks: boolean;
-                        profileInfo: {
-                            walksCount: number;
-                            firstWalk: number | null;
-                            lastWalk: number | null;
-                            cookies: {
-                                name: string;
-                                value: string;
-                                path: string;
-                                domain: string;
-                                expires: number;
-                                httpOnly: boolean;
-                                secure: boolean;
-                                sameSite: "Strict" | "Lax" | "None";
-                            }[];
-                        };
                     } | {
                         type: "profile_walk";
                         moveMouse: boolean;
@@ -868,16 +505,6 @@ export declare namespace WebSocketEvents {
                     status: "success";
                 }>]>;
             }, "strip", z.ZodTypeAny, {
-                cookies: {
-                    name: string;
-                    value: string;
-                    path: string;
-                    domain: string;
-                    expires: number;
-                    httpOnly: boolean;
-                    secure: boolean;
-                    sameSite: "Strict" | "Lax" | "None";
-                }[] | null;
                 result: {
                     message: string;
                     status: "error";
@@ -895,21 +522,6 @@ export declare namespace WebSocketEvents {
                         clickOnIntermediateBeforeTarget: number;
                         targetUrl: string;
                         followLinks: boolean;
-                        profileInfo: {
-                            walksCount: number;
-                            firstWalk: number | null;
-                            lastWalk: number | null;
-                            cookies: {
-                                name: string;
-                                value: string;
-                                path: string;
-                                domain: string;
-                                expires: number;
-                                httpOnly: boolean;
-                                secure: boolean;
-                                sameSite: "Strict" | "Lax" | "None";
-                            }[];
-                        };
                     } | {
                         type: "profile_walk";
                         moveMouse: boolean;
@@ -921,17 +533,17 @@ export declare namespace WebSocketEvents {
                     status: "success";
                 };
                 taskID: string;
+                cookies: {
+                    name: string;
+                    value: string;
+                    path: string;
+                    domain: string;
+                    expires: number;
+                    httpOnly: boolean;
+                    secure: boolean;
+                    sameSite: "Strict" | "Lax" | "None";
+                }[] | null;
             }, {
-                cookies: {
-                    name: string;
-                    value: string;
-                    path: string;
-                    domain: string;
-                    expires: number;
-                    httpOnly: boolean;
-                    secure: boolean;
-                    sameSite: "Strict" | "Lax" | "None";
-                }[] | null;
                 result: {
                     message: string;
                     status: "error";
@@ -949,21 +561,6 @@ export declare namespace WebSocketEvents {
                         clickOnIntermediateBeforeTarget: number;
                         targetUrl: string;
                         followLinks: boolean;
-                        profileInfo: {
-                            walksCount: number;
-                            firstWalk: number | null;
-                            lastWalk: number | null;
-                            cookies: {
-                                name: string;
-                                value: string;
-                                path: string;
-                                domain: string;
-                                expires: number;
-                                httpOnly: boolean;
-                                secure: boolean;
-                                sameSite: "Strict" | "Lax" | "None";
-                            }[];
-                        };
                     } | {
                         type: "profile_walk";
                         moveMouse: boolean;
@@ -975,6 +572,16 @@ export declare namespace WebSocketEvents {
                     status: "success";
                 };
                 taskID: string;
+                cookies: {
+                    name: string;
+                    value: string;
+                    path: string;
+                    domain: string;
+                    expires: number;
+                    httpOnly: boolean;
+                    secure: boolean;
+                    sameSite: "Strict" | "Lax" | "None";
+                }[] | null;
             }>;
         }
     }

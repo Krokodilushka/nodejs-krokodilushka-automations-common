@@ -2,7 +2,6 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.YandexPf = void 0;
 const z = require("zod");
-const Utils_1 = require("../Utils");
 var YandexPf;
 (function (YandexPf) {
     const taskType = 'yandex_pf';
@@ -21,12 +20,6 @@ var YandexPf;
             clickOnIntermediateBeforeTarget: z.number().nonnegative(),
             targetUrl: z.string().min(1),
             followLinks: z.boolean(),
-            profileInfo: z.object({
-                walksCount: z.number().nonnegative(),
-                firstWalk: z.number().nonnegative().nullable(),
-                lastWalk: z.number().nonnegative().nullable(),
-                cookies: z.array(Utils_1.Cookie)
-            })
         });
     })(Params = YandexPf.Params || (YandexPf.Params = {}));
     let Result;
@@ -41,7 +34,7 @@ var YandexPf;
             type: z.literal('target_found'),
             page: z.number().nonnegative(),
             position: z.number().nonnegative(),
-            targetUrl: z.string().min(0),
+            targetUrl: z.string().min(1),
             intermediateClicksOn: z.array(Result_1.IntermediateClicksOn)
         });
         Result_1.NotFound = z.object({

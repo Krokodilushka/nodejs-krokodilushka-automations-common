@@ -1,5 +1,4 @@
 import * as z from "zod";
-import {Cookie} from "../Utils";
 
 export namespace YandexPf {
 
@@ -19,12 +18,6 @@ export namespace YandexPf {
                 clickOnIntermediateBeforeTarget: z.number().nonnegative(),
                 targetUrl: z.string().min(1),
                 followLinks: z.boolean(),
-                profileInfo: z.object({
-                    walksCount: z.number().nonnegative(),
-                    firstWalk: z.number().nonnegative().nullable(),
-                    lastWalk: z.number().nonnegative().nullable(),
-                    cookies: z.array(Cookie)
-                })
             }
         )
     }
@@ -42,7 +35,7 @@ export namespace YandexPf {
             type: z.literal('target_found'),
             page: z.number().nonnegative(),
             position: z.number().nonnegative(),
-            targetUrl: z.string().min(0),
+            targetUrl: z.string().min(1),
             intermediateClicksOn: z.array(IntermediateClicksOn)
         })
 

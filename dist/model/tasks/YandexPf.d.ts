@@ -14,67 +14,6 @@ export declare namespace YandexPf {
             clickOnIntermediateBeforeTarget: z.ZodNumber;
             targetUrl: z.ZodString;
             followLinks: z.ZodBoolean;
-            profileInfo: z.ZodObject<{
-                walksCount: z.ZodNumber;
-                firstWalk: z.ZodNullable<z.ZodNumber>;
-                lastWalk: z.ZodNullable<z.ZodNumber>;
-                cookies: z.ZodArray<z.ZodObject<{
-                    name: z.ZodString;
-                    value: z.ZodString;
-                    domain: z.ZodString;
-                    path: z.ZodString;
-                    expires: z.ZodNumber;
-                    httpOnly: z.ZodBoolean;
-                    secure: z.ZodBoolean;
-                    sameSite: z.ZodEnum<["Strict", "Lax", "None"]>;
-                }, "strip", z.ZodTypeAny, {
-                    name: string;
-                    value: string;
-                    path: string;
-                    domain: string;
-                    expires: number;
-                    httpOnly: boolean;
-                    secure: boolean;
-                    sameSite: "Strict" | "Lax" | "None";
-                }, {
-                    name: string;
-                    value: string;
-                    path: string;
-                    domain: string;
-                    expires: number;
-                    httpOnly: boolean;
-                    secure: boolean;
-                    sameSite: "Strict" | "Lax" | "None";
-                }>, "many">;
-            }, "strip", z.ZodTypeAny, {
-                walksCount: number;
-                firstWalk: number | null;
-                lastWalk: number | null;
-                cookies: {
-                    name: string;
-                    value: string;
-                    path: string;
-                    domain: string;
-                    expires: number;
-                    httpOnly: boolean;
-                    secure: boolean;
-                    sameSite: "Strict" | "Lax" | "None";
-                }[];
-            }, {
-                walksCount: number;
-                firstWalk: number | null;
-                lastWalk: number | null;
-                cookies: {
-                    name: string;
-                    value: string;
-                    path: string;
-                    domain: string;
-                    expires: number;
-                    httpOnly: boolean;
-                    secure: boolean;
-                    sameSite: "Strict" | "Lax" | "None";
-                }[];
-            }>;
         }, "strip", z.ZodTypeAny, {
             type: "yandex_pf";
             lr: number;
@@ -88,21 +27,6 @@ export declare namespace YandexPf {
             clickOnIntermediateBeforeTarget: number;
             targetUrl: string;
             followLinks: boolean;
-            profileInfo: {
-                walksCount: number;
-                firstWalk: number | null;
-                lastWalk: number | null;
-                cookies: {
-                    name: string;
-                    value: string;
-                    path: string;
-                    domain: string;
-                    expires: number;
-                    httpOnly: boolean;
-                    secure: boolean;
-                    sameSite: "Strict" | "Lax" | "None";
-                }[];
-            };
         }, {
             type: "yandex_pf";
             lr: number;
@@ -116,21 +40,6 @@ export declare namespace YandexPf {
             clickOnIntermediateBeforeTarget: number;
             targetUrl: string;
             followLinks: boolean;
-            profileInfo: {
-                walksCount: number;
-                firstWalk: number | null;
-                lastWalk: number | null;
-                cookies: {
-                    name: string;
-                    value: string;
-                    path: string;
-                    domain: string;
-                    expires: number;
-                    httpOnly: boolean;
-                    secure: boolean;
-                    sameSite: "Strict" | "Lax" | "None";
-                }[];
-            };
         }>;
     }
     namespace Result {
