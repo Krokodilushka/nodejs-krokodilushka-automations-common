@@ -1,9 +1,11 @@
-import {QueueTask} from "./tasks/QueueTask";
+import * as z from "zod"
+import {WebSocketEvents} from "./webSocketEvents";
 
-export namespace WebSocket {
+export namespace ScoketIOEvents {
+
     export interface ServerToClientEvents {
         task: (
-            task: QueueTask.QueueTask<any>,
+            task: z.infer<typeof WebSocketEvents.Task.Task>,
             callback: ((activeTasks: string[]) => void)
         ) => void;
         info: (callback: (name: ClientInfo) => void) => void;
@@ -11,7 +13,7 @@ export namespace WebSocket {
 
     export interface ClientToServerEvents {
         task_response: (
-            result: QueueTask.QueueTaskResult<any>,
+            result: z.infer<typeof WebSocketEvents.Task.Result.TaskResult>,
             activeTasks: string[]
         ) => void;
     }
