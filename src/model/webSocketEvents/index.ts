@@ -1,1 +1,1 @@
-export {WebSocketEvents} from './WebSocketEvents'
+export * as Event from './event'
