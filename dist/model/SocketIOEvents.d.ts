@@ -1,6 +1,6 @@
 import * as z from "zod";
 import { WebSocketEvents } from "./webSocketEvents";
-export declare namespace ScoketIOEvents {
+export declare namespace SocketIOEvents {
     interface ServerToClientEvents {
         task: (task: z.infer<typeof WebSocketEvents.Task.Task>, callback: ((activeTasks: string[]) => void)) => void;
         info: (callback: (name: ClientInfo) => void) => void;

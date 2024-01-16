@@ -1,7 +1,7 @@
 import * as z from "zod"
 import {WebSocketEvents} from "./webSocketEvents";
 
-export namespace ScoketIOEvents {
+export namespace SocketIOEvents {
 
     export interface ServerToClientEvents {
         task: (
