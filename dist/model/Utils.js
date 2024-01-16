@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.Range = exports.Cookie = void 0;
+exports.UnixTimestampSeconds = exports.Range = exports.Cookie = void 0;
 const z = require("zod");
 exports.Cookie = z.object({
     name: z.string().min(0),
@@ -19,3 +19,4 @@ const Range = (min, max) => z.object({
     message: `min(${min}) must be <=max(${max})`
 }));
 exports.Range = Range;
+exports.UnixTimestampSeconds = z.number().min(0).max(253402300799);

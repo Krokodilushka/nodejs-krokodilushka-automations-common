@@ -43,3 +43,4 @@ export declare const Range: (min: z.ZodNumber, max: z.ZodNumber) => z.ZodEffects
     max: number;
     min: number;
 }>;
+export declare const UnixTimestampSeconds: z.ZodNumber;

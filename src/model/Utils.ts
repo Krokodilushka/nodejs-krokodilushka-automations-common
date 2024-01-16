@@ -20,3 +20,5 @@ export const Range = (min: z.ZodNumber, max: z.ZodNumber) => z.object({
         message: `min(${min}) must be <=max(${max})`
     })
 )
+
+export const UnixTimestampSeconds = z.number().min(0).max(253402300799)
