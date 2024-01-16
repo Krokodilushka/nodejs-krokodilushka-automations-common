@@ -45,15 +45,13 @@ export namespace YandexPf {
             intermediateClicksOn: z.array(IntermediateClicksOn)
         })
 
-        export const Result = z.discriminatedUnion("type", [
-            z.object({
-                type: z.literal(taskType),
-                result: z.discriminatedUnion("type", [
-                    TaskTargetFound,
-                    NotFound
-                ])
-            })
-        ])
+        export const Result = z.object({
+            type: z.literal(taskType),
+            result: z.discriminatedUnion("type", [
+                TaskTargetFound,
+                NotFound
+            ])
+        })
 
     }
 }

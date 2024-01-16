@@ -154,3 +154,187 @@ export declare const Tasks: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
         sleepOnPageMs: number;
     }[];
 }>]>;
+export declare const TaskResults: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
+    type: z.ZodLiteral<"yandex_pf">;
+    result: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
+        type: z.ZodLiteral<"target_found">;
+        page: z.ZodNumber;
+        position: z.ZodNumber;
+        targetUrl: z.ZodString;
+        intermediateClicksOn: z.ZodArray<z.ZodObject<{
+            page: z.ZodNumber;
+            position: z.ZodNumber;
+            url: z.ZodString;
+            sleepMs: z.ZodNumber;
+        }, "strip", z.ZodTypeAny, {
+            url: string;
+            page: number;
+            position: number;
+            sleepMs: number;
+        }, {
+            url: string;
+            page: number;
+            position: number;
+            sleepMs: number;
+        }>, "many">;
+    }, "strip", z.ZodTypeAny, {
+        type: "target_found";
+        page: number;
+        position: number;
+        targetUrl: string;
+        intermediateClicksOn: {
+            url: string;
+            page: number;
+            position: number;
+            sleepMs: number;
+        }[];
+    }, {
+        type: "target_found";
+        page: number;
+        position: number;
+        targetUrl: string;
+        intermediateClicksOn: {
+            url: string;
+            page: number;
+            position: number;
+            sleepMs: number;
+        }[];
+    }>, z.ZodObject<{
+        type: z.ZodLiteral<"target_not_found">;
+        intermediateClicksOn: z.ZodArray<z.ZodObject<{
+            page: z.ZodNumber;
+            position: z.ZodNumber;
+            url: z.ZodString;
+            sleepMs: z.ZodNumber;
+        }, "strip", z.ZodTypeAny, {
+            url: string;
+            page: number;
+            position: number;
+            sleepMs: number;
+        }, {
+            url: string;
+            page: number;
+            position: number;
+            sleepMs: number;
+        }>, "many">;
+    }, "strip", z.ZodTypeAny, {
+        type: "target_not_found";
+        intermediateClicksOn: {
+            url: string;
+            page: number;
+            position: number;
+            sleepMs: number;
+        }[];
+    }, {
+        type: "target_not_found";
+        intermediateClicksOn: {
+            url: string;
+            page: number;
+            position: number;
+            sleepMs: number;
+        }[];
+    }>]>;
+}, "strip", z.ZodTypeAny, {
+    type: "yandex_pf";
+    result: {
+        type: "target_found";
+        page: number;
+        position: number;
+        targetUrl: string;
+        intermediateClicksOn: {
+            url: string;
+            page: number;
+            position: number;
+            sleepMs: number;
+        }[];
+    } | {
+        type: "target_not_found";
+        intermediateClicksOn: {
+            url: string;
+            page: number;
+            position: number;
+            sleepMs: number;
+        }[];
+    };
+}, {
+    type: "yandex_pf";
+    result: {
+        type: "target_found";
+        page: number;
+        position: number;
+        targetUrl: string;
+        intermediateClicksOn: {
+            url: string;
+            page: number;
+            position: number;
+            sleepMs: number;
+        }[];
+    } | {
+        type: "target_not_found";
+        intermediateClicksOn: {
+            url: string;
+            page: number;
+            position: number;
+            sleepMs: number;
+        }[];
+    };
+}>, z.ZodObject<{
+    type: z.ZodLiteral<"profile_walk">;
+    result: z.ZodArray<z.ZodObject<{
+        url: z.ZodString;
+        result: z.ZodDiscriminatedUnion<"status", [z.ZodObject<{
+            status: z.ZodLiteral<"error">;
+            message: z.ZodString;
+        }, "strip", z.ZodTypeAny, {
+            message: string;
+            status: "error";
+        }, {
+            message: string;
+            status: "error";
+        }>, z.ZodObject<{
+            status: z.ZodLiteral<"ok">;
+        }, "strip", z.ZodTypeAny, {
+            status: "ok";
+        }, {
+            status: "ok";
+        }>]>;
+    }, "strip", z.ZodTypeAny, {
+        url: string;
+        result: {
+            message: string;
+            status: "error";
+        } | {
+            status: "ok";
+        };
+    }, {
+        url: string;
+        result: {
+            message: string;
+            status: "error";
+        } | {
+            status: "ok";
+        };
+    }>, "many">;
+}, "strip", z.ZodTypeAny, {
+    type: "profile_walk";
+    result: {
+        url: string;
+        result: {
+            message: string;
+            status: "error";
+        } | {
+            status: "ok";
+        };
+    }[];
+}, {
+    type: "profile_walk";
+    result: {
+        url: string;
+        result: {
+            message: string;
+            status: "error";
+        } | {
+            status: "ok";
+        };
+    }[];
+}>]>;

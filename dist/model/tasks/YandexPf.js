@@ -42,14 +42,12 @@ var YandexPf;
             type: z.literal("target_not_found"),
             intermediateClicksOn: z.array(Result_1.IntermediateClicksOn)
         });
-        Result_1.Result = z.discriminatedUnion("type", [
-            z.object({
-                type: z.literal(taskType),
-                result: z.discriminatedUnion("type", [
-                    Result_1.TaskTargetFound,
-                    Result_1.NotFound
-                ])
-            })
-        ]);
+        Result_1.Result = z.object({
+            type: z.literal(taskType),
+            result: z.discriminatedUnion("type", [
+                Result_1.TaskTargetFound,
+                Result_1.NotFound
+            ])
+        });
     })(Result = YandexPf.Result || (YandexPf.Result = {}));
 })(YandexPf || (exports.YandexPf = YandexPf = {}));

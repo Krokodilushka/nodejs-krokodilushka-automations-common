@@ -9,3 +9,8 @@ export const Tasks = z.discriminatedUnion("type", [
     YandexPfImport.Params.Params,
     ProfileWalkImport.Params.Params,
 ])
+
+export const TaskResults = z.discriminatedUnion("type", [
+    YandexPfImport.Result.Result,
+    ProfileWalkImport.Result.Result,
+])

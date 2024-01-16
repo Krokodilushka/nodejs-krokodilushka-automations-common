@@ -222,7 +222,7 @@ export declare namespace YandexPf {
                 sleepMs: number;
             }[];
         }>;
-        const Result: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
+        const Result: z.ZodObject<{
             type: z.ZodLiteral<"yandex_pf">;
             result: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                 type: z.ZodLiteral<"target_found">;
@@ -346,6 +346,6 @@ export declare namespace YandexPf {
                     sleepMs: number;
                 }[];
             };
-        }>]>;
+        }>;
     }
 }
