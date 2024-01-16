@@ -12,8 +12,5 @@ exports.Task = z.object({
         proxy: z.string().optional(),
         ensureShowImagesMode: z.boolean(),
     }),
-    task: z.discriminatedUnion("type", [
-        tasks_1.YandexPf.Params.Params,
-        tasks_1.ProfileWalk.Params.Params,
-    ]),
+    task: tasks_1.Tasks,
 });

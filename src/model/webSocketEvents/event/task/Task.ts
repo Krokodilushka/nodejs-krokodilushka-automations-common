@@ -1,6 +1,6 @@
 import * as z from "zod";
 import {Cookie} from "../../../Utils";
-import {ProfileWalk, YandexPf} from "../../../tasks";
+import {Tasks} from "../../../tasks";
 
 export const Task = z.object({
     taskID: z.string().min(0),
@@ -10,8 +10,5 @@ export const Task = z.object({
         proxy: z.string().optional(),
         ensureShowImagesMode: z.boolean(),
     }),
-    task: z.discriminatedUnion("type", [
-        YandexPf.Params.Params,
-        ProfileWalk.Params.Params,
-    ]),
+    task: Tasks,
 })
