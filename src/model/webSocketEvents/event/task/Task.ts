@@ -11,4 +11,4 @@ export const Task = z.object({
         ensureShowImagesMode: z.boolean(),
     }),
     task: Tasks,
-})
+}).strict()

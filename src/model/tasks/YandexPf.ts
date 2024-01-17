@@ -20,7 +20,7 @@ export namespace YandexPf {
                 targetUrl: z.string().min(1),
                 followLinks: z.boolean(),
             }
-        )
+        ).strict()
     }
 
     export namespace Result {
@@ -30,7 +30,7 @@ export namespace YandexPf {
             position: z.number().nonnegative(),
             url: z.string().min(1),
             sleepMs: z.number().nonnegative()
-        })
+        }).strict()
 
         export const TaskTargetFound = z.object({
             type: z.literal('target_found'),
@@ -38,12 +38,12 @@ export namespace YandexPf {
             position: z.number().nonnegative(),
             targetUrl: z.string().min(1),
             intermediateClicksOn: z.array(IntermediateClicksOn)
-        })
+        }).strict()
 
         export const NotFound = z.object({
             type: z.literal("target_not_found"),
             intermediateClicksOn: z.array(IntermediateClicksOn)
-        })
+        }).strict()
 
         export const Result = z.object({
             type: z.literal(taskType),
@@ -51,7 +51,7 @@ export namespace YandexPf {
                 TaskTargetFound,
                 NotFound
             ])
-        })
+        }).strict()
 
     }
 }

@@ -9,12 +9,12 @@ export const Cookie = z.object({
     httpOnly: z.boolean(),
     secure: z.boolean(),
     sameSite: z.enum(["Strict", "Lax", "None"])
-})
+}).strict()
 
 export const Range = (min: z.ZodNumber, max: z.ZodNumber) => z.object({
     min: min,
     max: max,
-}).refine(
+}).strict().refine(
     ({min, max}) => min <= max,
     ({min, max}) => ({
         message: `min(${min}) must be <=max(${max})`

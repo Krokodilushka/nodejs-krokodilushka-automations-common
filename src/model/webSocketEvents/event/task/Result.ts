@@ -5,7 +5,7 @@ import {Cookie} from "../../../Utils";
 export const TaskError = z.object({
     status: z.literal('error'),
     message: z.string().min(0)
-})
+}).strict()
 
 export const TaskSuccess = z.object({
     status: z.literal('success'),
@@ -13,7 +13,7 @@ export const TaskSuccess = z.object({
         YandexPf.Params.Params,
         ProfileWalk.Params.Params,
     ])
-})
+}).strict()
 
 export const TaskResult = z.object({
     taskID: z.string().min(0),
@@ -22,4 +22,4 @@ export const TaskResult = z.object({
         TaskError,
         TaskSuccess
     ]),
-})
+}).strict()

@@ -8,7 +8,7 @@ export declare const Cookie: z.ZodObject<{
     httpOnly: z.ZodBoolean;
     secure: z.ZodBoolean;
     sameSite: z.ZodEnum<["Strict", "Lax", "None"]>;
-}, "strip", z.ZodTypeAny, {
+}, "strict", z.ZodTypeAny, {
     name: string;
     value: string;
     path: string;
@@ -30,7 +30,7 @@ export declare const Cookie: z.ZodObject<{
 export declare const Range: (min: z.ZodNumber, max: z.ZodNumber) => z.ZodEffects<z.ZodObject<{
     min: z.ZodNumber;
     max: z.ZodNumber;
-}, "strip", z.ZodTypeAny, {
+}, "strict", z.ZodTypeAny, {
     max: number;
     min: number;
 }, {

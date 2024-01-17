@@ -8,13 +8,13 @@ export namespace ProfileWalk {
         export const UrlToWalk = z.object({
             url: z.string().min(1),
             sleepOnPageMs: z.number().nonnegative().max(300 * 1000)
-        })
+        }).strict()
 
         export const Params = z.object({
             type: z.literal(taskType),
             moveMouse: z.boolean(),
             steps: z.array(UrlToWalk)
-        })
+        }).strict()
     }
 
     export namespace Result {
@@ -29,12 +29,12 @@ export namespace ProfileWalk {
                     status: z.literal('ok')
                 })
             ])
-        })
+        }).strict()
 
         export const Result = z.object({
             type: z.literal(taskType),
             result: z.array(UrlWalkResult)
-        })
+        }).strict()
     }
 
 }

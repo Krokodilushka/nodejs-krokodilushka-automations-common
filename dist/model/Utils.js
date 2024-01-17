@@ -11,11 +11,11 @@ exports.Cookie = z.object({
     httpOnly: z.boolean(),
     secure: z.boolean(),
     sameSite: z.enum(["Strict", "Lax", "None"])
-});
+}).strict();
 const Range = (min, max) => z.object({
     min: min,
     max: max,
-}).refine(({ min, max }) => min <= max, ({ min, max }) => ({
+}).strict().refine(({ min, max }) => min <= max, ({ min, max }) => ({
     message: `min(${min}) must be <=max(${max})`
 }));
 exports.Range = Range;
