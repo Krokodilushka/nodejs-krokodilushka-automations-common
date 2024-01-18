@@ -1,5 +1,6 @@
 import * as z from "zod";
 
+export const proxyRegex = /^(.*):(.*)@(.*)(.*)$/
 export const Cookie = z.object({
     name: z.string().min(0),
     value: z.string().min(0),

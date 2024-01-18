@@ -2,7 +2,7 @@ import * as z from "zod";
 export declare const TaskError: z.ZodObject<{
     status: z.ZodLiteral<"error">;
     message: z.ZodString;
-}, "strip", z.ZodTypeAny, {
+}, "strict", z.ZodTypeAny, {
     message: string;
     status: "error";
 }, {
@@ -21,7 +21,7 @@ export declare const TaskSuccess: z.ZodObject<{
         sleepMsOnSerp: z.ZodEffects<z.ZodObject<{
             min: z.ZodNumber;
             max: z.ZodNumber;
-        }, "strip", z.ZodTypeAny, {
+        }, "strict", z.ZodTypeAny, {
             max: number;
             min: number;
         }, {
@@ -37,7 +37,7 @@ export declare const TaskSuccess: z.ZodObject<{
         sleepMsOnIntermediate: z.ZodEffects<z.ZodObject<{
             min: z.ZodNumber;
             max: z.ZodNumber;
-        }, "strip", z.ZodTypeAny, {
+        }, "strict", z.ZodTypeAny, {
             max: number;
             min: number;
         }, {
@@ -53,7 +53,7 @@ export declare const TaskSuccess: z.ZodObject<{
         sleepMsOnTarget: z.ZodEffects<z.ZodObject<{
             min: z.ZodNumber;
             max: z.ZodNumber;
-        }, "strip", z.ZodTypeAny, {
+        }, "strict", z.ZodTypeAny, {
             max: number;
             min: number;
         }, {
@@ -69,7 +69,7 @@ export declare const TaskSuccess: z.ZodObject<{
         clickOnIntermediateBeforeTarget: z.ZodEffects<z.ZodObject<{
             min: z.ZodNumber;
             max: z.ZodNumber;
-        }, "strip", z.ZodTypeAny, {
+        }, "strict", z.ZodTypeAny, {
             max: number;
             min: number;
         }, {
@@ -84,7 +84,7 @@ export declare const TaskSuccess: z.ZodObject<{
         }>;
         targetUrl: z.ZodString;
         followLinks: z.ZodBoolean;
-    }, "strip", z.ZodTypeAny, {
+    }, "strict", z.ZodTypeAny, {
         type: "yandex_pf";
         lr: number;
         keywordID: string;
@@ -140,14 +140,14 @@ export declare const TaskSuccess: z.ZodObject<{
         steps: z.ZodArray<z.ZodObject<{
             url: z.ZodString;
             sleepOnPageMs: z.ZodNumber;
-        }, "strip", z.ZodTypeAny, {
+        }, "strict", z.ZodTypeAny, {
             url: string;
             sleepOnPageMs: number;
         }, {
             url: string;
             sleepOnPageMs: number;
         }>, "many">;
-    }, "strip", z.ZodTypeAny, {
+    }, "strict", z.ZodTypeAny, {
         type: "profile_walk";
         moveMouse: boolean;
         steps: {
@@ -162,7 +162,7 @@ export declare const TaskSuccess: z.ZodObject<{
             sleepOnPageMs: number;
         }[];
     }>]>;
-}, "strip", z.ZodTypeAny, {
+}, "strict", z.ZodTypeAny, {
     data: {
         type: "yandex_pf";
         lr: number;
@@ -244,7 +244,7 @@ export declare const TaskResult: z.ZodObject<{
         httpOnly: z.ZodBoolean;
         secure: z.ZodBoolean;
         sameSite: z.ZodEnum<["Strict", "Lax", "None"]>;
-    }, "strip", z.ZodTypeAny, {
+    }, "strict", z.ZodTypeAny, {
         name: string;
         value: string;
         path: string;
@@ -266,7 +266,7 @@ export declare const TaskResult: z.ZodObject<{
     result: z.ZodDiscriminatedUnion<"status", [z.ZodObject<{
         status: z.ZodLiteral<"error">;
         message: z.ZodString;
-    }, "strip", z.ZodTypeAny, {
+    }, "strict", z.ZodTypeAny, {
         message: string;
         status: "error";
     }, {
@@ -284,7 +284,7 @@ export declare const TaskResult: z.ZodObject<{
             sleepMsOnSerp: z.ZodEffects<z.ZodObject<{
                 min: z.ZodNumber;
                 max: z.ZodNumber;
-            }, "strip", z.ZodTypeAny, {
+            }, "strict", z.ZodTypeAny, {
                 max: number;
                 min: number;
             }, {
@@ -300,7 +300,7 @@ export declare const TaskResult: z.ZodObject<{
             sleepMsOnIntermediate: z.ZodEffects<z.ZodObject<{
                 min: z.ZodNumber;
                 max: z.ZodNumber;
-            }, "strip", z.ZodTypeAny, {
+            }, "strict", z.ZodTypeAny, {
                 max: number;
                 min: number;
             }, {
@@ -316,7 +316,7 @@ export declare const TaskResult: z.ZodObject<{
             sleepMsOnTarget: z.ZodEffects<z.ZodObject<{
                 min: z.ZodNumber;
                 max: z.ZodNumber;
-            }, "strip", z.ZodTypeAny, {
+            }, "strict", z.ZodTypeAny, {
                 max: number;
                 min: number;
             }, {
@@ -332,7 +332,7 @@ export declare const TaskResult: z.ZodObject<{
             clickOnIntermediateBeforeTarget: z.ZodEffects<z.ZodObject<{
                 min: z.ZodNumber;
                 max: z.ZodNumber;
-            }, "strip", z.ZodTypeAny, {
+            }, "strict", z.ZodTypeAny, {
                 max: number;
                 min: number;
             }, {
@@ -347,7 +347,7 @@ export declare const TaskResult: z.ZodObject<{
             }>;
             targetUrl: z.ZodString;
             followLinks: z.ZodBoolean;
-        }, "strip", z.ZodTypeAny, {
+        }, "strict", z.ZodTypeAny, {
             type: "yandex_pf";
             lr: number;
             keywordID: string;
@@ -403,14 +403,14 @@ export declare const TaskResult: z.ZodObject<{
             steps: z.ZodArray<z.ZodObject<{
                 url: z.ZodString;
                 sleepOnPageMs: z.ZodNumber;
-            }, "strip", z.ZodTypeAny, {
+            }, "strict", z.ZodTypeAny, {
                 url: string;
                 sleepOnPageMs: number;
             }, {
                 url: string;
                 sleepOnPageMs: number;
             }>, "many">;
-        }, "strip", z.ZodTypeAny, {
+        }, "strict", z.ZodTypeAny, {
             type: "profile_walk";
             moveMouse: boolean;
             steps: {
@@ -425,7 +425,7 @@ export declare const TaskResult: z.ZodObject<{
                 sleepOnPageMs: number;
             }[];
         }>]>;
-    }, "strip", z.ZodTypeAny, {
+    }, "strict", z.ZodTypeAny, {
         data: {
             type: "yandex_pf";
             lr: number;
@@ -496,7 +496,7 @@ export declare const TaskResult: z.ZodObject<{
         };
         status: "success";
     }>]>;
-}, "strip", z.ZodTypeAny, {
+}, "strict", z.ZodTypeAny, {
     result: {
         message: string;
         status: "error";

@@ -1,4 +1,5 @@
 import * as z from "zod";
+export declare const proxyRegex: RegExp;
 export declare const Cookie: z.ZodObject<{
     name: z.ZodString;
     value: z.ZodString;

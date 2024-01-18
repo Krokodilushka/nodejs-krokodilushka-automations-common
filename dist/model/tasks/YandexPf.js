@@ -21,7 +21,7 @@ var YandexPf;
             clickOnIntermediateBeforeTarget: (0, Utils_1.Range)(z.number().nonnegative(), z.number().max(300 * 1000)),
             targetUrl: z.string().min(1),
             followLinks: z.boolean(),
-        });
+        }).strict();
     })(Params = YandexPf.Params || (YandexPf.Params = {}));
     let Result;
     (function (Result_1) {
@@ -30,24 +30,24 @@ var YandexPf;
             position: z.number().nonnegative(),
             url: z.string().min(1),
             sleepMs: z.number().nonnegative()
-        });
+        }).strict();
         Result_1.TaskTargetFound = z.object({
             type: z.literal('target_found'),
             page: z.number().nonnegative(),
             position: z.number().nonnegative(),
             targetUrl: z.string().min(1),
             intermediateClicksOn: z.array(Result_1.IntermediateClicksOn)
-        });
+        }).strict();
         Result_1.NotFound = z.object({
             type: z.literal("target_not_found"),
             intermediateClicksOn: z.array(Result_1.IntermediateClicksOn)
-        });
+        }).strict();
         Result_1.Result = z.object({
             type: z.literal(taskType),
             result: z.discriminatedUnion("type", [
                 Result_1.TaskTargetFound,
                 Result_1.NotFound
             ])
-        });
+        }).strict();
     })(Result = YandexPf.Result || (YandexPf.Result = {}));
 })(YandexPf || (exports.YandexPf = YandexPf = {}));

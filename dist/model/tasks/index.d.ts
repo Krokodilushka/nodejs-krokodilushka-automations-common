@@ -13,7 +13,7 @@ export declare const Tasks: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     sleepMsOnSerp: z.ZodEffects<z.ZodObject<{
         min: z.ZodNumber;
         max: z.ZodNumber;
-    }, "strip", z.ZodTypeAny, {
+    }, "strict", z.ZodTypeAny, {
         max: number;
         min: number;
     }, {
@@ -29,7 +29,7 @@ export declare const Tasks: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     sleepMsOnIntermediate: z.ZodEffects<z.ZodObject<{
         min: z.ZodNumber;
         max: z.ZodNumber;
-    }, "strip", z.ZodTypeAny, {
+    }, "strict", z.ZodTypeAny, {
         max: number;
         min: number;
     }, {
@@ -45,7 +45,7 @@ export declare const Tasks: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     sleepMsOnTarget: z.ZodEffects<z.ZodObject<{
         min: z.ZodNumber;
         max: z.ZodNumber;
-    }, "strip", z.ZodTypeAny, {
+    }, "strict", z.ZodTypeAny, {
         max: number;
         min: number;
     }, {
@@ -61,7 +61,7 @@ export declare const Tasks: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     clickOnIntermediateBeforeTarget: z.ZodEffects<z.ZodObject<{
         min: z.ZodNumber;
         max: z.ZodNumber;
-    }, "strip", z.ZodTypeAny, {
+    }, "strict", z.ZodTypeAny, {
         max: number;
         min: number;
     }, {
@@ -76,7 +76,7 @@ export declare const Tasks: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     }>;
     targetUrl: z.ZodString;
     followLinks: z.ZodBoolean;
-}, "strip", z.ZodTypeAny, {
+}, "strict", z.ZodTypeAny, {
     type: "yandex_pf";
     lr: number;
     keywordID: string;
@@ -132,14 +132,14 @@ export declare const Tasks: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     steps: z.ZodArray<z.ZodObject<{
         url: z.ZodString;
         sleepOnPageMs: z.ZodNumber;
-    }, "strip", z.ZodTypeAny, {
+    }, "strict", z.ZodTypeAny, {
         url: string;
         sleepOnPageMs: number;
     }, {
         url: string;
         sleepOnPageMs: number;
     }>, "many">;
-}, "strip", z.ZodTypeAny, {
+}, "strict", z.ZodTypeAny, {
     type: "profile_walk";
     moveMouse: boolean;
     steps: {
@@ -166,7 +166,7 @@ export declare const TaskResults: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             position: z.ZodNumber;
             url: z.ZodString;
             sleepMs: z.ZodNumber;
-        }, "strip", z.ZodTypeAny, {
+        }, "strict", z.ZodTypeAny, {
             url: string;
             page: number;
             position: number;
@@ -177,7 +177,7 @@ export declare const TaskResults: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             position: number;
             sleepMs: number;
         }>, "many">;
-    }, "strip", z.ZodTypeAny, {
+    }, "strict", z.ZodTypeAny, {
         type: "target_found";
         page: number;
         position: number;
@@ -206,7 +206,7 @@ export declare const TaskResults: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             position: z.ZodNumber;
             url: z.ZodString;
             sleepMs: z.ZodNumber;
-        }, "strip", z.ZodTypeAny, {
+        }, "strict", z.ZodTypeAny, {
             url: string;
             page: number;
             position: number;
@@ -217,7 +217,7 @@ export declare const TaskResults: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             position: number;
             sleepMs: number;
         }>, "many">;
-    }, "strip", z.ZodTypeAny, {
+    }, "strict", z.ZodTypeAny, {
         type: "target_not_found";
         intermediateClicksOn: {
             url: string;
@@ -234,7 +234,7 @@ export declare const TaskResults: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             sleepMs: number;
         }[];
     }>]>;
-}, "strip", z.ZodTypeAny, {
+}, "strict", z.ZodTypeAny, {
     type: "yandex_pf";
     result: {
         type: "target_found";
@@ -298,7 +298,7 @@ export declare const TaskResults: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
         }, {
             status: "ok";
         }>]>;
-    }, "strip", z.ZodTypeAny, {
+    }, "strict", z.ZodTypeAny, {
         url: string;
         result: {
             message: string;
@@ -315,7 +315,7 @@ export declare const TaskResults: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
             status: "ok";
         };
     }>, "many">;
-}, "strip", z.ZodTypeAny, {
+}, "strict", z.ZodTypeAny, {
     type: "profile_walk";
     result: {
         url: string;

@@ -4,7 +4,7 @@ export declare namespace ProfileWalk {
         const UrlToWalk: z.ZodObject<{
             url: z.ZodString;
             sleepOnPageMs: z.ZodNumber;
-        }, "strip", z.ZodTypeAny, {
+        }, "strict", z.ZodTypeAny, {
             url: string;
             sleepOnPageMs: number;
         }, {
@@ -17,14 +17,14 @@ export declare namespace ProfileWalk {
             steps: z.ZodArray<z.ZodObject<{
                 url: z.ZodString;
                 sleepOnPageMs: z.ZodNumber;
-            }, "strip", z.ZodTypeAny, {
+            }, "strict", z.ZodTypeAny, {
                 url: string;
                 sleepOnPageMs: number;
             }, {
                 url: string;
                 sleepOnPageMs: number;
             }>, "many">;
-        }, "strip", z.ZodTypeAny, {
+        }, "strict", z.ZodTypeAny, {
             type: "profile_walk";
             moveMouse: boolean;
             steps: {
@@ -59,7 +59,7 @@ export declare namespace ProfileWalk {
             }, {
                 status: "ok";
             }>]>;
-        }, "strip", z.ZodTypeAny, {
+        }, "strict", z.ZodTypeAny, {
             url: string;
             result: {
                 message: string;
@@ -96,7 +96,7 @@ export declare namespace ProfileWalk {
                 }, {
                     status: "ok";
                 }>]>;
-            }, "strip", z.ZodTypeAny, {
+            }, "strict", z.ZodTypeAny, {
                 url: string;
                 result: {
                     message: string;
@@ -113,7 +113,7 @@ export declare namespace ProfileWalk {
                     status: "ok";
                 };
             }>, "many">;
-        }, "strip", z.ZodTypeAny, {
+        }, "strict", z.ZodTypeAny, {
             type: "profile_walk";
             result: {
                 url: string;

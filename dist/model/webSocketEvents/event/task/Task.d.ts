@@ -18,7 +18,7 @@ export declare const Task: z.ZodObject<{
             httpOnly: z.ZodBoolean;
             secure: z.ZodBoolean;
             sameSite: z.ZodEnum<["Strict", "Lax", "None"]>;
-        }, "strip", z.ZodTypeAny, {
+        }, "strict", z.ZodTypeAny, {
             name: string;
             value: string;
             path: string;
@@ -82,7 +82,7 @@ export declare const Task: z.ZodObject<{
         sleepMsOnSerp: z.ZodEffects<z.ZodObject<{
             min: z.ZodNumber;
             max: z.ZodNumber;
-        }, "strip", z.ZodTypeAny, {
+        }, "strict", z.ZodTypeAny, {
             max: number;
             min: number;
         }, {
@@ -98,7 +98,7 @@ export declare const Task: z.ZodObject<{
         sleepMsOnIntermediate: z.ZodEffects<z.ZodObject<{
             min: z.ZodNumber;
             max: z.ZodNumber;
-        }, "strip", z.ZodTypeAny, {
+        }, "strict", z.ZodTypeAny, {
             max: number;
             min: number;
         }, {
@@ -114,7 +114,7 @@ export declare const Task: z.ZodObject<{
         sleepMsOnTarget: z.ZodEffects<z.ZodObject<{
             min: z.ZodNumber;
             max: z.ZodNumber;
-        }, "strip", z.ZodTypeAny, {
+        }, "strict", z.ZodTypeAny, {
             max: number;
             min: number;
         }, {
@@ -130,7 +130,7 @@ export declare const Task: z.ZodObject<{
         clickOnIntermediateBeforeTarget: z.ZodEffects<z.ZodObject<{
             min: z.ZodNumber;
             max: z.ZodNumber;
-        }, "strip", z.ZodTypeAny, {
+        }, "strict", z.ZodTypeAny, {
             max: number;
             min: number;
         }, {
@@ -145,7 +145,7 @@ export declare const Task: z.ZodObject<{
         }>;
         targetUrl: z.ZodString;
         followLinks: z.ZodBoolean;
-    }, "strip", z.ZodTypeAny, {
+    }, "strict", z.ZodTypeAny, {
         type: "yandex_pf";
         lr: number;
         keywordID: string;
@@ -201,14 +201,14 @@ export declare const Task: z.ZodObject<{
         steps: z.ZodArray<z.ZodObject<{
             url: z.ZodString;
             sleepOnPageMs: z.ZodNumber;
-        }, "strip", z.ZodTypeAny, {
+        }, "strict", z.ZodTypeAny, {
             url: string;
             sleepOnPageMs: number;
         }, {
             url: string;
             sleepOnPageMs: number;
         }>, "many">;
-    }, "strip", z.ZodTypeAny, {
+    }, "strict", z.ZodTypeAny, {
         type: "profile_walk";
         moveMouse: boolean;
         steps: {
@@ -223,7 +223,7 @@ export declare const Task: z.ZodObject<{
             sleepOnPageMs: number;
         }[];
     }>]>;
-}, "strip", z.ZodTypeAny, {
+}, "strict", z.ZodTypeAny, {
     taskID: string;
     browserProfile: {
         fingerprint: {

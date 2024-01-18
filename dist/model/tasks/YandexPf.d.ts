@@ -11,7 +11,7 @@ export declare namespace YandexPf {
             sleepMsOnSerp: z.ZodEffects<z.ZodObject<{
                 min: z.ZodNumber;
                 max: z.ZodNumber;
-            }, "strip", z.ZodTypeAny, {
+            }, "strict", z.ZodTypeAny, {
                 max: number;
                 min: number;
             }, {
@@ -27,7 +27,7 @@ export declare namespace YandexPf {
             sleepMsOnIntermediate: z.ZodEffects<z.ZodObject<{
                 min: z.ZodNumber;
                 max: z.ZodNumber;
-            }, "strip", z.ZodTypeAny, {
+            }, "strict", z.ZodTypeAny, {
                 max: number;
                 min: number;
             }, {
@@ -43,7 +43,7 @@ export declare namespace YandexPf {
             sleepMsOnTarget: z.ZodEffects<z.ZodObject<{
                 min: z.ZodNumber;
                 max: z.ZodNumber;
-            }, "strip", z.ZodTypeAny, {
+            }, "strict", z.ZodTypeAny, {
                 max: number;
                 min: number;
             }, {
@@ -59,7 +59,7 @@ export declare namespace YandexPf {
             clickOnIntermediateBeforeTarget: z.ZodEffects<z.ZodObject<{
                 min: z.ZodNumber;
                 max: z.ZodNumber;
-            }, "strip", z.ZodTypeAny, {
+            }, "strict", z.ZodTypeAny, {
                 max: number;
                 min: number;
             }, {
@@ -74,7 +74,7 @@ export declare namespace YandexPf {
             }>;
             targetUrl: z.ZodString;
             followLinks: z.ZodBoolean;
-        }, "strip", z.ZodTypeAny, {
+        }, "strict", z.ZodTypeAny, {
             type: "yandex_pf";
             lr: number;
             keywordID: string;
@@ -132,7 +132,7 @@ export declare namespace YandexPf {
             position: z.ZodNumber;
             url: z.ZodString;
             sleepMs: z.ZodNumber;
-        }, "strip", z.ZodTypeAny, {
+        }, "strict", z.ZodTypeAny, {
             url: string;
             page: number;
             position: number;
@@ -153,7 +153,7 @@ export declare namespace YandexPf {
                 position: z.ZodNumber;
                 url: z.ZodString;
                 sleepMs: z.ZodNumber;
-            }, "strip", z.ZodTypeAny, {
+            }, "strict", z.ZodTypeAny, {
                 url: string;
                 page: number;
                 position: number;
@@ -164,7 +164,7 @@ export declare namespace YandexPf {
                 position: number;
                 sleepMs: number;
             }>, "many">;
-        }, "strip", z.ZodTypeAny, {
+        }, "strict", z.ZodTypeAny, {
             type: "target_found";
             page: number;
             position: number;
@@ -194,7 +194,7 @@ export declare namespace YandexPf {
                 position: z.ZodNumber;
                 url: z.ZodString;
                 sleepMs: z.ZodNumber;
-            }, "strip", z.ZodTypeAny, {
+            }, "strict", z.ZodTypeAny, {
                 url: string;
                 page: number;
                 position: number;
@@ -205,7 +205,7 @@ export declare namespace YandexPf {
                 position: number;
                 sleepMs: number;
             }>, "many">;
-        }, "strip", z.ZodTypeAny, {
+        }, "strict", z.ZodTypeAny, {
             type: "target_not_found";
             intermediateClicksOn: {
                 url: string;
@@ -234,7 +234,7 @@ export declare namespace YandexPf {
                     position: z.ZodNumber;
                     url: z.ZodString;
                     sleepMs: z.ZodNumber;
-                }, "strip", z.ZodTypeAny, {
+                }, "strict", z.ZodTypeAny, {
                     url: string;
                     page: number;
                     position: number;
@@ -245,7 +245,7 @@ export declare namespace YandexPf {
                     position: number;
                     sleepMs: number;
                 }>, "many">;
-            }, "strip", z.ZodTypeAny, {
+            }, "strict", z.ZodTypeAny, {
                 type: "target_found";
                 page: number;
                 position: number;
@@ -274,7 +274,7 @@ export declare namespace YandexPf {
                     position: z.ZodNumber;
                     url: z.ZodString;
                     sleepMs: z.ZodNumber;
-                }, "strip", z.ZodTypeAny, {
+                }, "strict", z.ZodTypeAny, {
                     url: string;
                     page: number;
                     position: number;
@@ -285,7 +285,7 @@ export declare namespace YandexPf {
                     position: number;
                     sleepMs: number;
                 }>, "many">;
-            }, "strip", z.ZodTypeAny, {
+            }, "strict", z.ZodTypeAny, {
                 type: "target_not_found";
                 intermediateClicksOn: {
                     url: string;
@@ -302,7 +302,7 @@ export declare namespace YandexPf {
                     sleepMs: number;
                 }[];
             }>]>;
-        }, "strip", z.ZodTypeAny, {
+        }, "strict", z.ZodTypeAny, {
             type: "yandex_pf";
             result: {
                 type: "target_found";

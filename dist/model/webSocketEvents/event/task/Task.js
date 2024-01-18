@@ -9,8 +9,8 @@ exports.Task = z.object({
     browserProfile: z.object({
         fingerprint: z.object({ valid: z.literal(true) }),
         cookies: z.array(Utils_1.Cookie),
-        proxy: z.string().optional(),
+        proxy: z.string().regex(Utils_1.proxyRegex).optional(),
         ensureShowImagesMode: z.boolean(),
     }),
     task: tasks_1.Tasks,
-});
+}).strict();
