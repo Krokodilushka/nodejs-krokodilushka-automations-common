@@ -5,7 +5,7 @@ const z = require("zod");
 exports.proxyRegex = /^(.*):(.*)@(.*)(.*)$/;
 exports.CookieZod = z.object({
     name: z.string().min(1),
-    value: z.string().min(0),
+    value: z.string().optional(),
     domain: z.string().min(1),
     path: z.string().min(1),
     expires: z.number(),

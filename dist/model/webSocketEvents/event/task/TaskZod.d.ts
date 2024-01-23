@@ -5,7 +5,7 @@ export declare const TaskZod: z.ZodObject<{
         groupID: z.ZodString;
         cookies: z.ZodArray<z.ZodObject<{
             name: z.ZodString;
-            value: z.ZodString;
+            value: z.ZodOptional<z.ZodString>;
             domain: z.ZodString;
             path: z.ZodString;
             expires: z.ZodNumber;
@@ -14,22 +14,22 @@ export declare const TaskZod: z.ZodObject<{
             sameSite: z.ZodEnum<["Strict", "Lax", "None"]>;
         }, "strict", z.ZodTypeAny, {
             name: string;
-            value: string;
             path: string;
             domain: string;
             expires: number;
             httpOnly: boolean;
             secure: boolean;
             sameSite: "Strict" | "Lax" | "None";
+            value?: string | undefined;
         }, {
             name: string;
-            value: string;
             path: string;
             domain: string;
             expires: number;
             httpOnly: boolean;
             secure: boolean;
             sameSite: "Strict" | "Lax" | "None";
+            value?: string | undefined;
         }>, "many">;
         fingerprint: z.ZodObject<{
             valid: z.ZodLiteral<true>;
@@ -44,13 +44,13 @@ export declare const TaskZod: z.ZodObject<{
         groupID: string;
         cookies: {
             name: string;
-            value: string;
             path: string;
             domain: string;
             expires: number;
             httpOnly: boolean;
             secure: boolean;
             sameSite: "Strict" | "Lax" | "None";
+            value?: string | undefined;
         }[];
         fingerprint: {
             valid: true;
@@ -63,13 +63,13 @@ export declare const TaskZod: z.ZodObject<{
         groupID: string;
         cookies: {
             name: string;
-            value: string;
             path: string;
             domain: string;
             expires: number;
             httpOnly: boolean;
             secure: boolean;
             sameSite: "Strict" | "Lax" | "None";
+            value?: string | undefined;
         }[];
         fingerprint: {
             valid: true;
@@ -248,13 +248,13 @@ export declare const TaskZod: z.ZodObject<{
         groupID: string;
         cookies: {
             name: string;
-            value: string;
             path: string;
             domain: string;
             expires: number;
             httpOnly: boolean;
             secure: boolean;
             sameSite: "Strict" | "Lax" | "None";
+            value?: string | undefined;
         }[];
         fingerprint: {
             valid: true;
@@ -307,13 +307,13 @@ export declare const TaskZod: z.ZodObject<{
         groupID: string;
         cookies: {
             name: string;
-            value: string;
             path: string;
             domain: string;
             expires: number;
             httpOnly: boolean;
             secure: boolean;
             sameSite: "Strict" | "Lax" | "None";
+            value?: string | undefined;
         }[];
         fingerprint: {
             valid: true;
