@@ -12,8 +12,8 @@ export type TaskErrorType = z.infer<typeof TaskError>
 export const TaskSuccess = z.object({
     status: z.literal('success'),
     data: z.discriminatedUnion('type', [
-        YandexPf.Params.Params,
-        ProfileWalk.Params.Params,
+        YandexPf.Result.Result,
+        ProfileWalk.Result.Result,
     ])
 }).strict()
 export type TaskSuccessType = z.infer<typeof TaskSuccess>

@@ -11,8 +11,8 @@ exports.TaskError = z.object({
 exports.TaskSuccess = z.object({
     status: z.literal('success'),
     data: z.discriminatedUnion('type', [
-        tasks_1.YandexPf.Params.Params,
-        tasks_1.ProfileWalk.Params.Params,
+        tasks_1.YandexPf.Result.Result,
+        tasks_1.ProfileWalk.Result.Result,
     ])
 }).strict();
 exports.TaskResult = z.object({
