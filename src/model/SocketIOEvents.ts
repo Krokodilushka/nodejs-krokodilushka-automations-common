@@ -14,7 +14,6 @@ export namespace SocketIOEvents {
 
     export interface ClientToServerEvents {
         task_response: (
-            taskID: string,
             result: z.infer<typeof Event.Task.Result.TaskResult>,
             activeTasks: string[]
         ) => void;
