@@ -7,7 +7,7 @@ export const TaskError = z.object({
     status: z.literal('error'),
     message: z.string().min(0)
 }).strict()
-export type TaskErrorType = z.infer<typeof TaskZod>
+export type TaskErrorType = z.infer<typeof TaskError>
 
 export const TaskSuccess = z.object({
     status: z.literal('success'),
@@ -16,7 +16,7 @@ export const TaskSuccess = z.object({
         ProfileWalk.Params.Params,
     ])
 }).strict()
-export type TaskSuccessType = z.infer<typeof TaskZod>
+export type TaskSuccessType = z.infer<typeof TaskSuccess>
 
 export const TaskResult = z.object({
     taskID: z.string().min(1),
