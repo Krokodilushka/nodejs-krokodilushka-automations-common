@@ -1,6 +1,5 @@
 import * as z from "zod";
 export declare const TaskZod: z.ZodObject<{
-    taskID: z.ZodString;
     browser: z.ZodObject<{
         profileID: z.ZodString;
         groupID: z.ZodString;
@@ -264,7 +263,6 @@ export declare const TaskZod: z.ZodObject<{
         };
         imagesEnabled: boolean;
     };
-    taskID: string;
     task: {
         type: "yandex_pf";
         lr: number;
@@ -324,7 +322,6 @@ export declare const TaskZod: z.ZodObject<{
         };
         imagesEnabled: boolean;
     };
-    taskID: string;
     task: {
         type: "yandex_pf";
         lr: number;

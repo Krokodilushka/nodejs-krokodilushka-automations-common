@@ -3,7 +3,6 @@ import {CookieZod, fingerprintZod, proxyRegex} from "../../../Utils";
 import {Tasks} from "../../../tasks";
 
 export const TaskZod = z.object({
-    taskID: z.string().min(0),
     browser: z.object({
         profileID: z.string().min(1),
         groupID: z.string().min(1),

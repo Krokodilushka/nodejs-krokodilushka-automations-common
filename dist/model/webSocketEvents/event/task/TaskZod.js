@@ -5,7 +5,6 @@ const z = require("zod");
 const Utils_1 = require("../../../Utils");
 const tasks_1 = require("../../../tasks");
 exports.TaskZod = z.object({
-    taskID: z.string().min(0),
     browser: z.object({
         profileID: z.string().min(1),
         groupID: z.string().min(1),
