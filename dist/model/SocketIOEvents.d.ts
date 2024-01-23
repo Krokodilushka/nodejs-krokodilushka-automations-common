@@ -6,7 +6,7 @@ export declare namespace SocketIOEvents {
         info: (callback: (name: ClientInfo) => void) => void;
     }
     interface ClientToServerEvents {
-        task_response: (taskID: string, result: z.infer<typeof Event.Task.Result.TaskResult>, activeTasks: string[]) => void;
+        task_response: (result: z.infer<typeof Event.Task.Result.TaskResult>, activeTasks: string[]) => void;
     }
     interface ClientInfo {
         name: string;
