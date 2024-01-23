@@ -3,7 +3,7 @@ import * as z from "zod";
 export const proxyRegex = /^(.*):(.*)@(.*)(.*)$/
 export const CookieZod = z.object({
     name: z.string().min(1),
-    value: z.string().min(0),
+    value: z.string(),
     domain: z.string().min(1),
     path: z.string().min(1),
     expires: z.number(),
