@@ -2,11 +2,11 @@ import * as z from "zod";
 import { Event } from "./webSocketEvents";
 export declare namespace SocketIOEvents {
     interface ServerToClientEvents {
-        task: (task: Event.Task.Task.TaskZodType, callback: ((activeTasks: string[]) => void)) => void;
+        task: (taskID: string, task: Event.Task.Task.TaskZodType, callback: ((activeTasks: string[]) => void)) => void;
         info: (callback: (name: ClientInfo) => void) => void;
     }
     interface ClientToServerEvents {
-        task_response: (result: z.infer<typeof Event.Task.Result.TaskResult>, activeTasks: string[]) => void;
+        task_response: (taskID: string, result: z.infer<typeof Event.Task.Result.TaskResult>, activeTasks: string[]) => void;
     }
     interface ClientInfo {
         name: string;

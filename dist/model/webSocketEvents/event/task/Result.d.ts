@@ -235,34 +235,58 @@ export declare const TaskSuccess: z.ZodObject<{
 }>;
 export declare const TaskResult: z.ZodObject<{
     taskID: z.ZodString;
-    cookies: z.ZodNullable<z.ZodArray<z.ZodObject<{
-        name: z.ZodString;
-        value: z.ZodString;
-        domain: z.ZodString;
-        path: z.ZodString;
-        expires: z.ZodNumber;
-        httpOnly: z.ZodBoolean;
-        secure: z.ZodBoolean;
-        sameSite: z.ZodEnum<["Strict", "Lax", "None"]>;
-    }, "strict", z.ZodTypeAny, {
-        name: string;
-        value: string;
-        path: string;
-        domain: string;
-        expires: number;
-        httpOnly: boolean;
-        secure: boolean;
-        sameSite: "Strict" | "Lax" | "None";
+    browser: z.ZodOptional<z.ZodObject<{
+        cookies: z.ZodArray<z.ZodObject<{
+            name: z.ZodString;
+            value: z.ZodString;
+            domain: z.ZodString;
+            path: z.ZodString;
+            expires: z.ZodNumber;
+            httpOnly: z.ZodBoolean;
+            secure: z.ZodBoolean;
+            sameSite: z.ZodEnum<["Strict", "Lax", "None"]>;
+        }, "strict", z.ZodTypeAny, {
+            name: string;
+            value: string;
+            path: string;
+            domain: string;
+            expires: number;
+            httpOnly: boolean;
+            secure: boolean;
+            sameSite: "Strict" | "Lax" | "None";
+        }, {
+            name: string;
+            value: string;
+            path: string;
+            domain: string;
+            expires: number;
+            httpOnly: boolean;
+            secure: boolean;
+            sameSite: "Strict" | "Lax" | "None";
+        }>, "many">;
+    }, "strip", z.ZodTypeAny, {
+        cookies: {
+            name: string;
+            value: string;
+            path: string;
+            domain: string;
+            expires: number;
+            httpOnly: boolean;
+            secure: boolean;
+            sameSite: "Strict" | "Lax" | "None";
+        }[];
     }, {
-        name: string;
-        value: string;
-        path: string;
-        domain: string;
-        expires: number;
-        httpOnly: boolean;
-        secure: boolean;
-        sameSite: "Strict" | "Lax" | "None";
-    }>, "many">>;
+        cookies: {
+            name: string;
+            value: string;
+            path: string;
+            domain: string;
+            expires: number;
+            httpOnly: boolean;
+            secure: boolean;
+            sameSite: "Strict" | "Lax" | "None";
+        }[];
+    }>>;
     result: z.ZodDiscriminatedUnion<"status", [z.ZodObject<{
         status: z.ZodLiteral<"error">;
         message: z.ZodString;
@@ -537,16 +561,18 @@ export declare const TaskResult: z.ZodObject<{
         status: "success";
     };
     taskID: string;
-    cookies: {
-        name: string;
-        value: string;
-        path: string;
-        domain: string;
-        expires: number;
-        httpOnly: boolean;
-        secure: boolean;
-        sameSite: "Strict" | "Lax" | "None";
-    }[] | null;
+    browser?: {
+        cookies: {
+            name: string;
+            value: string;
+            path: string;
+            domain: string;
+            expires: number;
+            httpOnly: boolean;
+            secure: boolean;
+            sameSite: "Strict" | "Lax" | "None";
+        }[];
+    } | undefined;
 }, {
     result: {
         message: string;
@@ -588,14 +614,16 @@ export declare const TaskResult: z.ZodObject<{
         status: "success";
     };
     taskID: string;
-    cookies: {
-        name: string;
-        value: string;
-        path: string;
-        domain: string;
-        expires: number;
-        httpOnly: boolean;
-        secure: boolean;
-        sameSite: "Strict" | "Lax" | "None";
-    }[] | null;
+    browser?: {
+        cookies: {
+            name: string;
+            value: string;
+            path: string;
+            domain: string;
+            expires: number;
+            httpOnly: boolean;
+            secure: boolean;
+            sameSite: "Strict" | "Lax" | "None";
+        }[];
+    } | undefined;
 }>;

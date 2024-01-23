@@ -16,8 +16,10 @@ export const TaskSuccess = z.object({
 }).strict()
 
 export const TaskResult = z.object({
-    taskID: z.string().min(0),
-    cookies: z.array(CookieZod).nullable(),
+    taskID: z.string().min(1),
+    browser: z.object({
+        cookies: z.array(CookieZod),
+    }).optional(),
     result: z.discriminatedUnion("status", [
         TaskError,
         TaskSuccess
