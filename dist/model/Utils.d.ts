@@ -1,6 +1,6 @@
 import * as z from "zod";
 export declare const proxyRegex: RegExp;
-export declare const Cookie: z.ZodObject<{
+export declare const CookieZod: z.ZodObject<{
     name: z.ZodString;
     value: z.ZodString;
     domain: z.ZodString;
@@ -28,7 +28,7 @@ export declare const Cookie: z.ZodObject<{
     secure: boolean;
     sameSite: "Strict" | "Lax" | "None";
 }>;
-export declare const Range: (min: z.ZodNumber, max: z.ZodNumber) => z.ZodEffects<z.ZodObject<{
+export declare const RangeZod: (min: z.ZodNumber, max: z.ZodNumber) => z.ZodEffects<z.ZodObject<{
     min: z.ZodNumber;
     max: z.ZodNumber;
 }, "strict", z.ZodTypeAny, {
@@ -44,4 +44,11 @@ export declare const Range: (min: z.ZodNumber, max: z.ZodNumber) => z.ZodEffects
     max: number;
     min: number;
 }>;
-export declare const UnixTimestampSeconds: z.ZodNumber;
+export declare const UnixTimestampSecondsZod: z.ZodNumber;
+export declare const fingerprintZod: z.ZodObject<{
+    valid: z.ZodLiteral<true>;
+}, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+    valid: z.ZodLiteral<true>;
+}, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+    valid: z.ZodLiteral<true>;
+}, z.ZodTypeAny, "passthrough">>;

@@ -1,5 +1,5 @@
 import * as z from "zod";
-import {Range} from "../Utils";
+import {RangeZod} from "../Utils";
 
 export namespace YandexPf {
 
@@ -13,10 +13,10 @@ export namespace YandexPf {
                 moveMouseOnSerp: z.boolean(),
                 lr: z.number().nonnegative(),
                 maxPages: z.number().nonnegative(),
-                sleepMsOnSerp: Range(z.number().nonnegative(), z.number().max(300 * 1000)),
-                sleepMsOnIntermediate: Range(z.number().nonnegative(), z.number().max(300 * 1000)),
-                sleepMsOnTarget: Range(z.number().nonnegative(), z.number().max(300 * 1000)),
-                clickOnIntermediateBeforeTarget: Range(z.number().nonnegative(), z.number().max(300 * 1000)),
+                sleepMsOnSerp: RangeZod(z.number().nonnegative(), z.number().max(300 * 1000)),
+                sleepMsOnIntermediate: RangeZod(z.number().nonnegative(), z.number().max(300 * 1000)),
+                sleepMsOnTarget: RangeZod(z.number().nonnegative(), z.number().max(300 * 1000)),
+                clickOnIntermediateBeforeTarget: RangeZod(z.number().nonnegative(), z.number().max(300 * 1000)),
                 targetUrl: z.string().min(1),
                 followLinks: z.boolean(),
             }

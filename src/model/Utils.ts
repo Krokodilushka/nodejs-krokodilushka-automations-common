@@ -1,7 +1,7 @@
 import * as z from "zod";
 
 export const proxyRegex = /^(.*):(.*)@(.*)(.*)$/
-export const Cookie = z.object({
+export const CookieZod = z.object({
     name: z.string().min(0),
     value: z.string().min(0),
     domain: z.string().min(0),
@@ -12,7 +12,7 @@ export const Cookie = z.object({
     sameSite: z.enum(["Strict", "Lax", "None"])
 }).strict()
 
-export const Range = (min: z.ZodNumber, max: z.ZodNumber) => z.object({
+export const RangeZod = (min: z.ZodNumber, max: z.ZodNumber) => z.object({
     min: min,
     max: max,
 }).strict().refine(
@@ -22,4 +22,7 @@ export const Range = (min: z.ZodNumber, max: z.ZodNumber) => z.object({
     })
 )
 
-export const UnixTimestampSeconds = z.number().min(0).max(253402300799)
+export const UnixTimestampSecondsZod = z.number().min(0).max(253402300799)
+export const fingerprintZod = z.object({
+    valid: z.literal(true)
+}).passthrough()

@@ -5,7 +5,7 @@ export namespace SocketIOEvents {
 
     export interface ServerToClientEvents {
         task: (
-            task: z.infer<typeof Event.Task.Task>,
+            task: Event.Task.Task.TaskZodType,
             callback: ((activeTasks: string[]) => void)
         ) => void;
         info: (callback: (name: ClientInfo) => void) => void;

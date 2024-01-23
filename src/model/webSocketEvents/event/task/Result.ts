@@ -1,6 +1,6 @@
 import * as z from "zod";
 import {ProfileWalk, YandexPf} from "../../../tasks";
-import {Cookie} from "../../../Utils";
+import {CookieZod} from "../../../Utils";
 
 export const TaskError = z.object({
     status: z.literal('error'),
@@ -17,7 +17,7 @@ export const TaskSuccess = z.object({
 
 export const TaskResult = z.object({
     taskID: z.string().min(0),
-    cookies: z.array(Cookie).nullable(),
+    cookies: z.array(CookieZod).nullable(),
     result: z.discriminatedUnion("status", [
         TaskError,
         TaskSuccess

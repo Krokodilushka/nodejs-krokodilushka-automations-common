@@ -1,14 +1,9 @@
 import * as z from "zod";
-export declare const Task: z.ZodObject<{
+export declare const TaskZod: z.ZodObject<{
     taskID: z.ZodString;
-    browserProfile: z.ZodObject<{
-        fingerprint: z.ZodObject<{
-            valid: z.ZodLiteral<true>;
-        }, "strip", z.ZodTypeAny, {
-            valid: true;
-        }, {
-            valid: true;
-        }>;
+    browser: z.ZodObject<{
+        profileID: z.ZodString;
+        groupID: z.ZodString;
         cookies: z.ZodArray<z.ZodObject<{
             name: z.ZodString;
             value: z.ZodString;
@@ -37,12 +32,17 @@ export declare const Task: z.ZodObject<{
             secure: boolean;
             sameSite: "Strict" | "Lax" | "None";
         }>, "many">;
-        proxy: z.ZodOptional<z.ZodString>;
-        ensureShowImagesMode: z.ZodBoolean;
+        fingerprint: z.ZodObject<{
+            valid: z.ZodLiteral<true>;
+        }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
+            valid: z.ZodLiteral<true>;
+        }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
+            valid: z.ZodLiteral<true>;
+        }, z.ZodTypeAny, "passthrough">>;
+        imagesEnabled: z.ZodBoolean;
     }, "strip", z.ZodTypeAny, {
-        fingerprint: {
-            valid: true;
-        };
+        profileID: string;
+        groupID: string;
         cookies: {
             name: string;
             value: string;
@@ -53,12 +53,15 @@ export declare const Task: z.ZodObject<{
             secure: boolean;
             sameSite: "Strict" | "Lax" | "None";
         }[];
-        ensureShowImagesMode: boolean;
-        proxy?: string | undefined;
+        fingerprint: {
+            valid: true;
+        } & {
+            [k: string]: unknown;
+        };
+        imagesEnabled: boolean;
     }, {
-        fingerprint: {
-            valid: true;
-        };
+        profileID: string;
+        groupID: string;
         cookies: {
             name: string;
             value: string;
@@ -69,9 +72,26 @@ export declare const Task: z.ZodObject<{
             secure: boolean;
             sameSite: "Strict" | "Lax" | "None";
         }[];
-        ensureShowImagesMode: boolean;
-        proxy?: string | undefined;
+        fingerprint: {
+            valid: true;
+        } & {
+            [k: string]: unknown;
+        };
+        imagesEnabled: boolean;
     }>;
+    proxy: z.ZodOptional<z.ZodObject<{
+        id: z.ZodString;
+        groupID: z.ZodString;
+        value: z.ZodString;
+    }, "strip", z.ZodTypeAny, {
+        id: string;
+        value: string;
+        groupID: string;
+    }, {
+        id: string;
+        value: string;
+        groupID: string;
+    }>>;
     task: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
         type: z.ZodLiteral<"yandex_pf">;
         keywordID: z.ZodString;
@@ -224,11 +244,9 @@ export declare const Task: z.ZodObject<{
         }[];
     }>]>;
 }, "strict", z.ZodTypeAny, {
-    taskID: string;
-    browserProfile: {
-        fingerprint: {
-            valid: true;
-        };
+    browser: {
+        profileID: string;
+        groupID: string;
         cookies: {
             name: string;
             value: string;
@@ -239,9 +257,14 @@ export declare const Task: z.ZodObject<{
             secure: boolean;
             sameSite: "Strict" | "Lax" | "None";
         }[];
-        ensureShowImagesMode: boolean;
-        proxy?: string | undefined;
+        fingerprint: {
+            valid: true;
+        } & {
+            [k: string]: unknown;
+        };
+        imagesEnabled: boolean;
     };
+    taskID: string;
     task: {
         type: "yandex_pf";
         lr: number;
@@ -275,12 +298,15 @@ export declare const Task: z.ZodObject<{
             sleepOnPageMs: number;
         }[];
     };
+    proxy?: {
+        id: string;
+        value: string;
+        groupID: string;
+    } | undefined;
 }, {
-    taskID: string;
-    browserProfile: {
-        fingerprint: {
-            valid: true;
-        };
+    browser: {
+        profileID: string;
+        groupID: string;
         cookies: {
             name: string;
             value: string;
@@ -291,9 +317,14 @@ export declare const Task: z.ZodObject<{
             secure: boolean;
             sameSite: "Strict" | "Lax" | "None";
         }[];
-        ensureShowImagesMode: boolean;
-        proxy?: string | undefined;
+        fingerprint: {
+            valid: true;
+        } & {
+            [k: string]: unknown;
+        };
+        imagesEnabled: boolean;
     };
+    taskID: string;
     task: {
         type: "yandex_pf";
         lr: number;
@@ -327,4 +358,10 @@ export declare const Task: z.ZodObject<{
             sleepOnPageMs: number;
         }[];
     };
+    proxy?: {
+        id: string;
+        value: string;
+        groupID: string;
+    } | undefined;
 }>;
+export type TaskZodType = z.infer<typeof TaskZod>;
