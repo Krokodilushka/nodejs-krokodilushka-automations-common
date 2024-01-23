@@ -11,6 +11,7 @@ export const CookieZod = z.object({
     secure: z.boolean(),
     sameSite: z.enum(["Strict", "Lax", "None"])
 }).strict()
+export type CookieType = z.infer<typeof CookieZod>
 
 export const RangeZod = (min: z.ZodNumber, max: z.ZodNumber) => z.object({
     min: min,

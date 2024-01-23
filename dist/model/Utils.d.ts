@@ -28,6 +28,7 @@ export declare const CookieZod: z.ZodObject<{
     secure: boolean;
     sameSite: "Strict" | "Lax" | "None";
 }>;
+export type CookieType = z.infer<typeof CookieZod>;
 export declare const RangeZod: (min: z.ZodNumber, max: z.ZodNumber) => z.ZodEffects<z.ZodObject<{
     min: z.ZodNumber;
     max: z.ZodNumber;
