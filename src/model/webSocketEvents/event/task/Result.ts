@@ -21,7 +21,7 @@ export type TaskSuccessType = z.infer<typeof TaskSuccess>
 export const TaskResult = z.object({
     taskID: z.string().min(1),
     browser: z.object({
-        cookies: z.array(CookieZod),
+        cookies: CookieZod.array().nullable(),
     }).optional(),
     result: z.discriminatedUnion("status", [
         TaskError,

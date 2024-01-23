@@ -238,7 +238,7 @@ export type TaskSuccessType = z.infer<typeof TaskSuccess>;
 export declare const TaskResult: z.ZodObject<{
     taskID: z.ZodString;
     browser: z.ZodOptional<z.ZodObject<{
-        cookies: z.ZodArray<z.ZodObject<{
+        cookies: z.ZodNullable<z.ZodArray<z.ZodObject<{
             name: z.ZodString;
             value: z.ZodString;
             domain: z.ZodString;
@@ -265,7 +265,7 @@ export declare const TaskResult: z.ZodObject<{
             httpOnly: boolean;
             secure: boolean;
             sameSite: "Strict" | "Lax" | "None";
-        }>, "many">;
+        }>, "many">>;
     }, "strip", z.ZodTypeAny, {
         cookies: {
             name: string;
@@ -276,7 +276,7 @@ export declare const TaskResult: z.ZodObject<{
             httpOnly: boolean;
             secure: boolean;
             sameSite: "Strict" | "Lax" | "None";
-        }[];
+        }[] | null;
     }, {
         cookies: {
             name: string;
@@ -287,7 +287,7 @@ export declare const TaskResult: z.ZodObject<{
             httpOnly: boolean;
             secure: boolean;
             sameSite: "Strict" | "Lax" | "None";
-        }[];
+        }[] | null;
     }>>;
     result: z.ZodDiscriminatedUnion<"status", [z.ZodObject<{
         status: z.ZodLiteral<"error">;
@@ -573,7 +573,7 @@ export declare const TaskResult: z.ZodObject<{
             httpOnly: boolean;
             secure: boolean;
             sameSite: "Strict" | "Lax" | "None";
-        }[];
+        }[] | null;
     } | undefined;
 }, {
     result: {
@@ -626,7 +626,7 @@ export declare const TaskResult: z.ZodObject<{
             httpOnly: boolean;
             secure: boolean;
             sameSite: "Strict" | "Lax" | "None";
-        }[];
+        }[] | null;
     } | undefined;
 }>;
 export type TaskResultType = z.infer<typeof TaskResult>;

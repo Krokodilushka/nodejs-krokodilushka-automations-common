@@ -18,7 +18,7 @@ exports.TaskSuccess = z.object({
 exports.TaskResult = z.object({
     taskID: z.string().min(1),
     browser: z.object({
-        cookies: z.array(Utils_1.CookieZod),
+        cookies: Utils_1.CookieZod.array().nullable(),
     }).optional(),
     result: z.discriminatedUnion("status", [
         exports.TaskError,
