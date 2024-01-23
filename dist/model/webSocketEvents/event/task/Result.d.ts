@@ -275,7 +275,7 @@ export declare const TaskResult: z.ZodObject<{
     browser: z.ZodOptional<z.ZodObject<{
         cookies: z.ZodNullable<z.ZodArray<z.ZodObject<{
             name: z.ZodString;
-            value: z.ZodOptional<z.ZodString>;
+            value: z.ZodString;
             domain: z.ZodString;
             path: z.ZodString;
             expires: z.ZodNumber;
@@ -284,44 +284,44 @@ export declare const TaskResult: z.ZodObject<{
             sameSite: z.ZodEnum<["Strict", "Lax", "None"]>;
         }, "strict", z.ZodTypeAny, {
             name: string;
+            value: string;
             path: string;
             domain: string;
             expires: number;
             httpOnly: boolean;
             secure: boolean;
             sameSite: "Strict" | "Lax" | "None";
-            value?: string | undefined;
         }, {
             name: string;
+            value: string;
             path: string;
             domain: string;
             expires: number;
             httpOnly: boolean;
             secure: boolean;
             sameSite: "Strict" | "Lax" | "None";
-            value?: string | undefined;
         }>, "many">>;
     }, "strip", z.ZodTypeAny, {
         cookies: {
             name: string;
+            value: string;
             path: string;
             domain: string;
             expires: number;
             httpOnly: boolean;
             secure: boolean;
             sameSite: "Strict" | "Lax" | "None";
-            value?: string | undefined;
         }[] | null;
     }, {
         cookies: {
             name: string;
+            value: string;
             path: string;
             domain: string;
             expires: number;
             httpOnly: boolean;
             secure: boolean;
             sameSite: "Strict" | "Lax" | "None";
-            value?: string | undefined;
         }[] | null;
     }>>;
     result: z.ZodDiscriminatedUnion<"status", [z.ZodObject<{
@@ -637,13 +637,13 @@ export declare const TaskResult: z.ZodObject<{
     browser?: {
         cookies: {
             name: string;
+            value: string;
             path: string;
             domain: string;
             expires: number;
             httpOnly: boolean;
             secure: boolean;
             sameSite: "Strict" | "Lax" | "None";
-            value?: string | undefined;
         }[] | null;
     } | undefined;
 }, {
@@ -691,13 +691,13 @@ export declare const TaskResult: z.ZodObject<{
     browser?: {
         cookies: {
             name: string;
+            value: string;
             path: string;
             domain: string;
             expires: number;
             httpOnly: boolean;
             secure: boolean;
             sameSite: "Strict" | "Lax" | "None";
-            value?: string | undefined;
         }[] | null;
     } | undefined;
 }>;

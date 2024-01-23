@@ -2,7 +2,7 @@ import * as z from "zod";
 export declare const proxyRegex: RegExp;
 export declare const CookieZod: z.ZodObject<{
     name: z.ZodString;
-    value: z.ZodOptional<z.ZodString>;
+    value: z.ZodString;
     domain: z.ZodString;
     path: z.ZodString;
     expires: z.ZodNumber;
@@ -11,22 +11,22 @@ export declare const CookieZod: z.ZodObject<{
     sameSite: z.ZodEnum<["Strict", "Lax", "None"]>;
 }, "strict", z.ZodTypeAny, {
     name: string;
+    value: string;
     path: string;
     domain: string;
     expires: number;
     httpOnly: boolean;
     secure: boolean;
     sameSite: "Strict" | "Lax" | "None";
-    value?: string | undefined;
 }, {
     name: string;
+    value: string;
     path: string;
     domain: string;
     expires: number;
     httpOnly: boolean;
     secure: boolean;
     sameSite: "Strict" | "Lax" | "None";
-    value?: string | undefined;
 }>;
 export type CookieType = z.infer<typeof CookieZod>;
 export declare const RangeZod: (min: z.ZodNumber, max: z.ZodNumber) => z.ZodEffects<z.ZodObject<{
