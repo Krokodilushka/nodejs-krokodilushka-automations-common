@@ -1,4 +1,5 @@
 import * as z from "zod";
+import { TaskZod } from "./TaskZod";
 export declare const TaskError: z.ZodObject<{
     status: z.ZodLiteral<"error">;
     message: z.ZodString;
@@ -9,6 +10,7 @@ export declare const TaskError: z.ZodObject<{
     message: string;
     status: "error";
 }>;
+export type TaskErrorType = z.infer<typeof TaskZod>;
 export declare const TaskSuccess: z.ZodObject<{
     status: z.ZodLiteral<"success">;
     data: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
@@ -233,6 +235,7 @@ export declare const TaskSuccess: z.ZodObject<{
     };
     status: "success";
 }>;
+export type TaskSuccessType = z.infer<typeof TaskZod>;
 export declare const TaskResult: z.ZodObject<{
     taskID: z.ZodString;
     browser: z.ZodOptional<z.ZodObject<{
@@ -627,3 +630,4 @@ export declare const TaskResult: z.ZodObject<{
         }[];
     } | undefined;
 }>;
+export type TaskResultType = z.infer<typeof TaskResult>;
