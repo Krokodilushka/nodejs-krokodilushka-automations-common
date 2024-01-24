@@ -8,7 +8,7 @@ export namespace SocketIOEvents {
             task: Event.Task.Task.TaskZodType,
             callback: ((activeTasks: string[]) => void)
         ) => void;
-        info: (callback: (name: ClientInfo) => void) => void;
+        info: (callback: (info: ClientInfo) => void) => void;
     }
 
     export interface ClientToServerEvents {
