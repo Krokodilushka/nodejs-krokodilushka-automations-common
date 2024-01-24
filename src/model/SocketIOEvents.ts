@@ -1,4 +1,3 @@
-import * as z from "zod"
 import {Event} from "./webSocketEvents";
 
 export namespace SocketIOEvents {
