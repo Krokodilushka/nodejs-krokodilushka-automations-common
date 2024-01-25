@@ -15,8 +15,7 @@ export namespace SocketIOEvents {
         task_response: (
             result: Event.Task.Result.TaskResultType,
             activeTasks: string[],
-            onSuccess: ((message: string) => void),
-            onRejection: ((reason: string) => void),
+            callback: ((response: {status: 'success', message: string} | {status: 'error', reason: string}) => void),
         ) => void;
     }
 
