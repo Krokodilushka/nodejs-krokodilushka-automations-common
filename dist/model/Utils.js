@@ -4,7 +4,7 @@ exports.fingerprintZod = exports.UnixTimestampSecondsZod = exports.RangeZod = ex
 const z = require("zod");
 exports.proxyRegex = /^(.*):(.*)@(.*)(.*)$/;
 exports.CookieZod = z.object({
-    name: z.string().min(1),
+    name: z.string(),
     value: z.string(),
     domain: z.string().min(1),
     path: z.string().min(1),
