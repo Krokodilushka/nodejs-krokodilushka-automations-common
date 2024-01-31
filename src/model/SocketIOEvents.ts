@@ -15,12 +15,17 @@ export namespace SocketIOEvents {
         task_response: (
             result: Event.Task.Result.TaskResultType,
             activeTasks: string[],
-            callback: ((response: {status: 'success', message: string} | {status: 'error', reason: string}) => void),
+            callback: ((response: { status: 'success', message: string } | {
+                status: 'error',
+                reason: string
+            }) => void),
         ) => void;
+        info: (info: ClientInfo) => void;
     }
 
     export interface ClientInfo {
         name: string,
+        status: 'active' | 'stopped',
         tasks: string[]
     }
 }
