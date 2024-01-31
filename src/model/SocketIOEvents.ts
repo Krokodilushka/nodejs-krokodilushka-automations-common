@@ -25,7 +25,9 @@ export namespace SocketIOEvents {
 
     export interface ClientInfo {
         name: string,
-        status: 'active' | 'stopped',
+        status: ClientStatus,
         tasks: string[]
     }
+
+    export type ClientStatus = 'active' | 'stopped'
 }
