@@ -1,8 +1,9 @@
 import { Event } from "./webSocketEvents";
+import * as z from "zod";
 export declare namespace SocketIOEvents {
     interface ServerToClientEvents {
         task: (taskID: string, task: Event.Task.Task.TaskZodType, callback: ((activeTasks: string[]) => void)) => void;
-        info: (callback: (info: ClientInfo) => void) => void;
+        info: (callback: (info: ClientInfoType) => void) => void;
     }
     interface ClientToServerEvents {
         task_response: (result: Event.Task.Result.TaskResultType, activeTasks: string[], callback: ((response: {
@@ -12,9 +13,22 @@ export declare namespace SocketIOEvents {
             status: 'error';
             reason: string;
         }) => void)) => void;
-        info: (info: ClientInfo) => void;
+        info: (info: ClientInfoType) => void;
     }
-    interface ClientInfo {
+    const clientInfoZod: z.ZodObject<{
+        name: z.ZodString;
+        status: z.ZodEnum<["active", "stopped"]>;
+        tasks: z.ZodArray<z.ZodString, "many">;
+    }, "strip", z.ZodTypeAny, {
+        name: string;
+        status: "active" | "stopped";
+        tasks: string[];
+    }, {
+        name: string;
+        status: "active" | "stopped";
+        tasks: string[];
+    }>;
+    interface ClientInfoType {
         name: string;
         status: 'active' | 'stopped';
         tasks: string[];
