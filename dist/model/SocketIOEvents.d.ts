@@ -12,9 +12,11 @@ export declare namespace SocketIOEvents {
             status: 'error';
             reason: string;
         }) => void)) => void;
+        info: (info: ClientInfo) => void;
     }
     interface ClientInfo {
         name: string;
+        status: 'active' | 'stopped';
         tasks: string[];
     }
 }
