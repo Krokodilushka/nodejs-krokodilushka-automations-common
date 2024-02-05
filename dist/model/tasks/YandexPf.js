@@ -8,37 +8,46 @@ var Params;
 (function (Params) {
     Params.paramsZod = z.object({
         type: z.literal(taskType),
-        keywordID: z.string().min(1),
-        keyword: z.string().min(1),
-        moveMouseOnSerp: z.boolean(),
-        lr: z.number().nonnegative(),
-        maxPages: z.number().nonnegative(),
-        sleepMsOnSerp: (0, Utils_1.rangeZod)(z.number().nonnegative(), z.number().max(300 * 1000)),
-        sleepMsOnIntermediate: (0, Utils_1.rangeZod)(z.number().nonnegative(), z.number().max(300 * 1000)),
-        sleepMsOnTarget: (0, Utils_1.rangeZod)(z.number().nonnegative(), z.number().max(300 * 1000)),
-        clickOnIntermediateBeforeTarget: (0, Utils_1.rangeZod)(z.number().nonnegative(), z.number().max(300 * 1000)),
-        targetUrl: z.string().min(1),
-        followLinks: z.boolean(),
+        keyword: z.object({
+            id: z.string().min(1),
+            projectID: z.string().min(1),
+            value: z.string().min(1),
+            lr: z.number().nonnegative(),
+        }).strict(),
+        serp: z.object({
+            sleepMs: (0, Utils_1.rangeZod)(z.number().nonnegative(), z.number().max(300 * 1000)),
+            moveMouse: z.boolean(),
+            followLinks: z.boolean(),
+            maxPages: z.number().nonnegative(),
+        }).strict(),
+        intermediatePosition: z.object({
+            sleepMs: (0, Utils_1.rangeZod)(z.number().nonnegative(), z.number().max(300 * 1000)),
+            clicks: (0, Utils_1.rangeZod)(z.number().nonnegative(), z.number().max(300 * 1000)),
+        }).strict(),
+        target: z.object({
+            sleepMs: (0, Utils_1.rangeZod)(z.number().nonnegative(), z.number().max(300 * 1000)),
+            url: z.string().min(1),
+        }).strict(),
     }).strict();
 })(Params || (exports.Params = Params = {}));
 var Result;
 (function (Result) {
-    Result.intermediateClicksOnZod = z.object({
+    Result.intermediateClicksZod = z.object({
         page: z.number().nonnegative(),
         position: z.number().nonnegative(),
-        url: z.string().min(1),
+        url: z.string().url(),
         sleepMs: z.number().nonnegative()
     }).strict();
     Result.taskTargetFoundZod = z.object({
         type: z.literal('target_found'),
         page: z.number().nonnegative(),
         position: z.number().nonnegative(),
-        targetUrl: z.string().min(1),
-        intermediateClicksOn: z.array(Result.intermediateClicksOnZod)
+        url: z.string().min(1),
+        intermediateClicks: Result.intermediateClicksZod.array()
     }).strict();
     Result.notFoundZod = z.object({
         type: z.literal("target_not_found"),
-        intermediateClicksOn: z.array(Result.intermediateClicksOnZod)
+        intermediateClicksOn: Result.intermediateClicksZod.array()
     }).strict();
     Result.resultZod = z.object({
         type: z.literal(taskType),

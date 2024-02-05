@@ -18,8 +18,8 @@ export declare const taskSuccessZod: z.ZodObject<{
             type: z.ZodLiteral<"target_found">;
             page: z.ZodNumber;
             position: z.ZodNumber;
-            targetUrl: z.ZodString;
-            intermediateClicksOn: z.ZodArray<z.ZodObject<{
+            url: z.ZodString;
+            intermediateClicks: z.ZodArray<z.ZodObject<{
                 page: z.ZodNumber;
                 position: z.ZodNumber;
                 url: z.ZodString;
@@ -37,10 +37,10 @@ export declare const taskSuccessZod: z.ZodObject<{
             }>, "many">;
         }, "strict", z.ZodTypeAny, {
             type: "target_found";
+            url: string;
             page: number;
             position: number;
-            targetUrl: string;
-            intermediateClicksOn: {
+            intermediateClicks: {
                 url: string;
                 page: number;
                 position: number;
@@ -48,10 +48,10 @@ export declare const taskSuccessZod: z.ZodObject<{
             }[];
         }, {
             type: "target_found";
+            url: string;
             page: number;
             position: number;
-            targetUrl: string;
-            intermediateClicksOn: {
+            intermediateClicks: {
                 url: string;
                 page: number;
                 position: number;
@@ -96,10 +96,10 @@ export declare const taskSuccessZod: z.ZodObject<{
         type: "yandex_pf";
         result: {
             type: "target_found";
+            url: string;
             page: number;
             position: number;
-            targetUrl: string;
-            intermediateClicksOn: {
+            intermediateClicks: {
                 url: string;
                 page: number;
                 position: number;
@@ -118,10 +118,10 @@ export declare const taskSuccessZod: z.ZodObject<{
         type: "yandex_pf";
         result: {
             type: "target_found";
+            url: string;
             page: number;
             position: number;
-            targetUrl: string;
-            intermediateClicksOn: {
+            intermediateClicks: {
                 url: string;
                 page: number;
                 position: number;
@@ -201,10 +201,10 @@ export declare const taskSuccessZod: z.ZodObject<{
         type: "yandex_pf";
         result: {
             type: "target_found";
+            url: string;
             page: number;
             position: number;
-            targetUrl: string;
-            intermediateClicksOn: {
+            intermediateClicks: {
                 url: string;
                 page: number;
                 position: number;
@@ -237,10 +237,10 @@ export declare const taskSuccessZod: z.ZodObject<{
         type: "yandex_pf";
         result: {
             type: "target_found";
+            url: string;
             page: number;
             position: number;
-            targetUrl: string;
-            intermediateClicksOn: {
+            intermediateClicks: {
                 url: string;
                 page: number;
                 position: number;
@@ -341,8 +341,8 @@ export declare const taskResultZod: z.ZodObject<{
                 type: z.ZodLiteral<"target_found">;
                 page: z.ZodNumber;
                 position: z.ZodNumber;
-                targetUrl: z.ZodString;
-                intermediateClicksOn: z.ZodArray<z.ZodObject<{
+                url: z.ZodString;
+                intermediateClicks: z.ZodArray<z.ZodObject<{
                     page: z.ZodNumber;
                     position: z.ZodNumber;
                     url: z.ZodString;
@@ -360,10 +360,10 @@ export declare const taskResultZod: z.ZodObject<{
                 }>, "many">;
             }, "strict", z.ZodTypeAny, {
                 type: "target_found";
+                url: string;
                 page: number;
                 position: number;
-                targetUrl: string;
-                intermediateClicksOn: {
+                intermediateClicks: {
                     url: string;
                     page: number;
                     position: number;
@@ -371,10 +371,10 @@ export declare const taskResultZod: z.ZodObject<{
                 }[];
             }, {
                 type: "target_found";
+                url: string;
                 page: number;
                 position: number;
-                targetUrl: string;
-                intermediateClicksOn: {
+                intermediateClicks: {
                     url: string;
                     page: number;
                     position: number;
@@ -419,10 +419,10 @@ export declare const taskResultZod: z.ZodObject<{
             type: "yandex_pf";
             result: {
                 type: "target_found";
+                url: string;
                 page: number;
                 position: number;
-                targetUrl: string;
-                intermediateClicksOn: {
+                intermediateClicks: {
                     url: string;
                     page: number;
                     position: number;
@@ -441,10 +441,10 @@ export declare const taskResultZod: z.ZodObject<{
             type: "yandex_pf";
             result: {
                 type: "target_found";
+                url: string;
                 page: number;
                 position: number;
-                targetUrl: string;
-                intermediateClicksOn: {
+                intermediateClicks: {
                     url: string;
                     page: number;
                     position: number;
@@ -524,10 +524,10 @@ export declare const taskResultZod: z.ZodObject<{
             type: "yandex_pf";
             result: {
                 type: "target_found";
+                url: string;
                 page: number;
                 position: number;
-                targetUrl: string;
-                intermediateClicksOn: {
+                intermediateClicks: {
                     url: string;
                     page: number;
                     position: number;
@@ -560,10 +560,10 @@ export declare const taskResultZod: z.ZodObject<{
             type: "yandex_pf";
             result: {
                 type: "target_found";
+                url: string;
                 page: number;
                 position: number;
-                targetUrl: string;
-                intermediateClicksOn: {
+                intermediateClicks: {
                     url: string;
                     page: number;
                     position: number;
@@ -601,10 +601,10 @@ export declare const taskResultZod: z.ZodObject<{
             type: "yandex_pf";
             result: {
                 type: "target_found";
+                url: string;
                 page: number;
                 position: number;
-                targetUrl: string;
-                intermediateClicksOn: {
+                intermediateClicks: {
                     url: string;
                     page: number;
                     position: number;
@@ -655,10 +655,10 @@ export declare const taskResultZod: z.ZodObject<{
             type: "yandex_pf";
             result: {
                 type: "target_found";
+                url: string;
                 page: number;
                 position: number;
-                targetUrl: string;
-                intermediateClicksOn: {
+                intermediateClicks: {
                     url: string;
                     page: number;
                     position: number;

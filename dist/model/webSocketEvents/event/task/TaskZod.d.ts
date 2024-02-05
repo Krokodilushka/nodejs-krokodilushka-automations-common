@@ -93,127 +93,210 @@ export declare const TaskZod: z.ZodObject<{
     }>>;
     task: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
         type: z.ZodLiteral<"yandex_pf">;
-        keywordID: z.ZodString;
-        keyword: z.ZodString;
-        moveMouseOnSerp: z.ZodBoolean;
-        lr: z.ZodNumber;
-        maxPages: z.ZodNumber;
-        sleepMsOnSerp: z.ZodEffects<z.ZodObject<{
-            min: z.ZodNumber;
-            max: z.ZodNumber;
+        keyword: z.ZodObject<{
+            id: z.ZodString;
+            projectID: z.ZodString;
+            value: z.ZodString;
+            lr: z.ZodNumber;
         }, "strict", z.ZodTypeAny, {
-            max: number;
-            min: number;
+            id: string;
+            value: string;
+            lr: number;
+            projectID: string;
         }, {
-            max: number;
-            min: number;
-        }>, {
-            max: number;
-            min: number;
-        }, {
-            max: number;
-            min: number;
+            id: string;
+            value: string;
+            lr: number;
+            projectID: string;
         }>;
-        sleepMsOnIntermediate: z.ZodEffects<z.ZodObject<{
-            min: z.ZodNumber;
-            max: z.ZodNumber;
+        serp: z.ZodObject<{
+            sleepMs: z.ZodEffects<z.ZodObject<{
+                min: z.ZodNumber;
+                max: z.ZodNumber;
+            }, "strict", z.ZodTypeAny, {
+                max: number;
+                min: number;
+            }, {
+                max: number;
+                min: number;
+            }>, {
+                max: number;
+                min: number;
+            }, {
+                max: number;
+                min: number;
+            }>;
+            moveMouse: z.ZodBoolean;
+            followLinks: z.ZodBoolean;
+            maxPages: z.ZodNumber;
         }, "strict", z.ZodTypeAny, {
-            max: number;
-            min: number;
+            sleepMs: {
+                max: number;
+                min: number;
+            };
+            moveMouse: boolean;
+            followLinks: boolean;
+            maxPages: number;
         }, {
-            max: number;
-            min: number;
-        }>, {
-            max: number;
-            min: number;
-        }, {
-            max: number;
-            min: number;
+            sleepMs: {
+                max: number;
+                min: number;
+            };
+            moveMouse: boolean;
+            followLinks: boolean;
+            maxPages: number;
         }>;
-        sleepMsOnTarget: z.ZodEffects<z.ZodObject<{
-            min: z.ZodNumber;
-            max: z.ZodNumber;
+        intermediatePosition: z.ZodObject<{
+            sleepMs: z.ZodEffects<z.ZodObject<{
+                min: z.ZodNumber;
+                max: z.ZodNumber;
+            }, "strict", z.ZodTypeAny, {
+                max: number;
+                min: number;
+            }, {
+                max: number;
+                min: number;
+            }>, {
+                max: number;
+                min: number;
+            }, {
+                max: number;
+                min: number;
+            }>;
+            clicks: z.ZodEffects<z.ZodObject<{
+                min: z.ZodNumber;
+                max: z.ZodNumber;
+            }, "strict", z.ZodTypeAny, {
+                max: number;
+                min: number;
+            }, {
+                max: number;
+                min: number;
+            }>, {
+                max: number;
+                min: number;
+            }, {
+                max: number;
+                min: number;
+            }>;
         }, "strict", z.ZodTypeAny, {
-            max: number;
-            min: number;
+            sleepMs: {
+                max: number;
+                min: number;
+            };
+            clicks: {
+                max: number;
+                min: number;
+            };
         }, {
-            max: number;
-            min: number;
-        }>, {
-            max: number;
-            min: number;
-        }, {
-            max: number;
-            min: number;
+            sleepMs: {
+                max: number;
+                min: number;
+            };
+            clicks: {
+                max: number;
+                min: number;
+            };
         }>;
-        clickOnIntermediateBeforeTarget: z.ZodEffects<z.ZodObject<{
-            min: z.ZodNumber;
-            max: z.ZodNumber;
+        target: z.ZodObject<{
+            sleepMs: z.ZodEffects<z.ZodObject<{
+                min: z.ZodNumber;
+                max: z.ZodNumber;
+            }, "strict", z.ZodTypeAny, {
+                max: number;
+                min: number;
+            }, {
+                max: number;
+                min: number;
+            }>, {
+                max: number;
+                min: number;
+            }, {
+                max: number;
+                min: number;
+            }>;
+            url: z.ZodString;
         }, "strict", z.ZodTypeAny, {
-            max: number;
-            min: number;
+            url: string;
+            sleepMs: {
+                max: number;
+                min: number;
+            };
         }, {
-            max: number;
-            min: number;
-        }>, {
-            max: number;
-            min: number;
-        }, {
-            max: number;
-            min: number;
+            url: string;
+            sleepMs: {
+                max: number;
+                min: number;
+            };
         }>;
-        targetUrl: z.ZodString;
-        followLinks: z.ZodBoolean;
     }, "strict", z.ZodTypeAny, {
         type: "yandex_pf";
-        lr: number;
-        keywordID: string;
-        keyword: string;
-        moveMouseOnSerp: boolean;
-        maxPages: number;
-        sleepMsOnSerp: {
-            max: number;
-            min: number;
+        target: {
+            url: string;
+            sleepMs: {
+                max: number;
+                min: number;
+            };
         };
-        sleepMsOnIntermediate: {
-            max: number;
-            min: number;
+        keyword: {
+            id: string;
+            value: string;
+            lr: number;
+            projectID: string;
         };
-        sleepMsOnTarget: {
-            max: number;
-            min: number;
+        serp: {
+            sleepMs: {
+                max: number;
+                min: number;
+            };
+            moveMouse: boolean;
+            followLinks: boolean;
+            maxPages: number;
         };
-        clickOnIntermediateBeforeTarget: {
-            max: number;
-            min: number;
+        intermediatePosition: {
+            sleepMs: {
+                max: number;
+                min: number;
+            };
+            clicks: {
+                max: number;
+                min: number;
+            };
         };
-        targetUrl: string;
-        followLinks: boolean;
     }, {
         type: "yandex_pf";
-        lr: number;
-        keywordID: string;
-        keyword: string;
-        moveMouseOnSerp: boolean;
-        maxPages: number;
-        sleepMsOnSerp: {
-            max: number;
-            min: number;
+        target: {
+            url: string;
+            sleepMs: {
+                max: number;
+                min: number;
+            };
         };
-        sleepMsOnIntermediate: {
-            max: number;
-            min: number;
+        keyword: {
+            id: string;
+            value: string;
+            lr: number;
+            projectID: string;
         };
-        sleepMsOnTarget: {
-            max: number;
-            min: number;
+        serp: {
+            sleepMs: {
+                max: number;
+                min: number;
+            };
+            moveMouse: boolean;
+            followLinks: boolean;
+            maxPages: number;
         };
-        clickOnIntermediateBeforeTarget: {
-            max: number;
-            min: number;
+        intermediatePosition: {
+            sleepMs: {
+                max: number;
+                min: number;
+            };
+            clicks: {
+                max: number;
+                min: number;
+            };
         };
-        targetUrl: string;
-        followLinks: boolean;
     }>, z.ZodObject<{
         type: z.ZodLiteral<"profile_walk">;
         moveMouse: z.ZodBoolean;
@@ -265,29 +348,38 @@ export declare const TaskZod: z.ZodObject<{
     };
     task: {
         type: "yandex_pf";
-        lr: number;
-        keywordID: string;
-        keyword: string;
-        moveMouseOnSerp: boolean;
-        maxPages: number;
-        sleepMsOnSerp: {
-            max: number;
-            min: number;
+        target: {
+            url: string;
+            sleepMs: {
+                max: number;
+                min: number;
+            };
         };
-        sleepMsOnIntermediate: {
-            max: number;
-            min: number;
+        keyword: {
+            id: string;
+            value: string;
+            lr: number;
+            projectID: string;
         };
-        sleepMsOnTarget: {
-            max: number;
-            min: number;
+        serp: {
+            sleepMs: {
+                max: number;
+                min: number;
+            };
+            moveMouse: boolean;
+            followLinks: boolean;
+            maxPages: number;
         };
-        clickOnIntermediateBeforeTarget: {
-            max: number;
-            min: number;
+        intermediatePosition: {
+            sleepMs: {
+                max: number;
+                min: number;
+            };
+            clicks: {
+                max: number;
+                min: number;
+            };
         };
-        targetUrl: string;
-        followLinks: boolean;
     } | {
         type: "profile_walk";
         moveMouse: boolean;
@@ -324,29 +416,38 @@ export declare const TaskZod: z.ZodObject<{
     };
     task: {
         type: "yandex_pf";
-        lr: number;
-        keywordID: string;
-        keyword: string;
-        moveMouseOnSerp: boolean;
-        maxPages: number;
-        sleepMsOnSerp: {
-            max: number;
-            min: number;
+        target: {
+            url: string;
+            sleepMs: {
+                max: number;
+                min: number;
+            };
         };
-        sleepMsOnIntermediate: {
-            max: number;
-            min: number;
+        keyword: {
+            id: string;
+            value: string;
+            lr: number;
+            projectID: string;
         };
-        sleepMsOnTarget: {
-            max: number;
-            min: number;
+        serp: {
+            sleepMs: {
+                max: number;
+                min: number;
+            };
+            moveMouse: boolean;
+            followLinks: boolean;
+            maxPages: number;
         };
-        clickOnIntermediateBeforeTarget: {
-            max: number;
-            min: number;
+        intermediatePosition: {
+            sleepMs: {
+                max: number;
+                min: number;
+            };
+            clicks: {
+                max: number;
+                min: number;
+            };
         };
-        targetUrl: string;
-        followLinks: boolean;
     } | {
         type: "profile_walk";
         moveMouse: boolean;
