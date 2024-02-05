@@ -53,7 +53,7 @@ export namespace Result {
 
     export const notFoundZod = z.object({
         type: z.literal("target_not_found"),
-        intermediateClicksOn: intermediateClicksZod.array()
+        intermediateClicks: intermediateClicksZod.array()
     }).strict()
     export type NotFoundType = z.infer<typeof notFoundZod>
 

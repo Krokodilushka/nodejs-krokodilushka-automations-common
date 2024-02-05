@@ -42,12 +42,12 @@ var Result;
         type: z.literal('target_found'),
         page: z.number().nonnegative(),
         position: z.number().nonnegative(),
-        url: z.string().min(1),
+        url: z.string().url(),
         intermediateClicks: Result.intermediateClicksZod.array()
     }).strict();
     Result.notFoundZod = z.object({
         type: z.literal("target_not_found"),
-        intermediateClicksOn: Result.intermediateClicksZod.array()
+        intermediateClicks: Result.intermediateClicksZod.array()
     }).strict();
     Result.resultZod = z.object({
         type: z.literal(taskType),

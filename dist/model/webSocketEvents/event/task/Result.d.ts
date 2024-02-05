@@ -59,7 +59,7 @@ export declare const taskSuccessZod: z.ZodObject<{
             }[];
         }>, z.ZodObject<{
             type: z.ZodLiteral<"target_not_found">;
-            intermediateClicksOn: z.ZodArray<z.ZodObject<{
+            intermediateClicks: z.ZodArray<z.ZodObject<{
                 page: z.ZodNumber;
                 position: z.ZodNumber;
                 url: z.ZodString;
@@ -77,7 +77,7 @@ export declare const taskSuccessZod: z.ZodObject<{
             }>, "many">;
         }, "strict", z.ZodTypeAny, {
             type: "target_not_found";
-            intermediateClicksOn: {
+            intermediateClicks: {
                 url: string;
                 page: number;
                 position: number;
@@ -85,7 +85,7 @@ export declare const taskSuccessZod: z.ZodObject<{
             }[];
         }, {
             type: "target_not_found";
-            intermediateClicksOn: {
+            intermediateClicks: {
                 url: string;
                 page: number;
                 position: number;
@@ -107,7 +107,7 @@ export declare const taskSuccessZod: z.ZodObject<{
             }[];
         } | {
             type: "target_not_found";
-            intermediateClicksOn: {
+            intermediateClicks: {
                 url: string;
                 page: number;
                 position: number;
@@ -129,7 +129,7 @@ export declare const taskSuccessZod: z.ZodObject<{
             }[];
         } | {
             type: "target_not_found";
-            intermediateClicksOn: {
+            intermediateClicks: {
                 url: string;
                 page: number;
                 position: number;
@@ -212,7 +212,7 @@ export declare const taskSuccessZod: z.ZodObject<{
             }[];
         } | {
             type: "target_not_found";
-            intermediateClicksOn: {
+            intermediateClicks: {
                 url: string;
                 page: number;
                 position: number;
@@ -248,7 +248,7 @@ export declare const taskSuccessZod: z.ZodObject<{
             }[];
         } | {
             type: "target_not_found";
-            intermediateClicksOn: {
+            intermediateClicks: {
                 url: string;
                 page: number;
                 position: number;
@@ -382,7 +382,7 @@ export declare const taskResultZod: z.ZodObject<{
                 }[];
             }>, z.ZodObject<{
                 type: z.ZodLiteral<"target_not_found">;
-                intermediateClicksOn: z.ZodArray<z.ZodObject<{
+                intermediateClicks: z.ZodArray<z.ZodObject<{
                     page: z.ZodNumber;
                     position: z.ZodNumber;
                     url: z.ZodString;
@@ -400,7 +400,7 @@ export declare const taskResultZod: z.ZodObject<{
                 }>, "many">;
             }, "strict", z.ZodTypeAny, {
                 type: "target_not_found";
-                intermediateClicksOn: {
+                intermediateClicks: {
                     url: string;
                     page: number;
                     position: number;
@@ -408,7 +408,7 @@ export declare const taskResultZod: z.ZodObject<{
                 }[];
             }, {
                 type: "target_not_found";
-                intermediateClicksOn: {
+                intermediateClicks: {
                     url: string;
                     page: number;
                     position: number;
@@ -430,7 +430,7 @@ export declare const taskResultZod: z.ZodObject<{
                 }[];
             } | {
                 type: "target_not_found";
-                intermediateClicksOn: {
+                intermediateClicks: {
                     url: string;
                     page: number;
                     position: number;
@@ -452,7 +452,7 @@ export declare const taskResultZod: z.ZodObject<{
                 }[];
             } | {
                 type: "target_not_found";
-                intermediateClicksOn: {
+                intermediateClicks: {
                     url: string;
                     page: number;
                     position: number;
@@ -535,7 +535,7 @@ export declare const taskResultZod: z.ZodObject<{
                 }[];
             } | {
                 type: "target_not_found";
-                intermediateClicksOn: {
+                intermediateClicks: {
                     url: string;
                     page: number;
                     position: number;
@@ -571,7 +571,7 @@ export declare const taskResultZod: z.ZodObject<{
                 }[];
             } | {
                 type: "target_not_found";
-                intermediateClicksOn: {
+                intermediateClicks: {
                     url: string;
                     page: number;
                     position: number;
@@ -612,7 +612,7 @@ export declare const taskResultZod: z.ZodObject<{
                 }[];
             } | {
                 type: "target_not_found";
-                intermediateClicksOn: {
+                intermediateClicks: {
                     url: string;
                     page: number;
                     position: number;
@@ -666,7 +666,7 @@ export declare const taskResultZod: z.ZodObject<{
                 }[];
             } | {
                 type: "target_not_found";
-                intermediateClicksOn: {
+                intermediateClicks: {
                     url: string;
                     page: number;
                     position: number;

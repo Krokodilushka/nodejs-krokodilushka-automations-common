@@ -284,7 +284,7 @@ export declare const taskResultsZod: z.ZodDiscriminatedUnion<"type", [z.ZodObjec
         }[];
     }>, z.ZodObject<{
         type: z.ZodLiteral<"target_not_found">;
-        intermediateClicksOn: z.ZodArray<z.ZodObject<{
+        intermediateClicks: z.ZodArray<z.ZodObject<{
             page: z.ZodNumber;
             position: z.ZodNumber;
             url: z.ZodString;
@@ -302,7 +302,7 @@ export declare const taskResultsZod: z.ZodDiscriminatedUnion<"type", [z.ZodObjec
         }>, "many">;
     }, "strict", z.ZodTypeAny, {
         type: "target_not_found";
-        intermediateClicksOn: {
+        intermediateClicks: {
             url: string;
             page: number;
             position: number;
@@ -310,7 +310,7 @@ export declare const taskResultsZod: z.ZodDiscriminatedUnion<"type", [z.ZodObjec
         }[];
     }, {
         type: "target_not_found";
-        intermediateClicksOn: {
+        intermediateClicks: {
             url: string;
             page: number;
             position: number;
@@ -332,7 +332,7 @@ export declare const taskResultsZod: z.ZodDiscriminatedUnion<"type", [z.ZodObjec
         }[];
     } | {
         type: "target_not_found";
-        intermediateClicksOn: {
+        intermediateClicks: {
             url: string;
             page: number;
             position: number;
@@ -354,7 +354,7 @@ export declare const taskResultsZod: z.ZodDiscriminatedUnion<"type", [z.ZodObjec
         }[];
     } | {
         type: "target_not_found";
-        intermediateClicksOn: {
+        intermediateClicks: {
             url: string;
             page: number;
             position: number;
