@@ -20,7 +20,7 @@ var Params;
             followLinks: z.boolean(),
             maxPages: z.number().nonnegative(),
         }).strict(),
-        intermediatePosition: z.object({
+        intermediatePositions: z.object({
             sleepMs: (0, Utils_1.rangeZod)(z.number().nonnegative(), z.number().max(300 * 1000)),
             clicks: (0, Utils_1.rangeZod)(z.number().nonnegative(), z.number().max(300 * 1000)),
         }).strict(),

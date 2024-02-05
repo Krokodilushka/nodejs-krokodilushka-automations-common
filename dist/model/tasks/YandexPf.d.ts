@@ -55,7 +55,7 @@ export declare namespace Params {
             followLinks: boolean;
             maxPages: number;
         }>;
-        intermediatePosition: z.ZodObject<{
+        intermediatePositions: z.ZodObject<{
             sleepMs: z.ZodEffects<z.ZodObject<{
                 min: z.ZodNumber;
                 max: z.ZodNumber;
@@ -175,7 +175,7 @@ export declare namespace Params {
             followLinks: boolean;
             maxPages: number;
         };
-        intermediatePosition: {
+        intermediatePositions: {
             sleepMs: {
                 max: number;
                 min: number;
@@ -214,7 +214,7 @@ export declare namespace Params {
             followLinks: boolean;
             maxPages: number;
         };
-        intermediatePosition: {
+        intermediatePositions: {
             sleepMs: {
                 max: number;
                 min: number;

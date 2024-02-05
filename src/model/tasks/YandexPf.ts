@@ -19,7 +19,7 @@ export namespace Params {
                 followLinks: z.boolean(),
                 maxPages: z.number().nonnegative(),
             }).strict(),
-            intermediatePosition: z.object({
+            intermediatePositions: z.object({
                 sleepMs: rangeZod(z.number().nonnegative(), z.number().max(300 * 1000)),
                 clicks: rangeZod(z.number().nonnegative(), z.number().max(300 * 1000)),
             }).strict(),
