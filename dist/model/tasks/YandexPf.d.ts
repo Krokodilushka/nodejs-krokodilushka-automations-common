@@ -138,6 +138,19 @@ export declare namespace Params {
                 min: number;
             };
         }>;
+        captcha: z.ZodObject<{
+            urlIn: z.ZodString;
+            urlRes: z.ZodString;
+            key: z.ZodString;
+        }, "strict", z.ZodTypeAny, {
+            key: string;
+            urlIn: string;
+            urlRes: string;
+        }, {
+            key: string;
+            urlIn: string;
+            urlRes: string;
+        }>;
     }, "strict", z.ZodTypeAny, {
         type: "yandex_pf";
         target: {
@@ -172,6 +185,11 @@ export declare namespace Params {
                 min: number;
             };
         };
+        captcha: {
+            key: string;
+            urlIn: string;
+            urlRes: string;
+        };
     }, {
         type: "yandex_pf";
         target: {
@@ -205,6 +223,11 @@ export declare namespace Params {
                 max: number;
                 min: number;
             };
+        };
+        captcha: {
+            key: string;
+            urlIn: string;
+            urlRes: string;
         };
     }>;
     type ParamsType = z.infer<typeof paramsZod>;

@@ -27,6 +27,11 @@ export namespace Params {
                 sleepMs: rangeZod(z.number().nonnegative(), z.number().max(300 * 1000)),
                 url: z.string().min(1),
             }).strict(),
+            captcha: z.object({
+                urlIn: z.string().url(),
+                urlRes: z.string().url(),
+                key: z.string(),
+            }).strict(),
         }
     ).strict()
     export type ParamsType = z.infer<typeof paramsZod>

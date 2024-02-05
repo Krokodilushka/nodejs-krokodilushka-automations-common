@@ -28,6 +28,11 @@ var Params;
             sleepMs: (0, Utils_1.rangeZod)(z.number().nonnegative(), z.number().max(300 * 1000)),
             url: z.string().min(1),
         }).strict(),
+        captcha: z.object({
+            urlIn: z.string().url(),
+            urlRes: z.string().url(),
+            key: z.string(),
+        }).strict(),
     }).strict();
 })(Params || (exports.Params = Params = {}));
 var Result;

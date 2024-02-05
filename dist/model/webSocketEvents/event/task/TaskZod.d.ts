@@ -229,6 +229,19 @@ export declare const TaskZod: z.ZodObject<{
                 min: number;
             };
         }>;
+        captcha: z.ZodObject<{
+            urlIn: z.ZodString;
+            urlRes: z.ZodString;
+            key: z.ZodString;
+        }, "strict", z.ZodTypeAny, {
+            key: string;
+            urlIn: string;
+            urlRes: string;
+        }, {
+            key: string;
+            urlIn: string;
+            urlRes: string;
+        }>;
     }, "strict", z.ZodTypeAny, {
         type: "yandex_pf";
         target: {
@@ -263,6 +276,11 @@ export declare const TaskZod: z.ZodObject<{
                 min: number;
             };
         };
+        captcha: {
+            key: string;
+            urlIn: string;
+            urlRes: string;
+        };
     }, {
         type: "yandex_pf";
         target: {
@@ -296,6 +314,11 @@ export declare const TaskZod: z.ZodObject<{
                 max: number;
                 min: number;
             };
+        };
+        captcha: {
+            key: string;
+            urlIn: string;
+            urlRes: string;
         };
     }>, z.ZodObject<{
         type: z.ZodLiteral<"profile_walk">;
@@ -380,6 +403,11 @@ export declare const TaskZod: z.ZodObject<{
                 min: number;
             };
         };
+        captcha: {
+            key: string;
+            urlIn: string;
+            urlRes: string;
+        };
     } | {
         type: "profile_walk";
         moveMouse: boolean;
@@ -447,6 +475,11 @@ export declare const TaskZod: z.ZodObject<{
                 max: number;
                 min: number;
             };
+        };
+        captcha: {
+            key: string;
+            urlIn: string;
+            urlRes: string;
         };
     } | {
         type: "profile_walk";
