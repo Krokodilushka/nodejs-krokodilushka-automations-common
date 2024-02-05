@@ -237,6 +237,7 @@ export declare const tasksZod: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
         sleepOnPageMs: number;
     }[];
 }>]>;
+export type TasksZod = z.infer<typeof taskResultsZod>;
 export declare const taskResultsZod: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     type: z.ZodLiteral<"yandex_pf">;
     result: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
@@ -421,3 +422,4 @@ export declare const taskResultsZod: z.ZodDiscriminatedUnion<"type", [z.ZodObjec
         };
     }[];
 }>]>;
+export type TaskResultsZod = z.infer<typeof taskResultsZod>;
