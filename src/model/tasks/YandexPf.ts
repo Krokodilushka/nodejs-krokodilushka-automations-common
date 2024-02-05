@@ -46,7 +46,7 @@ export namespace Result {
         type: z.literal('target_found'),
         page: z.number().nonnegative(),
         position: z.number().nonnegative(),
-        url: z.string().min(1),
+        url: z.string().url(),
         intermediateClicks: intermediateClicksZod.array()
     }).strict()
     export type TaskTargetFoundType = z.infer<typeof taskTargetFoundZod>
