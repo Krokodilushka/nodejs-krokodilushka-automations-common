@@ -1,9 +1,5 @@
 import * as z from "zod";
-import { YandexPf as YandexPfImport } from "./YandexPf";
-import { ProfileWalk as ProfileWalkImport } from "./ProfileWalk";
-export declare const YandexPf: typeof YandexPfImport;
-export declare const ProfileWalk: typeof ProfileWalkImport;
-export declare const Tasks: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
+export declare const tasksZod: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     type: z.ZodLiteral<"yandex_pf">;
     keywordID: z.ZodString;
     keyword: z.ZodString;
@@ -154,7 +150,7 @@ export declare const Tasks: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
         sleepOnPageMs: number;
     }[];
 }>]>;
-export declare const TaskResults: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
+export declare const taskResultsZod: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     type: z.ZodLiteral<"yandex_pf">;
     result: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
         type: z.ZodLiteral<"target_found">;

@@ -1,16 +1,13 @@
 import * as z from "zod";
-import {YandexPf as YandexPfImport} from "./YandexPf";
-import {ProfileWalk as ProfileWalkImport} from "./ProfileWalk";
+import * as YandexPf from "./YandexPf";
+import * as ProfileWalk from "./ProfileWalk";
 
-export const YandexPf = YandexPfImport
-export const ProfileWalk = ProfileWalkImport
-
-export const Tasks = z.discriminatedUnion("type", [
-    YandexPfImport.Params.paramsZod,
-    ProfileWalkImport.Params.paramsZod,
+export const tasksZod = z.discriminatedUnion("type", [
+    YandexPf.Params.paramsZod,
+    ProfileWalk.Params.paramsZod,
 ])
 
-export const TaskResults = z.discriminatedUnion("type", [
-    YandexPfImport.Result.resultZod,
-    ProfileWalkImport.Result.resultZod,
+export const taskResultsZod = z.discriminatedUnion("type", [
+    YandexPf.Result.resultZod,
+    ProfileWalk.Result.resultZod,
 ])

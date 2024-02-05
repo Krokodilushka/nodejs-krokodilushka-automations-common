@@ -17,5 +17,5 @@ exports.TaskZod = z.object({
         groupID: z.string().min(1),
         value: z.string().regex(Utils_1.proxyRegex),
     }).strict().optional(),
-    task: tasks_1.Tasks,
+    task: tasks_1.tasksZod,
 }).strict();

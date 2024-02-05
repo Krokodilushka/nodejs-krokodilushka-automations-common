@@ -1,6 +1,6 @@
 import * as z from "zod";
 import {cookieZod, fingerprintZod, proxyRegex} from "../../../Utils";
-import {Tasks} from "../../../tasks";
+import {tasksZod} from "../../../tasks";
 
 export const TaskZod = z.object({
     browser: z.object({
@@ -15,7 +15,7 @@ export const TaskZod = z.object({
         groupID: z.string().min(1),
         value: z.string().regex(proxyRegex),
     }).strict().optional(),
-    task: Tasks,
+    task: tasksZod,
 }).strict()
 
 export type TaskZodType = z.infer<typeof TaskZod>

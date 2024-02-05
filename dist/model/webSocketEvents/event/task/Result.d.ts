@@ -1,5 +1,5 @@
 import * as z from "zod";
-export declare const TaskError: z.ZodObject<{
+export declare const taskErrorZod: z.ZodObject<{
     status: z.ZodLiteral<"error">;
     message: z.ZodString;
 }, "strict", z.ZodTypeAny, {
@@ -9,8 +9,8 @@ export declare const TaskError: z.ZodObject<{
     message: string;
     status: "error";
 }>;
-export type TaskErrorType = z.infer<typeof TaskError>;
-export declare const TaskSuccess: z.ZodObject<{
+export type TaskErrorType = z.infer<typeof taskErrorZod>;
+export declare const taskSuccessZod: z.ZodObject<{
     status: z.ZodLiteral<"success">;
     data: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
         type: z.ZodLiteral<"yandex_pf">;
@@ -269,8 +269,8 @@ export declare const TaskSuccess: z.ZodObject<{
     };
     status: "success";
 }>;
-export type TaskSuccessType = z.infer<typeof TaskSuccess>;
-export declare const TaskResult: z.ZodObject<{
+export type TaskSuccessType = z.infer<typeof taskSuccessZod>;
+export declare const taskResultZod: z.ZodObject<{
     taskID: z.ZodString;
     browser: z.ZodOptional<z.ZodObject<{
         cookies: z.ZodNullable<z.ZodArray<z.ZodObject<{
@@ -701,4 +701,4 @@ export declare const TaskResult: z.ZodObject<{
         }[] | null;
     } | undefined;
 }>;
-export type TaskResultType = z.infer<typeof TaskResult>;
+export type TaskResultType = z.infer<typeof taskResultZod>;
