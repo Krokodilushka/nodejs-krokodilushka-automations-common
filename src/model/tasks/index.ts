@@ -1,6 +1,9 @@
 import * as z from "zod";
-import * as YandexPf from "./YandexPf";
-import * as ProfileWalk from "./ProfileWalk";
+import * as YandexPfImport from "./YandexPf";
+import * as ProfileWalkImport from "./ProfileWalk";
+
+export const YandexPf = YandexPfImport
+export const ProfileWalk = ProfileWalkImport
 
 export const tasksZod = z.discriminatedUnion("type", [
     YandexPf.Params.paramsZod,

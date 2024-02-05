@@ -1,4 +1,8 @@
 import * as z from "zod";
+import * as YandexPfImport from "./YandexPf";
+import * as ProfileWalkImport from "./ProfileWalk";
+export declare const YandexPf: typeof YandexPfImport;
+export declare const ProfileWalk: typeof ProfileWalkImport;
 export declare const tasksZod: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
     type: z.ZodLiteral<"yandex_pf">;
     keywordID: z.ZodString;
