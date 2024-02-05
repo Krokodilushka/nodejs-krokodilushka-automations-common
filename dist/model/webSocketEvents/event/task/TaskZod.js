@@ -8,14 +8,14 @@ exports.TaskZod = z.object({
     browser: z.object({
         profileID: z.string().min(1),
         groupID: z.string().min(1),
-        cookies: z.array(Utils_1.CookieZod),
+        cookies: z.array(Utils_1.cookieZod),
         fingerprint: Utils_1.fingerprintZod,
         imagesEnabled: z.boolean(),
-    }),
+    }).strict(),
     proxy: z.object({
         id: z.string().min(1),
         groupID: z.string().min(1),
         value: z.string().regex(Utils_1.proxyRegex),
-    }).optional(),
+    }).strict().optional(),
     task: tasks_1.Tasks,
 }).strict();

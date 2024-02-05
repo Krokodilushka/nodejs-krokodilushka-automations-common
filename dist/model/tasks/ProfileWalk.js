@@ -6,20 +6,20 @@ var ProfileWalk;
 (function (ProfileWalk) {
     const taskType = 'profile_walk';
     let Params;
-    (function (Params_1) {
-        Params_1.UrlToWalk = z.object({
+    (function (Params) {
+        Params.urlToWalk = z.object({
             url: z.string().min(1),
             sleepOnPageMs: z.number().nonnegative().max(300 * 1000)
         }).strict();
-        Params_1.Params = z.object({
+        Params.paramsZod = z.object({
             type: z.literal(taskType),
             moveMouse: z.boolean(),
-            steps: z.array(Params_1.UrlToWalk)
+            steps: z.array(Params.urlToWalk)
         }).strict();
     })(Params = ProfileWalk.Params || (ProfileWalk.Params = {}));
     let Result;
-    (function (Result_1) {
-        Result_1.UrlWalkResult = z.object({
+    (function (Result) {
+        Result.urlWalkResultZod = z.object({
             url: z.string().min(1),
             result: z.discriminatedUnion('status', [
                 z.object({
@@ -31,9 +31,9 @@ var ProfileWalk;
                 })
             ])
         }).strict();
-        Result_1.Result = z.object({
+        Result.resultZod = z.object({
             type: z.literal(taskType),
-            result: z.array(Result_1.UrlWalkResult)
+            result: z.array(Result.urlWalkResultZod)
         }).strict();
     })(Result = ProfileWalk.Result || (ProfileWalk.Result = {}));
 })(ProfileWalk || (exports.ProfileWalk = ProfileWalk = {}));

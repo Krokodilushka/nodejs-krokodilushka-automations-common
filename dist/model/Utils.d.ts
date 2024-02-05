@@ -1,6 +1,6 @@
 import * as z from "zod";
 export declare const proxyRegex: RegExp;
-export declare const CookieZod: z.ZodObject<{
+export declare const cookieZod: z.ZodObject<{
     name: z.ZodString;
     value: z.ZodString;
     domain: z.ZodString;
@@ -28,8 +28,8 @@ export declare const CookieZod: z.ZodObject<{
     secure: boolean;
     sameSite: "Strict" | "Lax" | "None";
 }>;
-export type CookieType = z.infer<typeof CookieZod>;
-export declare const RangeZod: (min: z.ZodNumber, max: z.ZodNumber) => z.ZodEffects<z.ZodObject<{
+export type CookieType = z.infer<typeof cookieZod>;
+export declare const rangeZod: (min: z.ZodNumber, max: z.ZodNumber) => z.ZodEffects<z.ZodObject<{
     min: z.ZodNumber;
     max: z.ZodNumber;
 }, "strict", z.ZodTypeAny, {
@@ -45,7 +45,7 @@ export declare const RangeZod: (min: z.ZodNumber, max: z.ZodNumber) => z.ZodEffe
     max: number;
     min: number;
 }>;
-export declare const UnixTimestampSecondsZod: z.ZodNumber;
+export declare const unixTimestampSecondsZod: z.ZodNumber;
 export declare const fingerprintZod: z.ZodObject<{
     valid: z.ZodLiteral<true>;
 }, "passthrough", z.ZodTypeAny, z.objectOutputType<{
@@ -53,3 +53,4 @@ export declare const fingerprintZod: z.ZodObject<{
 }, z.ZodTypeAny, "passthrough">, z.objectInputType<{
     valid: z.ZodLiteral<true>;
 }, z.ZodTypeAny, "passthrough">>;
+export type FingerprintType = z.infer<typeof fingerprintZod>;

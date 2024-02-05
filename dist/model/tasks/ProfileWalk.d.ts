@@ -1,7 +1,7 @@
 import * as z from "zod";
 export declare namespace ProfileWalk {
     namespace Params {
-        const UrlToWalk: z.ZodObject<{
+        const urlToWalk: z.ZodObject<{
             url: z.ZodString;
             sleepOnPageMs: z.ZodNumber;
         }, "strict", z.ZodTypeAny, {
@@ -11,7 +11,8 @@ export declare namespace ProfileWalk {
             url: string;
             sleepOnPageMs: number;
         }>;
-        const Params: z.ZodObject<{
+        type UrlToWalkType = z.infer<typeof urlToWalk>;
+        const paramsZod: z.ZodObject<{
             type: z.ZodLiteral<"profile_walk">;
             moveMouse: z.ZodBoolean;
             steps: z.ZodArray<z.ZodObject<{
@@ -39,9 +40,10 @@ export declare namespace ProfileWalk {
                 sleepOnPageMs: number;
             }[];
         }>;
+        type ParamsType = z.infer<typeof paramsZod>;
     }
     namespace Result {
-        const UrlWalkResult: z.ZodObject<{
+        const urlWalkResultZod: z.ZodObject<{
             url: z.ZodString;
             result: z.ZodDiscriminatedUnion<"status", [z.ZodObject<{
                 status: z.ZodLiteral<"error">;
@@ -76,7 +78,8 @@ export declare namespace ProfileWalk {
                 status: "ok";
             };
         }>;
-        const Result: z.ZodObject<{
+        type UrlWalkResultType = z.infer<typeof urlWalkResultZod>;
+        const resultZod: z.ZodObject<{
             type: z.ZodLiteral<"profile_walk">;
             result: z.ZodArray<z.ZodObject<{
                 url: z.ZodString;
@@ -136,5 +139,6 @@ export declare namespace ProfileWalk {
                 };
             }[];
         }>;
+        type ResultType = z.infer<typeof resultZod>;
     }
 }

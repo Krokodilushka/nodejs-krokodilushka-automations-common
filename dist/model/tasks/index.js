@@ -7,10 +7,10 @@ const ProfileWalk_1 = require("./ProfileWalk");
 exports.YandexPf = YandexPf_1.YandexPf;
 exports.ProfileWalk = ProfileWalk_1.ProfileWalk;
 exports.Tasks = z.discriminatedUnion("type", [
-    YandexPf_1.YandexPf.Params.Params,
-    ProfileWalk_1.ProfileWalk.Params.Params,
+    YandexPf_1.YandexPf.Params.paramsZod,
+    ProfileWalk_1.ProfileWalk.Params.paramsZod,
 ]);
 exports.TaskResults = z.discriminatedUnion("type", [
-    YandexPf_1.YandexPf.Result.Result,
-    ProfileWalk_1.ProfileWalk.Result.Result,
+    YandexPf_1.YandexPf.Result.resultZod,
+    ProfileWalk_1.ProfileWalk.Result.resultZod,
 ]);

@@ -11,14 +11,14 @@ exports.TaskError = z.object({
 exports.TaskSuccess = z.object({
     status: z.literal('success'),
     data: z.discriminatedUnion('type', [
-        tasks_1.YandexPf.Result.Result,
-        tasks_1.ProfileWalk.Result.Result,
+        tasks_1.YandexPf.Result.resultZod,
+        tasks_1.ProfileWalk.Result.resultZod,
     ])
 }).strict();
 exports.TaskResult = z.object({
     taskID: z.string().min(1),
     browser: z.object({
-        cookies: Utils_1.CookieZod.array().nullable(),
+        cookies: Utils_1.cookieZod.array().nullable(),
     }).optional(),
     result: z.discriminatedUnion("status", [
         exports.TaskError,

@@ -6,11 +6,11 @@ export const YandexPf = YandexPfImport
 export const ProfileWalk = ProfileWalkImport
 
 export const Tasks = z.discriminatedUnion("type", [
-    YandexPfImport.Params.Params,
-    ProfileWalkImport.Params.Params,
+    YandexPfImport.Params.paramsZod,
+    ProfileWalkImport.Params.paramsZod,
 ])
 
 export const TaskResults = z.discriminatedUnion("type", [
-    YandexPfImport.Result.Result,
-    ProfileWalkImport.Result.Result,
+    YandexPfImport.Result.resultZod,
+    ProfileWalkImport.Result.resultZod,
 ])

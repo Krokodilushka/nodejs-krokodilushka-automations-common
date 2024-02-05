@@ -5,20 +5,22 @@ export namespace ProfileWalk {
     const taskType = 'profile_walk'
 
     export namespace Params {
-        export const UrlToWalk = z.object({
+        export const urlToWalk = z.object({
             url: z.string().min(1),
             sleepOnPageMs: z.number().nonnegative().max(300 * 1000)
         }).strict()
+        export type UrlToWalkType = z.infer<typeof urlToWalk>
 
-        export const Params = z.object({
+        export const paramsZod = z.object({
             type: z.literal(taskType),
             moveMouse: z.boolean(),
-            steps: z.array(UrlToWalk)
+            steps: z.array(urlToWalk)
         }).strict()
+        export type ParamsType = z.infer<typeof paramsZod>
     }
 
     export namespace Result {
-        export const UrlWalkResult = z.object({
+        export const urlWalkResultZod = z.object({
             url: z.string().min(1),
             result: z.discriminatedUnion('status', [
                 z.object({
@@ -30,11 +32,13 @@ export namespace ProfileWalk {
                 })
             ])
         }).strict()
+        export type UrlWalkResultType = z.infer<typeof urlWalkResultZod>
 
-        export const Result = z.object({
+        export const resultZod = z.object({
             type: z.literal(taskType),
-            result: z.array(UrlWalkResult)
+            result: z.array(urlWalkResultZod)
         }).strict()
+        export type ResultType = z.infer<typeof resultZod>
     }
 
 }

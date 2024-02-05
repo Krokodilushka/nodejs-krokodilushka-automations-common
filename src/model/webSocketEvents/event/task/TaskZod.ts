@@ -1,20 +1,20 @@
 import * as z from "zod";
-import {CookieZod, fingerprintZod, proxyRegex} from "../../../Utils";
+import {cookieZod, fingerprintZod, proxyRegex} from "../../../Utils";
 import {Tasks} from "../../../tasks";
 
 export const TaskZod = z.object({
     browser: z.object({
         profileID: z.string().min(1),
         groupID: z.string().min(1),
-        cookies: z.array(CookieZod),
+        cookies: z.array(cookieZod),
         fingerprint: fingerprintZod,
         imagesEnabled: z.boolean(),
-    }),
+    }).strict(),
     proxy: z.object({
         id: z.string().min(1),
         groupID: z.string().min(1),
         value: z.string().regex(proxyRegex),
-    }).optional(),
+    }).strict().optional(),
     task: Tasks,
 }).strict()
 

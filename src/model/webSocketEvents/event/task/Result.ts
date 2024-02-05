@@ -1,6 +1,6 @@
 import * as z from "zod";
 import {ProfileWalk, YandexPf} from "../../../tasks";
-import {CookieZod} from "../../../Utils";
+import {cookieZod} from "../../../Utils";
 import {TaskZod} from "./TaskZod";
 
 export const TaskError = z.object({
@@ -12,8 +12,8 @@ export type TaskErrorType = z.infer<typeof TaskError>
 export const TaskSuccess = z.object({
     status: z.literal('success'),
     data: z.discriminatedUnion('type', [
-        YandexPf.Result.Result,
-        ProfileWalk.Result.Result,
+        YandexPf.Result.resultZod,
+        ProfileWalk.Result.resultZod,
     ])
 }).strict()
 export type TaskSuccessType = z.infer<typeof TaskSuccess>
@@ -21,7 +21,7 @@ export type TaskSuccessType = z.infer<typeof TaskSuccess>
 export const TaskResult = z.object({
     taskID: z.string().min(1),
     browser: z.object({
-        cookies: CookieZod.array().nullable(),
+        cookies: cookieZod.array().nullable(),
     }).optional(),
     result: z.discriminatedUnion("status", [
         TaskError,

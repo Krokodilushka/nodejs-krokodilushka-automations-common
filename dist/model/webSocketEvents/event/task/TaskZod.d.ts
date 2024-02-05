@@ -39,7 +39,7 @@ export declare const TaskZod: z.ZodObject<{
             valid: z.ZodLiteral<true>;
         }, z.ZodTypeAny, "passthrough">>;
         imagesEnabled: z.ZodBoolean;
-    }, "strip", z.ZodTypeAny, {
+    }, "strict", z.ZodTypeAny, {
         profileID: string;
         groupID: string;
         cookies: {
@@ -82,7 +82,7 @@ export declare const TaskZod: z.ZodObject<{
         id: z.ZodString;
         groupID: z.ZodString;
         value: z.ZodString;
-    }, "strip", z.ZodTypeAny, {
+    }, "strict", z.ZodTypeAny, {
         id: string;
         value: string;
         groupID: string;

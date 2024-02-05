@@ -1,7 +1,7 @@
 import * as z from "zod";
 export declare namespace YandexPf {
     namespace Params {
-        const Params: z.ZodObject<{
+        const paramsZod: z.ZodObject<{
             type: z.ZodLiteral<"yandex_pf">;
             keywordID: z.ZodString;
             keyword: z.ZodString;
@@ -125,9 +125,10 @@ export declare namespace YandexPf {
             targetUrl: string;
             followLinks: boolean;
         }>;
+        type ParamsType = z.infer<typeof paramsZod>;
     }
     namespace Result {
-        const IntermediateClicksOn: z.ZodObject<{
+        const intermediateClicksOnZod: z.ZodObject<{
             page: z.ZodNumber;
             position: z.ZodNumber;
             url: z.ZodString;
@@ -143,7 +144,8 @@ export declare namespace YandexPf {
             position: number;
             sleepMs: number;
         }>;
-        const TaskTargetFound: z.ZodObject<{
+        type IntermediateClicksOnType = z.infer<typeof intermediateClicksOnZod>;
+        const taskTargetFoundZod: z.ZodObject<{
             type: z.ZodLiteral<"target_found">;
             page: z.ZodNumber;
             position: z.ZodNumber;
@@ -187,7 +189,8 @@ export declare namespace YandexPf {
                 sleepMs: number;
             }[];
         }>;
-        const NotFound: z.ZodObject<{
+        type TaskTargetFoundType = z.infer<typeof taskTargetFoundZod>;
+        const notFoundZod: z.ZodObject<{
             type: z.ZodLiteral<"target_not_found">;
             intermediateClicksOn: z.ZodArray<z.ZodObject<{
                 page: z.ZodNumber;
@@ -222,7 +225,8 @@ export declare namespace YandexPf {
                 sleepMs: number;
             }[];
         }>;
-        const Result: z.ZodObject<{
+        type NotFoundType = z.infer<typeof notFoundZod>;
+        const resultZod: z.ZodObject<{
             type: z.ZodLiteral<"yandex_pf">;
             result: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
                 type: z.ZodLiteral<"target_found">;
@@ -347,5 +351,6 @@ export declare namespace YandexPf {
                 }[];
             };
         }>;
+        type ResultType = z.infer<typeof resultZod>;
     }
 }
