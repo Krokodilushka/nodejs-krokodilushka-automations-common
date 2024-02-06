@@ -41,6 +41,8 @@ export declare const tasksZod: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
         moveMouse: z.ZodBoolean;
         followLinks: z.ZodBoolean;
         maxPages: z.ZodNumber;
+        maxLoadAttempts: z.ZodNumber;
+        maxPopupCloseAttempts: z.ZodNumber;
     }, "strict", z.ZodTypeAny, {
         sleepMs: {
             max: number;
@@ -49,6 +51,8 @@ export declare const tasksZod: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
         moveMouse: boolean;
         followLinks: boolean;
         maxPages: number;
+        maxLoadAttempts: number;
+        maxPopupCloseAttempts: number;
     }, {
         sleepMs: {
             max: number;
@@ -57,6 +61,8 @@ export declare const tasksZod: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
         moveMouse: boolean;
         followLinks: boolean;
         maxPages: number;
+        maxLoadAttempts: number;
+        maxPopupCloseAttempts: number;
     }>;
     intermediatePositions: z.ZodObject<{
         sleepMs: z.ZodEffects<z.ZodObject<{
@@ -145,14 +151,17 @@ export declare const tasksZod: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
         urlIn: z.ZodString;
         urlRes: z.ZodString;
         key: z.ZodString;
+        maxSolveAttempts: z.ZodNumber;
     }, "strict", z.ZodTypeAny, {
         key: string;
         urlIn: string;
         urlRes: string;
+        maxSolveAttempts: number;
     }, {
         key: string;
         urlIn: string;
         urlRes: string;
+        maxSolveAttempts: number;
     }>;
 }, "strict", z.ZodTypeAny, {
     type: "yandex_pf";
@@ -177,6 +186,8 @@ export declare const tasksZod: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
         moveMouse: boolean;
         followLinks: boolean;
         maxPages: number;
+        maxLoadAttempts: number;
+        maxPopupCloseAttempts: number;
     };
     intermediatePositions: {
         sleepMs: {
@@ -192,6 +203,7 @@ export declare const tasksZod: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
         key: string;
         urlIn: string;
         urlRes: string;
+        maxSolveAttempts: number;
     };
 }, {
     type: "yandex_pf";
@@ -216,6 +228,8 @@ export declare const tasksZod: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
         moveMouse: boolean;
         followLinks: boolean;
         maxPages: number;
+        maxLoadAttempts: number;
+        maxPopupCloseAttempts: number;
     };
     intermediatePositions: {
         sleepMs: {
@@ -231,6 +245,7 @@ export declare const tasksZod: z.ZodDiscriminatedUnion<"type", [z.ZodObject<{
         key: string;
         urlIn: string;
         urlRes: string;
+        maxSolveAttempts: number;
     };
 }>, z.ZodObject<{
     type: z.ZodLiteral<"profile_walk">;

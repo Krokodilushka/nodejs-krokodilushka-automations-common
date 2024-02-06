@@ -19,6 +19,8 @@ var Params;
             moveMouse: z.boolean(),
             followLinks: z.boolean(),
             maxPages: z.number().nonnegative(),
+            maxLoadAttempts: z.number().min(0).max(30),
+            maxPopupCloseAttempts: z.number().min(0).max(30),
         }).strict(),
         intermediatePositions: z.object({
             sleepMs: (0, Utils_1.rangeZod)(z.number().nonnegative(), z.number().max(300 * 1000)),
@@ -32,6 +34,7 @@ var Params;
             urlIn: z.string().url(),
             urlRes: z.string().url(),
             key: z.string(),
+            maxSolveAttempts: z.number().min(0).max(30),
         }).strict(),
     }).strict();
 })(Params || (exports.Params = Params = {}));

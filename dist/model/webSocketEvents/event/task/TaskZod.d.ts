@@ -39,6 +39,7 @@ export declare const TaskZod: z.ZodObject<{
             valid: z.ZodLiteral<true>;
         }, z.ZodTypeAny, "passthrough">>;
         imagesEnabled: z.ZodBoolean;
+        sharedCache: z.ZodBoolean;
     }, "strict", z.ZodTypeAny, {
         profileID: string;
         groupID: string;
@@ -58,6 +59,7 @@ export declare const TaskZod: z.ZodObject<{
             [k: string]: unknown;
         };
         imagesEnabled: boolean;
+        sharedCache: boolean;
     }, {
         profileID: string;
         groupID: string;
@@ -77,6 +79,7 @@ export declare const TaskZod: z.ZodObject<{
             [k: string]: unknown;
         };
         imagesEnabled: boolean;
+        sharedCache: boolean;
     }>;
     proxy: z.ZodOptional<z.ZodObject<{
         id: z.ZodString;
@@ -129,6 +132,8 @@ export declare const TaskZod: z.ZodObject<{
             moveMouse: z.ZodBoolean;
             followLinks: z.ZodBoolean;
             maxPages: z.ZodNumber;
+            maxLoadAttempts: z.ZodNumber;
+            maxPopupCloseAttempts: z.ZodNumber;
         }, "strict", z.ZodTypeAny, {
             sleepMs: {
                 max: number;
@@ -137,6 +142,8 @@ export declare const TaskZod: z.ZodObject<{
             moveMouse: boolean;
             followLinks: boolean;
             maxPages: number;
+            maxLoadAttempts: number;
+            maxPopupCloseAttempts: number;
         }, {
             sleepMs: {
                 max: number;
@@ -145,6 +152,8 @@ export declare const TaskZod: z.ZodObject<{
             moveMouse: boolean;
             followLinks: boolean;
             maxPages: number;
+            maxLoadAttempts: number;
+            maxPopupCloseAttempts: number;
         }>;
         intermediatePositions: z.ZodObject<{
             sleepMs: z.ZodEffects<z.ZodObject<{
@@ -233,14 +242,17 @@ export declare const TaskZod: z.ZodObject<{
             urlIn: z.ZodString;
             urlRes: z.ZodString;
             key: z.ZodString;
+            maxSolveAttempts: z.ZodNumber;
         }, "strict", z.ZodTypeAny, {
             key: string;
             urlIn: string;
             urlRes: string;
+            maxSolveAttempts: number;
         }, {
             key: string;
             urlIn: string;
             urlRes: string;
+            maxSolveAttempts: number;
         }>;
     }, "strict", z.ZodTypeAny, {
         type: "yandex_pf";
@@ -265,6 +277,8 @@ export declare const TaskZod: z.ZodObject<{
             moveMouse: boolean;
             followLinks: boolean;
             maxPages: number;
+            maxLoadAttempts: number;
+            maxPopupCloseAttempts: number;
         };
         intermediatePositions: {
             sleepMs: {
@@ -280,6 +294,7 @@ export declare const TaskZod: z.ZodObject<{
             key: string;
             urlIn: string;
             urlRes: string;
+            maxSolveAttempts: number;
         };
     }, {
         type: "yandex_pf";
@@ -304,6 +319,8 @@ export declare const TaskZod: z.ZodObject<{
             moveMouse: boolean;
             followLinks: boolean;
             maxPages: number;
+            maxLoadAttempts: number;
+            maxPopupCloseAttempts: number;
         };
         intermediatePositions: {
             sleepMs: {
@@ -319,6 +336,7 @@ export declare const TaskZod: z.ZodObject<{
             key: string;
             urlIn: string;
             urlRes: string;
+            maxSolveAttempts: number;
         };
     }>, z.ZodObject<{
         type: z.ZodLiteral<"profile_walk">;
@@ -368,6 +386,7 @@ export declare const TaskZod: z.ZodObject<{
             [k: string]: unknown;
         };
         imagesEnabled: boolean;
+        sharedCache: boolean;
     };
     task: {
         type: "yandex_pf";
@@ -392,6 +411,8 @@ export declare const TaskZod: z.ZodObject<{
             moveMouse: boolean;
             followLinks: boolean;
             maxPages: number;
+            maxLoadAttempts: number;
+            maxPopupCloseAttempts: number;
         };
         intermediatePositions: {
             sleepMs: {
@@ -407,6 +428,7 @@ export declare const TaskZod: z.ZodObject<{
             key: string;
             urlIn: string;
             urlRes: string;
+            maxSolveAttempts: number;
         };
     } | {
         type: "profile_walk";
@@ -441,6 +463,7 @@ export declare const TaskZod: z.ZodObject<{
             [k: string]: unknown;
         };
         imagesEnabled: boolean;
+        sharedCache: boolean;
     };
     task: {
         type: "yandex_pf";
@@ -465,6 +488,8 @@ export declare const TaskZod: z.ZodObject<{
             moveMouse: boolean;
             followLinks: boolean;
             maxPages: number;
+            maxLoadAttempts: number;
+            maxPopupCloseAttempts: number;
         };
         intermediatePositions: {
             sleepMs: {
@@ -480,6 +505,7 @@ export declare const TaskZod: z.ZodObject<{
             key: string;
             urlIn: string;
             urlRes: string;
+            maxSolveAttempts: number;
         };
     } | {
         type: "profile_walk";

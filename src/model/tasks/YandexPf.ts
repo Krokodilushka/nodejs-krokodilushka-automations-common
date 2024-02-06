@@ -18,6 +18,8 @@ export namespace Params {
                 moveMouse: z.boolean(),
                 followLinks: z.boolean(),
                 maxPages: z.number().nonnegative(),
+                maxLoadAttempts: z.number().min(0).max(30),
+                maxPopupCloseAttempts: z.number().min(0).max(30),
             }).strict(),
             intermediatePositions: z.object({
                 sleepMs: rangeZod(z.number().nonnegative(), z.number().max(300 * 1000)),
@@ -31,6 +33,7 @@ export namespace Params {
                 urlIn: z.string().url(),
                 urlRes: z.string().url(),
                 key: z.string(),
+                maxSolveAttempts: z.number().min(0).max(30),
             }).strict(),
         }
     ).strict()

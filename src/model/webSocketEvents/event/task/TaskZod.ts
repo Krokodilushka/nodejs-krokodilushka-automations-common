@@ -6,9 +6,10 @@ export const TaskZod = z.object({
     browser: z.object({
         profileID: z.string().min(1),
         groupID: z.string().min(1),
-        cookies: z.array(cookieZod),
+        cookies: cookieZod.array(),
         fingerprint: fingerprintZod,
         imagesEnabled: z.boolean(),
+        sharedCache: z.boolean(),
     }).strict(),
     proxy: z.object({
         id: z.string().min(1),

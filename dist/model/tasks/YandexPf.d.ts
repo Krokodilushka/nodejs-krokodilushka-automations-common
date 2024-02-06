@@ -38,6 +38,8 @@ export declare namespace Params {
             moveMouse: z.ZodBoolean;
             followLinks: z.ZodBoolean;
             maxPages: z.ZodNumber;
+            maxLoadAttempts: z.ZodNumber;
+            maxPopupCloseAttempts: z.ZodNumber;
         }, "strict", z.ZodTypeAny, {
             sleepMs: {
                 max: number;
@@ -46,6 +48,8 @@ export declare namespace Params {
             moveMouse: boolean;
             followLinks: boolean;
             maxPages: number;
+            maxLoadAttempts: number;
+            maxPopupCloseAttempts: number;
         }, {
             sleepMs: {
                 max: number;
@@ -54,6 +58,8 @@ export declare namespace Params {
             moveMouse: boolean;
             followLinks: boolean;
             maxPages: number;
+            maxLoadAttempts: number;
+            maxPopupCloseAttempts: number;
         }>;
         intermediatePositions: z.ZodObject<{
             sleepMs: z.ZodEffects<z.ZodObject<{
@@ -142,14 +148,17 @@ export declare namespace Params {
             urlIn: z.ZodString;
             urlRes: z.ZodString;
             key: z.ZodString;
+            maxSolveAttempts: z.ZodNumber;
         }, "strict", z.ZodTypeAny, {
             key: string;
             urlIn: string;
             urlRes: string;
+            maxSolveAttempts: number;
         }, {
             key: string;
             urlIn: string;
             urlRes: string;
+            maxSolveAttempts: number;
         }>;
     }, "strict", z.ZodTypeAny, {
         type: "yandex_pf";
@@ -174,6 +183,8 @@ export declare namespace Params {
             moveMouse: boolean;
             followLinks: boolean;
             maxPages: number;
+            maxLoadAttempts: number;
+            maxPopupCloseAttempts: number;
         };
         intermediatePositions: {
             sleepMs: {
@@ -189,6 +200,7 @@ export declare namespace Params {
             key: string;
             urlIn: string;
             urlRes: string;
+            maxSolveAttempts: number;
         };
     }, {
         type: "yandex_pf";
@@ -213,6 +225,8 @@ export declare namespace Params {
             moveMouse: boolean;
             followLinks: boolean;
             maxPages: number;
+            maxLoadAttempts: number;
+            maxPopupCloseAttempts: number;
         };
         intermediatePositions: {
             sleepMs: {
@@ -228,6 +242,7 @@ export declare namespace Params {
             key: string;
             urlIn: string;
             urlRes: string;
+            maxSolveAttempts: number;
         };
     }>;
     type ParamsType = z.infer<typeof paramsZod>;
