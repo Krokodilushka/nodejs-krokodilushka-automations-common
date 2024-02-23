@@ -45,7 +45,7 @@ export namespace Result {
     export const intermediateClicksZod = z.object({
         page: z.number().nonnegative(),
         position: z.number().nonnegative(),
-        url: z.string().url(),
+        url: z.string(),
         sleepMs: z.number().nonnegative()
     }).strict()
     export type IntermediateClicksOnType = z.infer<typeof intermediateClicksZod>
@@ -54,7 +54,7 @@ export namespace Result {
         type: z.literal('target_found'),
         page: z.number().nonnegative(),
         position: z.number().nonnegative(),
-        url: z.string().url(),
+        url: z.string(),
         intermediateClicks: intermediateClicksZod.array()
     }).strict()
     export type TaskTargetFoundType = z.infer<typeof taskTargetFoundZod>
