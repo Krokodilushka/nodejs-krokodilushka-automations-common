@@ -43,14 +43,14 @@ var Result;
     Result.intermediateClicksZod = z.object({
         page: z.number().nonnegative(),
         position: z.number().nonnegative(),
-        url: z.string().url(),
+        url: z.string(),
         sleepMs: z.number().nonnegative()
     }).strict();
     Result.taskTargetFoundZod = z.object({
         type: z.literal('target_found'),
         page: z.number().nonnegative(),
         position: z.number().nonnegative(),
-        url: z.string().url(),
+        url: z.string(),
         intermediateClicks: Result.intermediateClicksZod.array()
     }).strict();
     Result.notFoundZod = z.object({

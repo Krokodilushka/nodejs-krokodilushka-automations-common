@@ -2,7 +2,7 @@
 Object.defineProperty(exports, "__esModule", { value: true });
 exports.fingerprintZod = exports.unixTimestampSecondsZod = exports.rangeZod = exports.cookieZod = exports.proxyRegex = void 0;
 const z = require("zod");
-exports.proxyRegex = /^(.*):(.*)@(.*)(.*)$/;
+exports.proxyRegex = /^(.+):(.+)@(.+):(.+)$/;
 exports.cookieZod = z.object({
     name: z.string(),
     value: z.string(),
